@@ -1,0 +1,8 @@
+site_name: minersonline
+theme:
+  name: material
+  custom_dir: overrides
+  static_templates:
+    - profile.html
+extra_css:
+- stylesheets/extra.css
