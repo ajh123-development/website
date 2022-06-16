@@ -1,12 +1,15 @@
 # Welcome to Minersonline
 
-For full in-depth for our games visit [the wiki](/wiki).
+For full in-depth tutorials for our projects visit [the wiki](/wiki).
 
-To talk about our games, vist [the forums](/forum).
+To talk about our projects, vist [the forums](/forum).
+
+<?php echo "asda";?>
 
 ## Java Docs
-You may view the api for History Survival at the [docs](/history_survival/javadoc/index.html).
+You may view the [java docs](/history_survival/javadoc/index.html) for the api of History Survival.
 
-## Games
+## Projects
 
 * History Survival - our one and only game
+* Better CC - Better with complex contraptions! - Our Minecraft Mod - View [lua docs](/better_cc/1.18/docs/lua/).

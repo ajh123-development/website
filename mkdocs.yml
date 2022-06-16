@@ -3,6 +3,9 @@ theme:
   name: material
   custom_dir: overrides
   static_templates:
-    - profile.html
+    - profile.php
 extra_css:
 - stylesheets/extra.css
+plugins:
+  - search
+  - phpplug
