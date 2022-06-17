@@ -4,6 +4,13 @@ theme:
   custom_dir: overrides
   static_templates:
     - profile.php
+    - authenticate.php
+    - register.php
+    - util.php
+    - login.php
+    - logout.php
+    - download.php
+    - style.css
 extra_css:
 - stylesheets/extra.css
 plugins:

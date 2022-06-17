@@ -4,8 +4,6 @@ For full in-depth tutorials for our projects visit [the wiki](/wiki).
 
 To talk about our projects, vist [the forums](/forum).
 
-<?php echo "asda";?>
-
 ## Java Docs
 You may view the [java docs](/history_survival/javadoc/index.html) for the api of History Survival.
 

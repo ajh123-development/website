@@ -1,3 +1,7 @@
+<?php
+include_once($_SERVER['DOCUMENT_ROOT']."/util.php");
+?>
+
 {% extends "base.html" %}
 
 {% block header %}
@@ -31,8 +35,9 @@
           </div>
         </div>
       </div>
-      <p><?php echo "asda"; ?></p>
-      <script src="/theme.js"></script>
+
+      <?php ShowNav();?>
+
       {% if not config.theme.palette is mapping %}
         <form class="md-header__option" data-md-component="palette">
           {% for option in config.theme.palette %}
