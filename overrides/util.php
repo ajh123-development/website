@@ -21,13 +21,13 @@ function ShowNav()
 	EOT;
 	if (!isset($_SESSION['loggedin'])) {
 		echo<<<EOT
-				<a href="/register.php" class="md-header__button nav_btn">Sign up</a>
-				<a href="/login.php" class="md-header__button nav_btn">Login</a>
+				<a href="/api/auth/register.php" class="md-header__button nav_btn">Sign up</a>
+				<a href="/api/auth/login.php" class="md-header__button nav_btn">Login</a>
 		EOT;
 	} else {
 		echo<<<EOT
 				<a href="/profile.php" class="md-header__button nav_btn"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href="/logout.php" class="md-header__button nav_btn"><i class="fas fa-sign-out-alt"></i>Logout</a>
+				<a href="/api/auth/logout.php" class="md-header__button nav_btn"><i class="fas fa-sign-out-alt"></i>Logout</a>
 		EOT;
 	}
 }
