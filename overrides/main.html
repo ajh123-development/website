@@ -4,6 +4,10 @@ include_once($_SERVER['DOCUMENT_ROOT']."/util.php");
 
 {% extends "base.html" %}
 
+{% block scripts %}
+<script src="/bundle.js"></script>
+{% endblock %}
+
 {% block header %}
   {% set class = "md-header" %}
   {% if "navigation.tabs.sticky" in features %}

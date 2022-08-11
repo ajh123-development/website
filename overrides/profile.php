@@ -9,13 +9,6 @@ if (!isset($_SESSION['loggedin'])) {
 
 {% extends "main.html" %}
 
-{% block scripts %}
-<script>
-    import * as oauth2 from '@panva/oauth4webapi'
-    
-</script>
-{% endblock %}
-
 {% block styles %}
 <!-- Skin Viewer Stylesheet --->
 <link rel="stylesheet" href="/skinviewer.css">

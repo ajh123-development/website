@@ -1,0 +1,22 @@
+{
+  "name": "minersonline-frontend",
+  "version": "1.0.0",
+  "description": "Frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajh123-development/website.git"
+  },
+  "author": "ajh123-development",
+  "bugs": {
+    "url": "https://github.com/ajh123-development/website/issues"
+  },
+  "homepage": "https://github.com/ajh123-development/website#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
