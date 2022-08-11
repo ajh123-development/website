@@ -1,7 +1,7 @@
 <?php require_once __DIR__."/util.php";
 // If the user is not logged in redirect to the login page...
-if (!isset($_SESSION['loggedin'])) {
-	header('Location: /api/auth/login.php');
+if (getMyId() !== false) {
+	header('Location: /api/auth/authorize.php?response_type=code&client_id=minersonline&state=xyz');
 	exit;
 }
 ?>

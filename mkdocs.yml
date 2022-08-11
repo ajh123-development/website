@@ -4,6 +4,7 @@ theme:
   custom_dir: overrides
   static_templates:
     - authenticate.php
+    - logout.php
     - profile.php
     - util.php
     - download.php

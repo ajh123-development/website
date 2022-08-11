@@ -27,12 +27,16 @@ function ShowNav() {
 	} else {
 		echo<<<EOT
 				<a href="/profile.php" class="md-header__button nav_btn"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href="/api/auth/logout.php" class="md-header__button nav_btn"><i class="fas fa-sign-out-alt"></i>Logout</a>
+				<a href="/logout.php" class="md-header__button nav_btn"><i class="fas fa-sign-out-alt"></i>Logout</a>
 		EOT;
 	}
 }
 
 function getToken($authToken) {
+	if (!isset($authToken)){
+		return false;
+	}
+
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, 'https://minersonline.ddns.net/api/auth/token.php');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -51,6 +55,10 @@ function getToken($authToken) {
 }
 
 function getUser($id) {
+	if (!isset($_SESSION["token"])){
+		return false;
+	}
+
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, 'https://minersonline.ddns.net/api/auth/v1/getUser.php');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -67,6 +75,10 @@ function getUser($id) {
 }
 
 function getMyId() {
+	if (!isset($_SESSION["token"])){
+		return false;
+	}
+
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, 'https://minersonline.ddns.net/api/auth/v1/getCurrent.php');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
