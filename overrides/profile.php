@@ -14,8 +14,8 @@ if (getMyId() === false) {
 {% endblock %}
 
 <?php 
-$id = json_decode(getMyId())["id"];
-$user = json_decode(getUser($id));
+$id = json_decode(getMyId(), true)["id"];
+$user = json_decode(getUser($id), true);
 ?>
 
 {% block content %}
