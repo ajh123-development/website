@@ -19,7 +19,7 @@ function ShowNav() {
 			<a href="/forum" target="_blank" class="md-header__button nav_btn">Forums</a>
 
 	EOT;
-	if (getMyId() !== false) {
+	if (getMyId() === false) {
 		echo<<<EOT
 				<a href="/api/auth/register.php" class="md-header__button nav_btn">Sign up</a>
 				<a href="/api/auth/authorize.php?response_type=code&client_id=minersonline&state=xyz" class="md-header__button nav_btn">Login</a>
