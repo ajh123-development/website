@@ -203,3 +203,21 @@ body.main {
 	padding: 5px;
 	margin: 0 0 10px 0;
 }
+
+.columns {
+	width: 100%;
+}
+.column {
+	width:100%;
+}
+@media (min-width: 38em) {
+	.column {
+		width: 50%;
+		float:left;
+	}
+	.columns {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}

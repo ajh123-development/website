@@ -71,6 +71,13 @@ function getUser($id) {
 	$response = curl_exec($ch);
 
 	curl_close($ch);
+
+	if ($response !== false){
+		if (json_decode($response, true) === array(
+			'error' => 'ForbiddenOperationException', 
+			'error_description' => 'You are not logged in'
+		)) {return false;}
+	}
 	return $response;
 }
 
@@ -91,5 +98,11 @@ function getMyId() {
 	$response = curl_exec($ch);
 
 	curl_close($ch);
+	if ($response !== false){
+		if (json_decode($response, true) === array(
+			'error' => 'invalid_token', 
+			'error_description' => 'The access token provided is invalid'
+		)) {return false;}
+	}
 	return $response;
 }
