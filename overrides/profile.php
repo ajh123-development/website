@@ -8,7 +8,7 @@ if (getMyId() !== false) {
 
 {% extends "main.html" %}
 
-{% block styles %}
+{% block extra_styles %}
 <!-- Skin Viewer Stylesheet --->
 <link rel="stylesheet" href="/skinviewer.css">
 {% endblock %}
