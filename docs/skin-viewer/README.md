@@ -1,3 +1,4 @@
+https://github.com/rkkoszewski/minecraft-css-3d-skin-viewer/
 # Minecraft 3D and 2D Skin Viewer in pure CSS
 ## Introduction
 This project started as a hands on experiment with CSS3 3D transforms to try to recreate 3D objects in pure CSS. The simplicity of the Minecraft character plus the fact that all the skin viewers I could find back when I started were all made with JavaScript and Canvas or Adobe Flash, which made this project the perfect candidate for such experiment.
