@@ -13,6 +13,11 @@ if (getMyId() === false) {
 <link rel="stylesheet" href="/skinviewer.css">
 {% endblock %}
 
+<?php 
+$id = json_decode(getMyId())["id"];
+$user = json_decode(getUser($id));
+?>
+
 {% block content %}
 <div class="md-content" data-md-component="content">
     <article class="md-content__inner md-typeset">
@@ -25,16 +30,16 @@ if (getMyId() === false) {
                 </tr>
                 <tr>
                 <td>Email:</td>
-                <td><?=$email?></td>
+                <td><?=$user["email"]?></td>
                 </tr>
                 <tr>
                 <td>PlayerName:</td>
-                <td><?=$name?></td>
+                <td><?=$user["name"]?></td>
                 </tr>
             </table>
 
             <style>
-                #skin-viewer *{ background-image: url('skin_modern.png'); }
+                #skin-viewer *{ background-image: url('https://minersonline.ddns.net/api/images/skin/<?=$user["player"]["skinUrl"]?>'); }
             </style>
             <div id="skin-viewer" class="mc-skin-viewer-11x legacy legacy-cape spin">
                 <div class="player">
