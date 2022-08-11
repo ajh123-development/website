@@ -1,5 +1,4 @@
-<?php
-include_once($_SERVER['DOCUMENT_ROOT']."/util.php");
+<?php require_once __DIR__."/util.php";
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
 	header('Location: /api/auth/login.php');

@@ -3,6 +3,7 @@ theme:
   name: material
   custom_dir: overrides
   static_templates:
+    - authenticate.php
     - profile.php
     - util.php
     - download.php
