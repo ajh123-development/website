@@ -38,7 +38,7 @@ function getToken($authToken) {
 	}
 
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, 'https://minersonline.ddns.net/api/auth/token.php');
+	curl_setopt($ch, CURLOPT_URL, 'https://minersonline.tk/api/auth/token.php');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 	curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -60,7 +60,7 @@ function getUser($id) {
 	}
 
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, 'https://minersonline.ddns.net/api/auth/v1/getUser.php');
+	curl_setopt($ch, CURLOPT_URL, 'https://minersonline.tk/api/auth/v1/getUser.php');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 	curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -87,7 +87,7 @@ function getMyId() {
 	}
 
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, 'https://minersonline.ddns.net/api/auth/v1/getCurrent.php');
+	curl_setopt($ch, CURLOPT_URL, 'https://minersonline.tk/api/auth/v1/getCurrent.php');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 	curl_setopt($ch, CURLOPT_HTTPHEADER, [
