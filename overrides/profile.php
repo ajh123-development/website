@@ -11,6 +11,8 @@ if (getMyId() === false) {
 {% block extra_styles %}
 <!-- Skin Viewer Stylesheet --->
 <link rel="stylesheet" href="/skinviewer.css">
+<!-- Main Stylesheet --->
+<link rel="stylesheet" href="/extra.css">
 {% endblock %}
 
 

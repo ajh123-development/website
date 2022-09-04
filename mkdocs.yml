@@ -9,6 +9,8 @@ theme:
     - util.php
     - download.php
     - style.css
+    - extra.css
+    - news/templates/include/page.php
 extra_css:
 - stylesheets/extra.css
 plugins:

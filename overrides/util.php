@@ -17,6 +17,7 @@ function ShowNav() {
 	echo<<<EOT
 			<a href="/wiki" target="_blank" class="md-header__button nav_btn">Wiki</a>
 			<a href="/forum" target="_blank" class="md-header__button nav_btn">Forums</a>
+			<a href="/news" class="md-header__button nav_btn">News</a>
 
 	EOT;
 	if (getMyId() === false) {

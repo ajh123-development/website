@@ -22,6 +22,8 @@ class YourPlugin(BasePlugin):
                 dst_path = os.path.join(config["site_dir"], file.replace(".html", ".php"))
                 os.rename(path, dst_path)
 
+        
+
     def on_files(self, files: Files, config):
         file: File
         for file in files.documentation_pages():
