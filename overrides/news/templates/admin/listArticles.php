@@ -6,6 +6,7 @@
       </div>
 
       <h1>All Articles</h1>
+      <p><a href="admin.php?action=listApps">List Apps</a></p>
 
 <?php if ( isset( $results['errorMessage'] ) ) { ?>
         <div class="errorMessage"><?php echo $results['errorMessage'] ?></div>
@@ -19,6 +20,7 @@
       <table>
         <tr>
           <th>Publication Date</th>
+          <th>Author</th>
           <th>Article</th>
         </tr>
 
@@ -26,9 +28,8 @@
 
         <tr onclick="location='admin.php?action=editArticle&amp;articleId=<?php echo $article->id?>'">
           <td><?php echo date('j M Y', $article->publicationDate)?></td>
-          <td>
-            <?php echo $article->title?>
-          </td>
+          <td><?php echo $article->author?></td>
+          <td><?php echo $article->title?></td>
         </tr>
 
 <?php } ?>

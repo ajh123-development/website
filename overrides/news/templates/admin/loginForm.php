@@ -1,6 +1,6 @@
 `% extends templates/include/page.php %`
 `% block content %`
-      <form action="admin.php?action=login" method="post" style="width: 50%;">
+      <form action="admin.php?action=login" method="post" style="width: 80%;">
         <input type="hidden" name="login" value="true" />
 
 <?php if ( isset( $results['errorMessage'] ) ) { ?>

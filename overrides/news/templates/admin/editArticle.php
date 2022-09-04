@@ -22,6 +22,16 @@
           </li>
 
           <li>
+            <label for="author">Article Author</label>
+            <input type="text" name="author" id="author" placeholder="Author of the article" required autofocus maxlength="255" value="<?php echo htmlspecialchars( $results['article']->author )?>" />
+          </li>
+
+          <li>
+            <label for="linkedApp">Linked App</label>
+            <input type="text" name="linkedApp" id="linkedApp" placeholder="An none required id of an app that the article is about" autofocus maxlength="255" value="<?php echo htmlspecialchars( $results['article']->linkedApp )?>" />
+          </li>
+
+          <li>
             <label for="summary">Article Summary</label>
             <textarea name="summary" id="summary" placeholder="Brief description of the article" required maxlength="1000" style="height: 5em;"><?php echo htmlspecialchars( $results['article']->summary )?></textarea>
           </li>

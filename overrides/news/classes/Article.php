@@ -33,6 +33,15 @@ class Article
   */
   public $content = null;
 
+  /**
+  * @var string The author of the article
+  */
+  public $author = null;
+
+  /**
+  * @var int The id of the app that this article could be about
+  */
+  public $linkedApp = null;
 
   /**
   * Sets the object's properties using the values in the supplied array
@@ -45,7 +54,9 @@ class Article
     if ( isset( $data['publicationDate'] ) ) $this->publicationDate = (int) $data['publicationDate'];
     if ( isset( $data['title'] ) ) $this->title = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['title'] );
     if ( isset( $data['summary'] ) ) $this->summary = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['summary'] );
+    if ( isset( $data['author'] ) ) $this->author = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['author'] );
     if ( isset( $data['content'] ) ) $this->content = $data['content'];
+    if ( isset( $data['linkedApp'] ) ) $this->linkedApp = (int) $data['linkedApp'];
   }
 
 
@@ -132,12 +143,14 @@ class Article
 
     // Insert the Article
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-    $sql = "INSERT INTO articles ( publicationDate, title, summary, content ) VALUES ( FROM_UNIXTIME(:publicationDate), :title, :summary, :content )";
+    $sql = "INSERT INTO articles ( publicationDate, title, summary, content, author, linkedApp ) VALUES ( FROM_UNIXTIME(:publicationDate), :title, :summary, :content, :author, :linkedApp )";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":publicationDate", $this->publicationDate, PDO::PARAM_INT );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":summary", $this->summary, PDO::PARAM_STR );
     $st->bindValue( ":content", $this->content, PDO::PARAM_STR );
+    $st->bindValue( ":author", $this->author, PDO::PARAM_STR );
+    $st->bindValue( ":linkedApp", $this->linkedApp, PDO::PARAM_INT );
     $st->execute();
     $this->id = $conn->lastInsertId();
     $conn = null;
@@ -155,13 +168,15 @@ class Article
    
     // Update the Article
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-    $sql = "UPDATE articles SET publicationDate=FROM_UNIXTIME(:publicationDate), title=:title, summary=:summary, content=:content WHERE id = :id";
+    $sql = "UPDATE articles SET publicationDate=FROM_UNIXTIME(:publicationDate), title=:title, summary=:summary, content=:content, author=:author, linkedApp=:linkedApp WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":publicationDate", $this->publicationDate, PDO::PARAM_INT );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":summary", $this->summary, PDO::PARAM_STR );
     $st->bindValue( ":content", $this->content, PDO::PARAM_STR );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
+    $st->bindValue( ":author", $this->author, PDO::PARAM_STR );
+    $st->bindValue( ":linkedApp", $this->linkedApp, PDO::PARAM_INT );
     $st->execute();
     $conn = null;
   }
