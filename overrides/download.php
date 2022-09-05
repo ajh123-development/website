@@ -28,21 +28,21 @@ require( __DIR__."/news/config.php" );
 if (!isset($_GET["id"])){
 	$apps = App::getList()["results"];
 	$out = array();
-	$out["versions"] = [];
-	$latest_release = "";
-	$latest_snapshot = "";
+
+	$latest_release = $apps[count($apps)-1]->version;
+	$latest_snapshot = $apps[count($apps)-1]->version;
 	$index = 0;
 	$url = "https://minersonline.tk/download.php/";
 	foreach ( $apps as $app ) {
 		if ($app->type == "release"){$latest_release=$app->version;}
 		if ($app->type == "snapshot"){$latest_release=$app->version;}
-		$out["version"][$index] = array([
+		$out["versions"][$index] = array(
 			"id" => $app->version,
 			"type" => $app->type,
 			"url" => $url."?id=".$app->id,
 			"time" => $app->dateTime,
 			"releaseTime" => $app->dateTime,
-		]);
+		);
 		$index = $index + 1;
 	}
 	$out["latest"]["release"] = $latest_release;

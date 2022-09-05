@@ -18,8 +18,6 @@ function ShowHead() {
 
 function ShowNav() {
 	echo<<<EOT
-			<a href="/wiki" target="_blank" class="md-header__button nav_btn">Wiki</a>
-			<a href="/forum" target="_blank" class="md-header__button nav_btn">Forums</a>
 			<a href="/news" class="md-header__button nav_btn">News</a>
 
 	EOT;
@@ -109,4 +107,35 @@ function getMyId() {
 		)) {return false;}
 	}
 	return $response;
+}
+
+function getPerms() {
+	if (!isset($_SESSION["token"])){
+		return false;
+	}
+
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, 'https://minersonline.tk/api/auth/v1/getPerms.php');
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+	curl_setopt($ch, CURLOPT_HTTPHEADER, [
+		'Content-Type' => 'application/x-www-form-urlencoded',
+	]);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, 'access_token='.$_SESSION["token"]);
+
+	$response = curl_exec($ch);
+
+	curl_close($ch);
+	if ($response !== false){
+		if (json_decode($response, true) === array(
+			'error' => 'invalid_token', 
+			'error_description' => 'The access token provided is invalid'
+		)) {return false;}
+	}
+	return $response;
+}
+
+function hasPerm($perm){
+	$permissions = json_decode(getPerms(),true)["permissions"];
+	return in_array($perm , $permissions);
 }

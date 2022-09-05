@@ -1,8 +1,8 @@
 # Welcome to Minersonline
 
-For full in-depth tutorials for our projects visit [the wiki](/wiki).
+Please see our news and events  [here](/news).
 
-To talk about our projects, vist [the forums](/forum).
+Join the [discord](https://discord.gg/ybWqDAkDES).
 
 ## Java Docs
 You may view the [java docs](/history_survival/javadoc/index.html) for the api of History Survival.
