@@ -2,25 +2,26 @@
 
 require( __DIR__."/config.php" );
 require( __DIR__."/template.php" );
+require_once __DIR__."/../util.php";
 if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
   // session isn't started
   session_start();
 }
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
-$username = isset( $_SESSION['username'] ) ? $_SESSION['username'] : "";
+// $username = isset( $_SESSION['username'] ) ? $_SESSION['username'] : "";
 
-if ( $action != "login" && $action != "logout" && !$username ) {
-  login();
-  exit;
-}
+// if ( $action != "login" && $action != "logout" && !$username ) {
+//   login();
+//   exit;
+// }
 
 switch ( $action ) {
-  case 'login':
-    login();
-    break;
-  case 'logout':
-    logout();
-    break;
+  // case 'login':
+  //   login();
+  //   break;
+  // case 'logout':
+  //   logout();
+  //   break;
   case 'newArticle':
     newArticle();
     break;
@@ -86,6 +87,10 @@ function logout() {
 
 
 function newArticle() {
+  if (!hasPerm("news.new")){
+    header( "Location: /" );
+    die;
+  }
 
   $results = array();
   $results['pageTitle'] = "New Article";
@@ -116,6 +121,10 @@ function newArticle() {
 
 
 function newApp() {
+  if (!hasPerm("news.new")){
+    header( "Location: /" );
+    die;
+  }
 
   $results = array();
   $results['pageTitle'] = "New App";
@@ -146,6 +155,10 @@ function newApp() {
 
 
 function editArticle() {
+  if (!hasPerm("news.edit")){
+    header( "Location: /" );
+    die;
+  }
 
   $results = array();
   $results['pageTitle'] = "Edit Article";
@@ -181,6 +194,10 @@ function editArticle() {
 
 
 function editApp() {
+  if (!hasPerm("news.edit")){
+    header( "Location: /" );
+    die;
+  }
 
   $results = array();
   $results['pageTitle'] = "Edit App";
@@ -216,6 +233,10 @@ function editApp() {
 
 
 function deleteArticle() {
+  if (!hasPerm("news.del")){
+    header( "Location: /" );
+    die;
+  }
 
   if ( !$article = Article::getById( (int)$_GET['articleId'] ) ) {
     header( "Location: admin.php?error=articleNotFound" );
@@ -228,6 +249,11 @@ function deleteArticle() {
 
 
 function listArticles() {
+  if (!hasPerm("news.list")){
+    header( "Location: /" );
+    die;
+  }
+
   $results = array();
   $data = Article::getList();
   $results['articles'] = $data['results'];
@@ -249,6 +275,11 @@ function listArticles() {
 }
 
 function listApps() {
+  if (!hasPerm("news.list")){
+    header( "Location: /" );
+    die;
+  }
+
   $results = array();
   $data = App::getList();
   $results['apps'] = $data['results'];

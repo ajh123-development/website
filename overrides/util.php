@@ -136,6 +136,8 @@ function getPerms() {
 }
 
 function hasPerm($perm){
-	$permissions = json_decode(getPerms(),true)["permissions"];
+	$json_perms = getPerms();
+	if ($json_perms == null){return false;}
+	$permissions = json_decode($json_perms, true)["permissions"];
 	return in_array($perm , $permissions);
 }

@@ -1,10 +1,5 @@
 `% extends templates/include/page.php %`
 `% block content %`
-      <div id="adminHeader">
-        <h2>News Admin</h2>
-        <p>You are logged in as <b><?php echo htmlspecialchars( $_SESSION['username']) ?></b>. <a href="admin.php?action=logout"?>Log out</a></p>
-      </div>
-
       <h1><?php echo $results['pageTitle']?></h1>
 
       <form action="admin.php?action=<?php echo $results['formAction']?>" method="post">

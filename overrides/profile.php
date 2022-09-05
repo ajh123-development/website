@@ -42,7 +42,6 @@ $user = json_decode(getUser($id), true);
                     <td><?=$user["name"]?></td>
                     </tr>
                 </table>
-                <?= var_dump(json_decode(getPerms(),true)["permissions"]); ?>
                 </div>
                 <div class="column">
                     <style>
