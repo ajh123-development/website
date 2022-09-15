@@ -39,7 +39,7 @@ def load_config(conf_path):
 
         return conf_path
 
-if __name__ == "__main__":
+def main():
     import argparse, os
     parser = argparse.ArgumentParser("miners_cli")
     parser.add_argument("-c", "--config", help="Specify a config to use")
