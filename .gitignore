@@ -4,4 +4,5 @@ miners.ini
 /dist
 miners_utils.egg-info
 /build
+/miners_utils/build
 __pycache__
