@@ -1,7 +1,7 @@
-/miners.ini
+miners.ini
 /site
 /venv
 /dist
-miners_cli.egg-info
+miners_utils.egg-info
 /build
 __pycache__

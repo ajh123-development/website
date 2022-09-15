@@ -141,3 +141,5 @@ function hasPerm($perm){
 	$permissions = json_decode($json_perms, true)["permissions"];
 	return in_array($perm , $permissions);
 }
+
+$ini = parse_ini_file('miners.ini', true);

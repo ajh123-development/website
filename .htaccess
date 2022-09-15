@@ -1,0 +1,3 @@
+<Files "miners.ini">  
+  Require all denied
+</Files>
