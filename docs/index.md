@@ -4,6 +4,10 @@ Please see our news and events  [here](/news).
 
 Join the [discord](https://discord.gg/ybWqDAkDES).
 
+View the [Railway System Map](https://minersonline.tk/plan/index.html).
+
+View the [Dynamic Map](https://minersonline.tk/map).
+
 ## Java Docs
 You may view the [java docs](/history_survival/javadoc/index.html) for the api of History Survival.
 
