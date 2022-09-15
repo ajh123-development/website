@@ -13,6 +13,9 @@ setup(
     entry_points={
         'mkdocs.plugins': [
             'miners_utils = miners_utils.plugin:YourPlugin',
-        ]
+        ],
+        'console_scripts': [
+            'miners_cli = miners_utils.miners_cli:main',
+        ],
     }
 )
