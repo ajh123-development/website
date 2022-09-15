@@ -6,7 +6,8 @@ setup(
     version='0.1.0',
     python_requires='>=3.0',
     install_requires=[
-        'mkdocs>=1.0.4'
+        'mkdocs>=1.0.4',
+        'docker>=6.0.0'
     ],
     packages=find_packages(include=['miners_utils', 'miners_utils.*']),
     scripts=["miners_utils/miners_cli.py"],

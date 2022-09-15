@@ -1,25 +1,29 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/docker-from-docker-compose
 {
-	"name": "PHP with MkDocs",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"context": "..",
-		"args": { 
-			// Update VARIANT to pick a PHP version compatiable with webdevops/php-apache:${VARIANT} e.g. 7.1, 7.4, 7.3
-			"VARIANT": "7.1",
-			"PYTHON_VARIANT": "3-bullseye",
-			"INSTALL_NODE": "false",
-			"NODE_VERSION": "lts/*"
-		}
+	"name": "Miners Online Container",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+
+	// Use this environment variable if you need to bind mount your local source code into a new container.
+	"remoteEnv": {
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
 	},
 
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
-		"vscode": {
+		"vscode": {		
 			// Set *default* container specific settings.json values on container create.
 			"settings": { 
-				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+						"path": "/bin/bash"
+					}
+				},
+				"python.defaultInterpreterPath": "/usr/local/python/current/bin/python",
+				"python.languageServer": "Default",
 				"python.linting.enabled": true,
 				"python.linting.pylintEnabled": true,
 				"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
@@ -32,9 +36,9 @@
 				"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
 				"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
 			},
-			
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
+				"ms-azuretools.vscode-docker",
 				"ms-python.python",
 				"ms-python.vscode-pylance"
 			]
@@ -45,13 +49,16 @@
 	"forwardPorts": [80],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip3 install --user -r requirements.txt",
+	"postCreateCommand": "pip install -r requirements.txt",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
 	"features": {
-		"git": "latest",
+		"docker-from-docker": "20.10",
+		"git": "os-provided",
 		"git-lfs": "latest",
-		"github-cli": "latest"
+		"github-cli": "latest",
+		"node": "18",
+		"python": "3.10"
 	}
 }
