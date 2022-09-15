@@ -30,5 +30,4 @@ class YourPlugin(BasePlugin):
             files.remove(file)
             file.abs_dest_path = file.abs_dest_path.replace(".html", ".php")
             files.append(file)
-            print(file.abs_dest_path)
         return files

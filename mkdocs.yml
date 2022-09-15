@@ -15,5 +15,5 @@ extra_css:
 - stylesheets/extra.css
 plugins:
   - search
-  - phpplug
+  - miners_cli
 extra_changes: ["404.html"]

@@ -1,6 +1,6 @@
 /site
 /venv
 /dist
-phpplug.egg-info
+miners_cli.egg-info
 /build
 __pycache__
