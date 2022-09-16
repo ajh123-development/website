@@ -25,7 +25,7 @@ def print_config(_config, start_key=None):
         if iterable:
             print_config(_config[key], key)
         else:
-            print("  "+key+" = "+config[key])
+            print("  "+key+" = "+_config[key])
 
 
 def load_config(conf_path):
@@ -50,6 +50,13 @@ def load_config(conf_path):
         config.set("database/news", "DB_PASSWORD", "")
 
         return conf_path
+
+
+def loadContainer():
+    global CONTAINER
+    for container in client.containers.list():
+        if container.name == config.get("docker", "name"):
+            CONTAINER = container
 
 
 def main():
@@ -82,6 +89,7 @@ def main():
     if args.config is not None:
         conf_path = args.config
     conf_path = load_config(conf_path)
+    loadContainer()
 
     if args.init:
         print("[init] Building "+conf_path+" ...")
@@ -137,16 +145,20 @@ def main():
 
     if args.serve:
         print("[serve] Serving latest build")
-        CONTAINER = client.containers.run("bfirsh/reticulate-splines", detach=True)
-        os.putenv("MINERS_CLI/CONTAINER", CONTAINER.id)
+        CONTAINER = client.containers.run("bfirsh/reticulate-splines", detach=True, name=config.get("docker", "name"))
+        
 
     if args.serve_stop:
-        print("[serve] Stoping latest build "+os.environ["MINERS_CLI/CONTAINER"])
+        print("[serve] Stoping latest build ")
         if CONTAINER is not None:
             CONTAINER.stop()
+        print("[serve] Stoped latest build ")
 
     if args.serve_logs:
         print("[serve] Logs for latest build")
-        if CONTAINER is not None:
-            for line in CONTAINER.logs(stream=True):
-                print(line.strip())
+        try:
+            if CONTAINER is not None:
+                for line in CONTAINER.logs(stream=True):
+                    print(line.strip())
+        except KeyboardInterrupt:
+            return
