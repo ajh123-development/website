@@ -18,9 +18,13 @@ require( CLASS_PATH . "/Article.php" );
 require( CLASS_PATH . "/App.php" );
 
 function handleException( $exception ) {
-  echo "Sorry, a problem occurred. Please try later.";
+  // echo "Sorry, a problem occurred. Please try later.";
   error_log( $exception->getMessage() );
-  echo($exception->getMessage());
+  $error=$exception->getMessage()."\r\n".$exception->getTraceAsString();
+  $results['issue'] = "Sorry, a problem occurred. Please try later.\r\n$error";
+  Template::view(TEMPLATE_PATH . "/issue.php", [
+    'results' => $results
+  ]);
 }
 
 set_exception_handler( 'handleException' );

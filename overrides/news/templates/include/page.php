@@ -1,14 +1,6 @@
-{% block title %}
-<?php //echo htmlspecialchars( $results['pageTitle'] )?>
-{% endblock %}
-
-{% block phplibs %}
-<?php 
-require_once __DIR__."/../../util.php";
-?>
-{% endblock %}
-
 {% extends "main.html" %}
+
+{% block phplibs %}<?php require_once __DIR__."/../../util.php";?>{% endblock %}
 
 {% block extra_styles %}
 <!-- Main Stylesheet --->
