@@ -145,8 +145,12 @@ def main():
 
     if args.serve:
         print("[serve] Serving latest build")
-        CONTAINER = client.containers.run("bfirsh/reticulate-splines", detach=True, name=config.get("docker", "name"))
-        
+        CONTAINER = client.containers.run(
+            "bfirsh/reticulate-splines",
+            detach=True,
+            name=config.get("docker", "name"),
+            volumes={config.get("build", "dir"): {'bind': '/app', 'mode': 'r'}}
+        )
 
     if args.serve_stop:
         print("[serve] Stoping latest build ")
