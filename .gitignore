@@ -5,4 +5,5 @@ miners.ini
 miners_utils.egg-info
 /build
 /miners_utils/build
+/vendor
 __pycache__

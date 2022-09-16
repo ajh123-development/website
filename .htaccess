@@ -1,3 +1,18 @@
-<Files "miners.ini">  
+<Files .htaccess>
+  Order allow,deny
+  Deny from all
+  </Files>
+  
+<Files .gitignore>
+  Order allow,deny
+  Deny from all
+</Files>
+
+<Files vendor>
+  Order allow,deny
+  Deny from all
+</Files>
+
+<Files miners.ini>  
   Require all denied
 </Files>

@@ -109,10 +109,17 @@ def main():
 
         cwd = pathlib.Path.cwd()
         build_dir = pathlib.Path(config.get("build", "dir"))
+        vendor_dir = pathlib.Path(config.get("build", "dir")).joinpath("vendor")
 
         shutil.copy(str(cwd.joinpath(".htaccess")), str(build_dir))
         shutil.copy(str(cwd.joinpath("miners.ini")), str(build_dir))
 
+        if vendor_dir.exists():
+            shutil.copytree(
+                str(vendor_dir),
+                str(build_dir),
+                dirs_exist_ok=True
+            )
 
     if args.deploy:
         print("[deploy] Starting deploy")
@@ -138,7 +145,7 @@ def main():
 
         print("[deploy] Deploying "+build_dir_raw+" to "+publish_dir_raw)
         shutil.copytree(
-            build_dir, 
+            build_dir,
             publish_dir,
             dirs_exist_ok=True
         )
@@ -146,10 +153,12 @@ def main():
     if args.serve:
         print("[serve] Serving latest build")
         CONTAINER = client.containers.run(
-            "bfirsh/reticulate-splines",
+            "php:8.0-apache",
             detach=True,
             name=config.get("docker", "name"),
-            volumes={config.get("build", "dir"): {'bind': '/app', 'mode': 'r'}}
+            volumes={config.get("build", "dir"): {'bind': '/var/www/html', 'mode': 'rw'}},
+            ports={80:80},
+            remove=True
         )
 
     if args.serve_stop:
