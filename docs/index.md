@@ -1,5 +1,6 @@
 # Welcome to Minersonline
 
+## Info and contact
 Please see our news and events  [here](/news).
 
 Join the [discord](https://discord.gg/ybWqDAkDES).

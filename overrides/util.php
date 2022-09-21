@@ -40,6 +40,7 @@ function ShowNav() {
 }
 
 function getToken($authToken) {
+	global $client_id, $ini;
 	if (!isset($authToken)){
 		return false;
 	}
@@ -52,7 +53,7 @@ function getToken($authToken) {
 		'Content-Type' => 'application/x-www-form-urlencoded',
 	]);
 	curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-	curl_setopt($ch, CURLOPT_USERPWD, $client_id+":"+$ini['oauth']['credentials']);
+	curl_setopt($ch, CURLOPT_USERPWD, $client_id.":".$ini['oauth']['credentials']);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, 'grant_type=authorization_code&code='.$authToken);
 	
 	$response = curl_exec($ch);
