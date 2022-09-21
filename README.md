@@ -10,6 +10,7 @@ A 'devcontainer' is provieded so you can work with Github Codespaces, and have e
 
 ## Running
 * Run ```miners_cli -s``` or ```miners_cli --serve``` to start a testing server
+Note: if running inside a GitHub 'devcontainer' you will need to port forward AFTER you have started the testing server. For some reason Docker doesn't like the port allready being forwarded.
 * Use ```miners_cli -sl``` or ```miners_cli --serve_logs``` to view logs
 * Use ```miners_cli -ss``` or ```miners_cli --serve_stop``` to stop the testing server
 
