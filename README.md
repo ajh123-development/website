@@ -4,7 +4,7 @@ Requirements can be found in ```requirements.txt```. You will also need Docker i
 A 'devcontainer' is provieded so you can work with Github Codespaces, and have everything you need.
 
 ## Setup
-* Run ```pip install -r requirements.txt```
+* Run ```pip install -r requirements.txt```. You may use your favourite virtual enviroment.
 * Then ```miners_cli --init``` or ```miners_cli -i```
 * Configure the deploy and database settings inside ```miners.ini```
 
