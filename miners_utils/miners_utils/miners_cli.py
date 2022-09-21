@@ -10,7 +10,12 @@ import os
 import docker
 
 
-client = docker.from_env()
+client = None
+try:
+    client = docker.from_env()
+except docker.errors.DockerException as e:
+    print("Docker returned "+str(e))
+    print("Docker disabled")
 config = configparser.ConfigParser()
 CONTAINER = None
 
@@ -58,9 +63,10 @@ def load_config(conf_path):
 
 def loadContainer():
     global CONTAINER
-    for container in client.containers.list():
-        if container.name == config.get("docker", "name"):
-            CONTAINER = container
+    if client is not None:
+        for container in client.containers.list():
+            if container.name == config.get("docker", "name"):
+                CONTAINER = container
 
 
 def main():
