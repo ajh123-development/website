@@ -6,6 +6,7 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
 }
 
 $ini = parse_ini_file('miners.ini', true);
+$client_id = $ini['oauth']['client_id'];
 
 function ShowHead() {
 	echo<<<EOT
@@ -19,6 +20,8 @@ function ShowHead() {
 
 
 function ShowNav() {
+	global $client_id;
+
 	echo<<<EOT
 			<a href="/news" class="md-header__button nav_btn">News</a>
 
@@ -26,7 +29,7 @@ function ShowNav() {
 	if (getMyId() === false) {
 		echo<<<EOT
 				<a href="/api/auth/register.php" class="md-header__button nav_btn">Sign up</a>
-				<a href="/api/auth/authorize.php?response_type=code&client_id=minersonline&state=xyz" class="md-header__button nav_btn">Login</a>
+				<a href="/api/auth/authorize.php?response_type=code&client_id=$client_id&state=xyz" class="md-header__button nav_btn">Login</a>
 		EOT;
 	} else {
 		echo<<<EOT
@@ -49,7 +52,7 @@ function getToken($authToken) {
 		'Content-Type' => 'application/x-www-form-urlencoded',
 	]);
 	curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-	curl_setopt($ch, CURLOPT_USERPWD, $ini["oauth"]["credentials"]);
+	curl_setopt($ch, CURLOPT_USERPWD, $client_id+":"+$ini['oauth']['credentials']);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, 'grant_type=authorization_code&code='.$authToken);
 	
 	$response = curl_exec($ch);
