@@ -1,7 +1,9 @@
+ErrorDocument 404 /404.php
+
 <Files .htaccess>
   Order allow,deny
   Deny from all
-  </Files>
+</Files>
   
 <Files .gitignore>
   Order allow,deny
