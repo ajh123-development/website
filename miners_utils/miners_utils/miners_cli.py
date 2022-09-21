@@ -43,6 +43,9 @@ def load_config(conf_path):
         config.add_section("docker")
         config.set("docker", "name", "minersonline")
 
+        config.add_section('oauth')
+        config.set("oauth", "CREDENTIALS", "minersonline:testpass")
+
         config.add_section('database/news')
         config.set("database/news", "DB_HOST", "localhost")
         config.set("database/news", "DB_TABLE", "cms")

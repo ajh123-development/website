@@ -5,6 +5,8 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
 	session_start();
 }
 
+$ini = parse_ini_file('miners.ini', true);
+
 function ShowHead() {
 	echo<<<EOT
 	<meta charset="utf-8">
@@ -47,7 +49,7 @@ function getToken($authToken) {
 		'Content-Type' => 'application/x-www-form-urlencoded',
 	]);
 	curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-	curl_setopt($ch, CURLOPT_USERPWD, 'minersonline:testpass');
+	curl_setopt($ch, CURLOPT_USERPWD, $ini["oauth"]["credentials"]);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, 'grant_type=authorization_code&code='.$authToken);
 	
 	$response = curl_exec($ch);
@@ -56,7 +58,7 @@ function getToken($authToken) {
 	return $response;
 }
 
-function getUser($id) {
+function getUser($id) { 
 	if (!isset($_SESSION["token"])){
 		return false;
 	}
@@ -141,5 +143,3 @@ function hasPerm($perm){
 	$permissions = json_decode($json_perms, true)["permissions"];
 	return in_array($perm , $permissions);
 }
-
-$ini = parse_ini_file('miners.ini', true);
