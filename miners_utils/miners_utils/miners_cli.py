@@ -125,8 +125,8 @@ def main():
             print("[build]  JS dir ("+str(js_dir.absolute())+") does not exist")
             sys.exit(-1)
 
-        os.system("mkdocs build")
         os.system("cd js && ./node_modules/.bin/webpack && cd ..")
+        os.system("mkdocs build")
 
         shutil.copy(str(cwd.joinpath(".htaccess")), str(build_dir))
         shutil.copy(str(cwd.joinpath("miners.ini")), str(build_dir))
