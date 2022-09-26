@@ -1,7 +1,7 @@
 <?php require_once __DIR__."/util.php";
 // If the user is not logged in redirect to the login page...
 if (getMyId() === false) {
-	header('Location: /api/auth/authorize.php?response_type=code&client_id=minersonline&state=xyz');
+	header("Location: /api/auth/authorize.php?response_type=code&client_id=$client_id&state=xyz");
 	exit;
 }
 ?>
@@ -45,8 +45,8 @@ $user = json_decode(getUser($id), true);
                 </div>
                 <div class="column">
                     <style>
-                        #skin-viewer *{ background-image: url('https://minersonline.ddns.net/api/images/skin/<?=$user["player"]["skinUrl"]?>'); }
-                        #skin-viewer .cape{ background-image: url('https://minersonline.ddns.net/api/images/cape/<?=$user["player"]["capeUrl"]?>'); }
+                        #skin-viewer *{ background-image: url('https://minersonline.tk/api/images/skin/<?=$user["player"]["skinUrl"]?>'); }
+                        #skin-viewer .cape{ background-image: url('https://minersonline.tk/api/images/cape/<?=$user["player"]["capeUrl"]?>'); }
                     </style>
                     <div id="skin-viewer" class="mc-skin-viewer-11x legacy legacy-cape spin">
                         <div class="player">
