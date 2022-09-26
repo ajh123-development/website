@@ -14,8 +14,8 @@ client = None
 try:
     client = docker.from_env()
 except docker.errors.DockerException as e:
-    print("Docker returned "+str(e))
-    print("Docker disabled")
+    print("[main] Docker returned "+str(e))
+    print("[main] Docker disabled")
 config = configparser.ConfigParser()
 CONTAINER = None
 
