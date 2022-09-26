@@ -1,12 +1,13 @@
 # MinersOnline - Website
 
-Requirements can be found in ```requirements.txt```. You will also need Docker installed for the testing server.
+Requirements can be found in ```requirements.txt```. You will also need Docker installed for the testing server. You will also need NodeJs and NPM installed in order to build the javascript.
 A 'devcontainer' is provieded so you can work with Github Codespaces, and have everything you need.
 
 ## Setup
 * Run ```pip install -r requirements.txt```. You may use your favourite virtual enviroment.
 * Then ```miners_cli --init``` or ```miners_cli -i```
 * Configure the deploy and database settings inside ```miners.ini```
+* Then ```cd js && npm install && cd ..```
 
 ## Running
 * Run ```miners_cli -s``` or ```miners_cli --serve``` to start a testing server.

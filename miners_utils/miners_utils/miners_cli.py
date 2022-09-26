@@ -115,11 +115,18 @@ def main():
 
     if args.build:
         print("[build] Starting build")
-        os.system("mkdocs build")
 
         cwd = pathlib.Path.cwd()
         build_dir = pathlib.Path(config.get("build", "dir"))
         vendor_dir = pathlib.Path(config.get("build", "dir")).joinpath("vendor")
+        js_dir = cwd.joinpath("js")
+
+        if not js_dir.exists():
+            print("[build]  JS dir ("+str(js_dir.absolute())+") does not exist")
+            sys.exit(-1)
+
+        os.system("mkdocs build")
+        os.system("cd js && ./node_modules/.bin/webpack && cd ..")
 
         shutil.copy(str(cwd.joinpath(".htaccess")), str(build_dir))
         shutil.copy(str(cwd.joinpath("miners.ini")), str(build_dir))
