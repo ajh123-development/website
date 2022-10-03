@@ -1,4 +1,6 @@
-# Colors
+# Formatting text
+
+## Colors
 
 <style>
     .color{
@@ -9,7 +11,7 @@
     }
 </style>
 
-In the table below are all acepted named colors in formating. You don't have to use these, you may use raw hex codes. Also the names below are **not translated**.
+In the table below are all acepted named colors in formating. You don't have to use these, you may use raw hex codes, in the format of #rrggbb where 'r' is red, 'g' is green 'b' is blue. Also all of the names below are **not translated**.
 
 | Name        | Code        | Hex         | Output                                                  |
 | ----------- | ----------- | ----------- | ------------------------------------------------------- |
@@ -29,3 +31,17 @@ In the table below are all acepted named colors in formating. You don't have to 
 | light_purple| §d          | #FF55FF     | <div class="color", style="background-color: #FF55FF;"> |
 | yellow      | §e          | #FFFF55     | <div class="color", style="background-color: #FFFF55;"> |
 | white       | §f          | #FFFFFF     | <div class="color", style="background-color: #FFFFFF;"> |
+
+## Extra formating
+
+There are some extra codes which do not modify the color of text, but modify how it behaves. These cannont be used in the [JsonTextComponment](/History_Survival/Text/Json/) color porporty, but can be used in their named individual proporties.
+However any 'codes' can be used in raw strings, e.g. the 'text' property of [JsonTextComponments](/History_Survival/Text/Json/) or chat messages.
+
+| Name          | Code        | Output                             |
+| ------------- | ----------- | ---------------------------------- |
+| obfuscated    | §k          |                                    |
+| bold          | §l          | <b>I am bold</b>                   |
+| strikethrough | §m          | <s>I have been strikethroughed</s> |
+| underline     | §n          | <u>I am underlined</u>             |
+| italic        | §o          | <i>I am using italic<i>            |
+| reset         | §r          | <p>I am normal</p>                 |

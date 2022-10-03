@@ -16,7 +16,7 @@ Text can be created using JSON. Below are the properties which can be used, this
         "value": ""
     },
     "selector": "",
-    "color": "//A color as defined in (/History_Survival/Text/Colors/)",
+    "color": "//A color as defined in (/History_Survival/Text/Formatting/)",
     "bold": true|false,
     "italic": true|false,
     "underline": true|false,
