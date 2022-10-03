@@ -6,5 +6,7 @@ The source can be found on [GitHub](https://github.com/ajh123-development/Histor
 
 For multiplayer you need to register an account. You may do it [here](/api/auth/register.php).
 
-## Java Docs
-You may view the [java docs](/history_survival/javadoc/index.html) for the api of History Survival.
+## Topics
+* Text
+    * [Formatting](/History_Survival/Text/Formatting/)
+    * [JSON](/History_Survival/Text/Json/)
