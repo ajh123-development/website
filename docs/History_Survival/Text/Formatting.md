@@ -37,11 +37,15 @@ In the table below are all acepted named colors in formating. You don't have to 
 There are some extra codes which do not modify the color of text, but modify how it behaves. These cannont be used in the [JsonTextComponment](/History_Survival/Text/Json/) color porporty, but can be used in their named individual proporties.
 However any 'codes' can be used in raw strings, e.g. the 'text' property of [JsonTextComponments](/History_Survival/Text/Json/) or chat messages.
 
-| Name          | Code        | Output                             |
-| ------------- | ----------- | ---------------------------------- |
-| obfuscated    | §k          |                                    |
-| bold          | §l          | <b>I am bold</b>                   |
-| strikethrough | §m          | <s>I have been strikethroughed</s> |
-| underline     | §n          | <u>I am underlined</u>             |
-| italic        | §o          | <i>I am using italic<i>            |
-| reset         | §r          | <p>I am normal</p>                 |
+| Name          | Code        | Output                     |
+| ------------- | ----------- | -------------------------- |
+| obfuscated    | §k          | <p id="obfuscated"></p>    |
+| bold          | §l          | <p id="bold"></p>          |
+| strikethrough | §m          | <p id="strikethrough"></p> |
+| underline     | §n          | <p id="underline"></p>     |
+| italic        | §o          | <p id="italic"></p>        |
+| reset         | §r          | <p id="reset"></p>         |
+
+<script>
+
+</script>

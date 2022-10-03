@@ -6,7 +6,9 @@ module.exports = {
     },
     output: {
         path:  __dirname + '/../docs/',
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        library: 'minerslib',
+        libraryTarget: 'window',
     },
     mode: "production"
 }
