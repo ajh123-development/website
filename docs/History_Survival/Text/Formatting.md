@@ -37,15 +37,20 @@ In the table below are all acepted named colors in formating. You don't have to 
 There are some extra codes which do not modify the color of text, but modify how it behaves. These cannont be used in the [JsonTextComponment](/History_Survival/Text/Json/) color porporty, but can be used in their named individual proporties.
 However any 'codes' can be used in raw strings, e.g. the 'text' property of [JsonTextComponments](/History_Survival/Text/Json/) or chat messages.
 
-| Name          | Code        | Output                     |
-| ------------- | ----------- | -------------------------- |
-| obfuscated    | §k          | <p id="obfuscated"></p>    |
-| bold          | §l          | <p id="bold"></p>          |
-| strikethrough | §m          | <p id="strikethrough"></p> |
-| underline     | §n          | <p id="underline"></p>     |
-| italic        | §o          | <p id="italic"></p>        |
-| reset         | §r          | <p id="reset"></p>         |
+| Name          | Code        | Output                                                   |
+| ------------- | ----------- | -------------------------------------------------------- |
+| obfuscated    | §k          | <p id="obfuscated">§kI am obfuscated</p>                 |
+| bold          | §l          | <p id="bold">§bI am bold</p>                             |
+| strikethrough | §m          | <p id="strikethrough">§sI have been strikethroughed<</p> |
+| underline     | §n          | <p id="underline">§uI am underlined</p>                  |
+| italic        | §o          | <p id="italic">§iI am using italic</p>                   |
+| reset         | §r          | <p id="reset">§rI am normal</p>                          |
 
 <script>
-
+obfuscated = docuemnt.getElementById("obfuscated")
+bold = docuemnt.getElementById("bold")
+strikethrough = docuemnt.getElementById("strikethrough")
+underline = docuemnt.getElementById("underline")
+italic = docuemnt.getElementById("italic")
+reset = docuemnt.getElementById("reset")
 </script>
