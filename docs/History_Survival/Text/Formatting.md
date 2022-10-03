@@ -37,6 +37,8 @@ In the table below are all acepted named colors in formating. You don't have to 
 There are some extra codes which do not modify the color of text, but modify how it behaves. These cannont be used in the [JsonTextComponment](/History_Survival/Text/Json/) color porporty, but can be used in their named individual proporties.
 However any 'codes' can be used in raw strings, e.g. the 'text' property of [JsonTextComponments](/History_Survival/Text/Json/) or chat messages.
 
+::note You may need to enable javascript for the outputs to work below.
+
 | Name          | Code        | Output                                                   |
 | ------------- | ----------- | -------------------------------------------------------- |
 | obfuscated    | §k          | <p id="obfuscated">§kI am obfuscated</p>                 |
@@ -47,10 +49,11 @@ However any 'codes' can be used in raw strings, e.g. the 'text' property of [Jso
 | reset         | §r          | <p id="reset">§rI am normal</p>                          |
 
 <script>
-obfuscated = docuemnt.getElementById("obfuscated")
-bold = docuemnt.getElementById("bold")
-strikethrough = docuemnt.getElementById("strikethrough")
-underline = docuemnt.getElementById("underline")
-italic = docuemnt.getElementById("italic")
-reset = docuemnt.getElementById("reset")
+obfuscated = document.getElementById("obfuscated")
+obfuscated.text = minerslib.mineParse(obfuscated.text)
+bold = document.getElementById("bold")
+strikethrough = document.getElementById("strikethrough")
+underline = document.getElementById("underline")
+italic = document.getElementById("italic")
+reset = document.getElementById("reset")
 </script>
