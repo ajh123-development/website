@@ -16,6 +16,10 @@ extra_css:
 plugins:
   - search
   - miners_utils
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 extra_changes: ["404.html"]
 extra:
   consent:

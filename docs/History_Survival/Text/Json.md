@@ -1,5 +1,7 @@
 # Creating text with JSON
 
+## JSONTextComponents
+
 Text can be created using JSON. Below are the properties which can be used, this is known as a JSONTextComponent.
 
 ```json
