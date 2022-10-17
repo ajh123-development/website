@@ -165,3 +165,8 @@ exports.mineParse = function initParser(input) {
         raw: parsed.innerHTML
     };
 };
+
+exports.mineParseElement = function parseElement(elementName) {
+    ele = document.getElementById(elementName)
+    ele.appendChild(exports.mineParse(ele.innerText).parsed)
+}
