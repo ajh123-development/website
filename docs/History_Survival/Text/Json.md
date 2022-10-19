@@ -34,7 +34,7 @@ Text can be created using JSON. Below are the properties which can be used, this
         "value": ""
     },
     "extra": [
-        //A list of JSONTextComponents
+        //A list of JSONTextComponents which will be displayed after this one.
     ]
 }
 ```

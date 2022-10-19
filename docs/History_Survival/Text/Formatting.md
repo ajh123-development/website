@@ -38,7 +38,7 @@ In the table below are all acepted named colors in formating. You don't have to 
 ## Extra formating
 
 There are some extra codes which do not modify the color of text, but modify how it behaves. These cannont be used in the [JsonTextComponment](/History_Survival/Text/Json/) ```color``` porporty, but can be used in their named individual proporties.
-However any 'codes' can be used in raw strings, e.g. the ```text``` property of [JsonTextComponments](/History_Survival/Text/Json/) or chat messages.
+However any 'codes' can be used in raw strings, e.g. the ```text``` property of [JsonTextComponments](/History_Survival/Text/Json/) or [chat messages](/History_Survival/Multiplayer/#chat).
 
 
 | Name          | Code | Usage and Output                                        |
