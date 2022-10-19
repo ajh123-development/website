@@ -166,7 +166,13 @@ exports.mineParse = function initParser(input) {
     };
 };
 
-exports.mineParseElement = function parseElement(elementName) {
-    ele = document.getElementById(elementName)
-    ele.appendChild(exports.mineParse(ele.innerText).parsed)
+exports.mineParseElement = function parseElement(elementName, prefix) {
+    ele = document.getElementById(elementName);
+    result = exports.mineParse(ele.innerText).parsed;
+
+    if (prefix != null){
+        result.innerHTML = prefix + result.innerHTML
+    }
+
+    ele.appendChild(result);
 }
