@@ -4,7 +4,7 @@
 
 History Survival comes with multiplayer.
 
-In order to play ```online-mode``` servers then you must register an account, you may do so [here](/api/auth/register.php).
+In order to play ```online-mode``` servers you must register an account, you may do so [here](/api/auth/register.php).
 
 Once an account is created, you may look at your [profile information](/profile.php). Then you may download a copy of the launcher. This requires atleast Java 8 to be installed. You may be warned that the launcher is unidentified software.
 
@@ -25,14 +25,14 @@ The launcher will ask for account details. The username will be your email addre
 
 Messages in chat can use any color or formatting code as defined [here](/History_Survival/Text/Formatting/). These codes begin with the § symbol (known as a section sign/symbol). A message can contain multiple codes, useful if you want a rainbow.
 
-An example of multiple codes looks like this. You may need to enable JavaScript for the result to work properly.
-
 **Color codes have to go after formatting codes if you want the colored text to be formatted.**
 
+An example of multiple codes looks like this. You may need to enable JavaScript for the result to work properly.
+
 <p>
-    <code id="multiCodes">
+    <div id="multiCodes">
         §a§nHello, World!
-    </code>
+    </div>
 </p>
 
 <script>
