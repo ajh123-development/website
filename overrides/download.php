@@ -4,6 +4,9 @@ if(str_ends_with($_SERVER["REQUEST_URI"], "version_manifest.json")){
 	if(isset($_GET["USE_MC"])){
 		$game = "mc";
 	}
+	if(isset($_GET["use_modded"])){
+		$game = "mc_modded";
+	}
 	$file = 'files/'.$game.'/version_manifest.json';
 	if ($game != "history_survival" ) {
 		if (file_exists($file)) {
@@ -25,7 +28,7 @@ if(str_ends_with($_SERVER["REQUEST_URI"], "version_manifest.json")){
 
 header('Content-Type: application/json');
 require( __DIR__."/news/config.php" );
-if (!isset($_GET["id"])){
+if (!isset($_GET["id"])) {
 	$apps = App::getList()["results"];
 	$out = array();
 
@@ -52,7 +55,7 @@ if (!isset($_GET["id"])){
 	die;
 }
 
-if (isset($_GET["id"])){
+if (isset($_GET["id"])) {
 	$app = App::getById($_GET["id"]);
 	header('Content-Type: application/json');
 	echo($app->rawJson);
