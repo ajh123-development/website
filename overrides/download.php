@@ -1,29 +1,28 @@
 <?php
-if(str_ends_with($_SERVER["REQUEST_URI"], "version_manifest.json")){
-	$game = "history_survival";
-	if(isset($_GET["USE_MC"])){
-		$game = "mc";
+
+$game = "history_survival";
+if(isset($_GET["USE_MC"])){
+	$game = "mc";
+}
+if(isset($_GET["use_modded"])){
+	$game = "mc_modded";
+}
+$file = 'files/'.$game.'/version_manifest.json';
+if ($game != "history_survival" ) {
+	if (file_exists($file)) {
+		header('Content-Type: '.mime_content_type($file));
+		header('Content-Disposition: inline; filename='.basename($file));
+		header('Content-Transfer-Encoding: binary');
+		header('Expires: 0');
+		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+		header('Pragma: public');
+		header('Content-Length: ' . filesize($file));
+		ob_clean();
+		flush();
+		readfile($file);
+		exit;
 	}
-	if(isset($_GET["use_modded"])){
-		$game = "mc_modded";
-	}
-	$file = 'files/'.$game.'/version_manifest.json';
-	if ($game != "history_survival" ) {
-		if (file_exists($file)) {
-			header('Content-Type: '.mime_content_type($file));
-			header('Content-Disposition: inline; filename='.basename($file));
-			header('Content-Transfer-Encoding: binary');
-			header('Expires: 0');
-			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-			header('Pragma: public');
-			header('Content-Length: ' . filesize($file));
-			ob_clean();
-			flush();
-			readfile($file);
-			exit;
-		}
-		die;
-	}
+	die;
 }
 
 header('Content-Type: application/json');
@@ -52,12 +51,21 @@ if (!isset($_GET["id"])) {
 	$out["latest"]["snapshot"] = $latest_snapshot;
 
 	echo json_encode($out, JSON_UNESCAPED_SLASHES);
+
+	echo(
+		str_ends_with($_SERVER["REQUEST_URI"], "version_manifest.json")
+	);
+
 	die;
 }
 
 if (isset($_GET["id"])) {
 	$app = App::getById($_GET["id"]);
 	header('Content-Type: application/json');
+	if ($app == null) {
+		echo "{}";
+		die;
+	}
 	echo($app->rawJson);
 	die;
 }
