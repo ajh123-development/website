@@ -51,11 +51,6 @@ if (!isset($_GET["id"])) {
 	$out["latest"]["snapshot"] = $latest_snapshot;
 
 	echo json_encode($out, JSON_UNESCAPED_SLASHES);
-
-	echo(
-		str_ends_with($_SERVER["REQUEST_URI"], "version_manifest.json")
-	);
-
 	die;
 }
 
