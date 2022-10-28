@@ -1,7 +1,7 @@
 site_name: minersonline
 theme:
-  logo: assets/images/favicon.svg
-  favicon: assets/images/favicon.svg
+  logo: assets/branding/favicon.svg
+  favicon: assets/branding/favicon.svg
   name: material
   custom_dir: overrides
   static_templates:
