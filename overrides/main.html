@@ -2,6 +2,15 @@
 
 {% extends "base.html" %}
 
+{% block extrahead %}
+
+  <!-- Extra style sheets (can't be set in mkdocs.yml due to content hash) -->
+  <link
+    rel="stylesheet"
+    href="{{ 'assets/stylesheets/custom.scss' | url }}"
+  />
+{% endblock %}
+
 {% block libs %}
 <script src="/bundle.js"></script>
 {% block extra_styles %}{% endblock %}
