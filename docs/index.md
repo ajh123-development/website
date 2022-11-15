@@ -12,9 +12,15 @@ Join the [discord](https://discord.gg/ybWqDAkDES).
 
 ## Donate
 Use this [link](monero:85YXPL6Vs6nPSnASnL3YGB3YbBFihmREzf4wKYvBcK3eXzqhvVvjvwzbsgk1Aju7C57qkomMyAg5QVJE46PUsaX2CLaCuke?tx_amount=3.000000000000&recipient_name=Miners%20Online&tx_description=Donation) to donate 3 Monero (XMR).
-```monero:85YXPL6Vs6nPSnASnL3YGB3YbBFihmREzf4wKYvBcK3eXzqhvVvjvwzbsgk1Aju7C57qkomMyAg5QVJE46PUsaX2CLaCuke?tx_amount=3.000000000000&recipient_name=Miners%20Online&tx_description=Donation```
 
-Or pay the address ```85YXPL6Vs6nPSnASnL3YGB3YbBFihmREzf4wKYvBcK3eXzqhvVvjvwzbsgk1Aju7C57qkomMyAg5QVJE46PUsaX2CLaCuke``` any ammount of Monero (XMR).
+```
+monero:85YXPL6Vs6nPSnASnL3YGB3YbBFihmREzf4wKYvBcK3eXzqhvVvjvwzbsgk1Aju7C57qkomMyAg5QVJE46PUsaX2CLaCuke?tx_amount=3.000000000000&recipient_name=Miners%20Online&tx_description=Donation
+```
+
+Or pay the address any ammount of Monero (XMR).
+```
+85YXPL6Vs6nPSnASnL3YGB3YbBFihmREzf4wKYvBcK3eXzqhvVvjvwzbsgk1Aju7C57qkomMyAg5QVJE46PUsaX2CLaCuke
+```
 
 Or scan the QR code below to donate 3 Monero (XMR).
 
