@@ -5,7 +5,7 @@ theme:
   name: material
   custom_dir: overrides
   static_templates:
-    - index.php
+    - new_index.php
     - authenticate.php
     - logout.php
     - profile.php
