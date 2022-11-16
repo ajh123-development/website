@@ -119,15 +119,20 @@ def main():
         cwd = pathlib.Path.cwd()
         build_dir = pathlib.Path(config.get("build", "dir"))
         vendor_dir = pathlib.Path(config.get("build", "dir")).joinpath("vendor")
+        css_out_dir = pathlib.Path(config.get("build", "dir")).joinpath("assets/stylesheets/")
         front_dir = cwd.joinpath("frontend")
+        css_in_dir = pathlib.Path(front_dir).joinpath("css")
         webpack = front_dir.joinpath("node_modules/.bin/webpack")
+        node_sass = front_dir.joinpath("node_modules/.bin/node-sass")
 
         if not front_dir.exists():
-            print("[build] Frontend dir ("+str(front_dir.absolute())+") does not exist")
+            print("[build] Frontend dir ("+str(front_dir.absolute())+") does not exist.")
+            print("Try running miners_cli from the project's root.")
             sys.exit(-1)
 
         os.system("cd frontend && "+str(webpack)+" && cd ..")
         os.system("mkdocs build")
+        os.system("cd frontend && "+str(node_sass)+" "+str(css_in_dir)+" -o "+str(css_out_dir)+"  && cd ..")
 
         shutil.copy(str(cwd.joinpath(".htaccess")), str(build_dir))
         shutil.copy(str(cwd.joinpath("miners.ini")), str(build_dir))
