@@ -2,7 +2,7 @@
 var webpack = require('webpack');
 module.exports = {
     entry: {
-        entry: './index.js'
+        entry: './javascript/index.js'
     },
     output: {
         path:  __dirname + '/../docs/',
