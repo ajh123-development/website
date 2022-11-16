@@ -119,14 +119,14 @@ def main():
         cwd = pathlib.Path.cwd()
         build_dir = pathlib.Path(config.get("build", "dir"))
         vendor_dir = pathlib.Path(config.get("build", "dir")).joinpath("vendor")
-        js_dir = cwd.joinpath("js")
-        webpack = js_dir.joinpath("node_modules/.bin/webpack")
+        front_dir = cwd.joinpath("frontend")
+        webpack = front_dir.joinpath("node_modules/.bin/webpack")
 
-        if not js_dir.exists():
-            print("[build]  JS dir ("+str(js_dir.absolute())+") does not exist")
+        if not front_dir.exists():
+            print("[build] Frontend dir ("+str(front_dir.absolute())+") does not exist")
             sys.exit(-1)
 
-        os.system("cd js && "+str(webpack)+" && cd ..")
+        os.system("cd frontend && "+str(webpack)+" && cd ..")
         os.system("mkdocs build")
 
         shutil.copy(str(cwd.joinpath(".htaccess")), str(build_dir))
