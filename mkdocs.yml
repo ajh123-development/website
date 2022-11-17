@@ -9,6 +9,9 @@ theme:
   favicon: assets/branding/favicon.svg
   name: material
   custom_dir: overrides
+  features:
+    - navigation.tabs
+    - navigation.top
   static_templates:
     - new_index.php
     - authenticate.php
@@ -16,11 +19,9 @@ theme:
     - profile.php
     - util.php
     - download.php
-    - style.css
-    - extra.css
     - news/templates/include/page.php
 extra_css:
-- stylesheets/extra.css
+- assets/stylesheets/custom.css
 plugins:
   - search
   - miners_utils
