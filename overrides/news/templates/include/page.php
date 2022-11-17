@@ -4,8 +4,7 @@
 
 {% block extra_styles %}
 <!-- Main Stylesheet --->
-<link rel="stylesheet" href="/extra.css">
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/news.css" />
 {% endblock %}
 
 {% block content %}

@@ -10,7 +10,7 @@ if (getMyId() === false) {
 
 {% block extra_styles %}
 <!-- Skin Viewer Stylesheet --->
-<link rel="stylesheet" href="/skinviewer.css">
+<link rel="stylesheet" href="/assets/stylesheets/skinviewer.css">
 {% endblock %}
 
 

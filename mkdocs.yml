@@ -13,7 +13,6 @@ theme:
     - navigation.tabs
     - navigation.top
   static_templates:
-    - new_index.php
     - authenticate.php
     - logout.php
     - profile.php
