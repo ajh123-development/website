@@ -5,7 +5,7 @@ module.exports = {
         entry: './javascript/index.js'
     },
     output: {
-        path:  __dirname + '/../docs/',
+        path:  __dirname + '/../site/assets/javascripts/',
         filename: 'bundle.js',
         library: 'minerslib',
         libraryTarget: 'window',

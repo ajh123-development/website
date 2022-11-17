@@ -130,9 +130,9 @@ def main():
             print("Try running miners_cli from the project's root.")
             sys.exit(-1)
 
-        os.system("cd frontend && "+str(webpack)+" && cd ..")
         os.system("mkdocs build")
         os.system("cd frontend && "+str(node_sass)+" "+str(css_in_dir)+" -o "+str(css_out_dir)+"  && cd ..")
+        os.system("cd frontend && "+str(webpack)+" && cd ..")
 
         shutil.copy(str(cwd.joinpath(".htaccess")), str(build_dir))
         shutil.copy(str(cwd.joinpath("miners.ini")), str(build_dir))
