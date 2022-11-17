@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # History Survival
 
 You may view the [news articles](/news) for History Survival.

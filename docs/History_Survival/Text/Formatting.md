@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # Formatting text
 
 ## Colors

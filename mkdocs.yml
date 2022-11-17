@@ -3,6 +3,9 @@ site_url: https://minersonline.tk
 site_author: ajh123
 site_description: >-
   Play our games. Use our Minecraft mods. Get some fun!
+repo_url: https://github.com/ajh123-development/website
+repo_name: ajh123-development/website
+edit_uri: edit/main/docs/
 
 theme:
   logo: assets/branding/favicon.svg

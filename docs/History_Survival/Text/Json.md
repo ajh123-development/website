@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # Creating text with JSON
 
 ## JSONTextComponents
