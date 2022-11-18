@@ -180,7 +180,7 @@ def main():
             detach=True,
             name=config.get("docker", "name"),
             volumes={config.get("build", "dir"): {'bind': '/var/www/html', 'mode': 'rw'}},
-            ports={80:8080},
+            ports={80:8081},
             remove=True
         )
 
