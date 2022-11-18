@@ -3,6 +3,9 @@ comments: true
 tags:
   - Guide
   - Game=History Survival
+  - Version=0.0.1
+  - Version=0.0.2
+  - Version=0.0.3
 ---
 
 # History Survival
