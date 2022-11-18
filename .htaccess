@@ -15,6 +15,11 @@ ErrorDocument 404 /404.php
   Deny from all
 </Files>
 
+<Files templates>
+  Order allow,deny
+  Deny from all
+</Files>
+
 <Files miners.ini>  
   Require all denied
 </Files>

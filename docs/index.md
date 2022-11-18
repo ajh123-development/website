@@ -1,5 +1,5 @@
 ---
-template: home.html
+template: templates/home.php
 title: Home
 ---
 
