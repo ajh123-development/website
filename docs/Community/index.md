@@ -1,3 +1,9 @@
+---
+tags:
+  - Community
+  - Guide
+---
+
 # Community
 
 This is a place where people can publish content for [History Survival](/History_Survival/).

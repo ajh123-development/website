@@ -20,3 +20,9 @@ Or pay the address any ammount of Monero (XMR).
 Or scan the QR code below to donate 3 Monero (XMR).
 
 ![QR code for 3 XRM donation.](/assets/donate_3xmr.png)
+
+# Tags
+
+Following is a list of relevant tags:
+
+[TAGS]

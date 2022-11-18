@@ -1,5 +1,11 @@
 ---
 comments: true
+tags:
+  - Guide
+  - Game=History Survival
+  - JSON
+  - Text
+  - Chat
 ---
 
 # Creating text with JSON

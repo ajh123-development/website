@@ -1,5 +1,8 @@
 ---
 comments: true
+tags:
+  - Guide
+  - Game=History Survival
 ---
 
 # History Survival

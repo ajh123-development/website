@@ -1,3 +1,9 @@
+---
+tags:
+  - Guide
+  - Game=Minecraft
+---
+
 # Minecraft
 
 ## Servers

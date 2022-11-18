@@ -1,5 +1,12 @@
 ---
 comments: true
+tags:
+  - Guide
+  - Game=History Survival
+  - Multiplayer
+  - Internet
+  - Launcher
+  - Chat
 ---
 
 # Multiplayer

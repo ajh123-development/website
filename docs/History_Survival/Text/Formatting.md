@@ -1,5 +1,11 @@
 ---
 comments: true
+tags:
+  - Guide
+  - Game=History Survival
+  - Text
+  - Formatting
+  - Chat
 ---
 
 # Formatting text
