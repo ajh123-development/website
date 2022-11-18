@@ -1,6 +1,8 @@
 ---
 comments: true
+lang_changable: true
 tags:
+  - lang=en
   - Guide
   - Game=History Survival
   - Multiplayer
