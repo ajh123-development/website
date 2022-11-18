@@ -27,7 +27,6 @@ extra_css:
 plugins:
   - tags:
       tags_file: About.md
-  - awesome-pages
   - search
   - miners_utils
 markdown_extensions:
