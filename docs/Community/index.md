@@ -15,4 +15,4 @@ If we like your idea we may merge it into the main branch. It may take a few day
 By content we curently mean:
 
 * [Mods](/Community/Mods/)
-* More to come soon?
+* More to come soon? Bring in your own ideas!
