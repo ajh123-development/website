@@ -47,6 +47,7 @@ def load_config(conf_path):
 
         config.add_section("docker")
         config.set("docker", "name", "minersonline")
+        config.set("docker", "devPort", "8080")
 
         config.add_section('oauth')
         config.set("oauth", "CLIENT_ID", "minersonline")
@@ -174,13 +175,13 @@ def main():
         )
 
     if args.serve:
-        print("[serve] Serving latest build")
+        print("[serve] Serving latest build on localhost:"+config.get("docker", "devPort"))
         CONTAINER = client.containers.run(
             "php:8.0-apache",
             detach=True,
             name=config.get("docker", "name"),
             volumes={config.get("build", "dir"): {'bind': '/var/www/html', 'mode': 'rw'}},
-            ports={80:8081},
+            ports={80:int(config.get("docker", "devPort"))},
             remove=True
         )
 
