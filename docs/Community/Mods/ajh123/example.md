@@ -13,7 +13,7 @@ tags:
 
 This is an example document to show how to upload mods.
 
-You may change the tags to what yoy want. The steps below are what I recomend.
+You may change the tags to what you want. The steps below are what I recomend.
 
 ```yaml
 ---
