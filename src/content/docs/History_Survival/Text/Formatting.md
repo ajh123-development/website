@@ -1,16 +1,5 @@
 ---
-comments: true
-lang_changable: true
-tags:
-  - lang=en
-  - Guide
-  - Game=History Survival
-  - Text
-  - Formatting
-  - Chat
-  - Version=0.0.1
-  - Version=0.0.2
-  - Version=0.0.3
+layout: ../../../../layouts/DocumentLayout.astro
 ---
 
 # Formatting text

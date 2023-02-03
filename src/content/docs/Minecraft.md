@@ -1,7 +1,5 @@
 ---
-tags:
-  - Guide
-  - Game=Minecraft
+layout: ../../../layouts/DocumentLayout.astro
 ---
 
 # Minecraft
