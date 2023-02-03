@@ -1,3 +1,8 @@
+---
+title: "Creating text with JSON"
+description: "A guide to Json Text Componments"
+---
+
 # Creating text with JSON
 
 ## JSONTextComponents

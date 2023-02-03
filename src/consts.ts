@@ -1,6 +1,6 @@
 export const SITE = {
-	title: 'Documentation',
-	description: 'Your website description.',
+	title: 'Miners Online',
+	description: 'Miners Online - the developers of History Survival.',
 	defaultLanguage: 'en-us',
 } as const;
 
@@ -19,7 +19,7 @@ export const KNOWN_LANGUAGES = {
 } as const;
 export const KNOWN_LANGUAGE_CODES = Object.values(KNOWN_LANGUAGES);
 
-export const GITHUB_EDIT_URL = `https://github.com/withastro/astro/tree/main/examples/docs`;
+export const GITHUB_EDIT_URL = `https://github.com/ajh123-development/website`;
 
 export const COMMUNITY_INVITE_URL = `https://astro.build/chat`;
 
@@ -37,10 +37,13 @@ export type Sidebar = Record<
 export const SIDEBAR: Sidebar = {
 	en: {
 		'Miners Online': [
-			{ text: 'Introduction', link: 'en/introduction' },
+			{ text: 'Introduction', link: '/docs/en/introduction' },
 		],
 		'History Survival': [
-			{ text: 'Introduction', link: 'en/history-survival/index' }
+			{ text: 'Introduction', link: '/docs/en/history-survival/' },
+			{ text: 'Multiplayer', link: '/docs/en/history-survival/multiplayer/' },
+			{ text: 'Text Formaatting', link: '/docs/en/history-survival/formatting/' },
+			{ text: 'JSON text', link: '/docs/en/history-survival/JSON' },
 		],
 	},
 };

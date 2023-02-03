@@ -1,3 +1,8 @@
+---
+title: "Minecraft"
+description: "Some resources about the Minecraft server we run sometimes"
+---
+
 # Minecraft
 
 ## Servers
