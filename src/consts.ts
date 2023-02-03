@@ -37,13 +37,13 @@ export type Sidebar = Record<
 export const SIDEBAR: Sidebar = {
 	en: {
 		'Miners Online': [
-			{ text: 'Introduction', link: '/docs/en/introduction' },
+			{ text: 'Introduction', link: 'docs/en/introduction' },
 		],
 		'History Survival': [
-			{ text: 'Introduction', link: '/docs/en/history-survival/' },
-			{ text: 'Multiplayer', link: '/docs/en/history-survival/multiplayer/' },
-			{ text: 'Text Formaatting', link: '/docs/en/history-survival/formatting/' },
-			{ text: 'JSON text', link: '/docs/en/history-survival/JSON' },
+			{ text: 'Introduction', link: 'docs/en/history-survival/' },
+			{ text: 'Multiplayer', link: 'docs/en/history-survival/multiplayer/' },
+			{ text: 'Text Formaatting', link: 'docs/en/history-survival/formatting/' },
+			{ text: 'JSON text', link: 'docs/en/history-survival/JSON' },
 		],
 	},
 };
