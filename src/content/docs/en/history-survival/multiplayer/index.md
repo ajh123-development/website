@@ -1,18 +1,3 @@
----
-comments: true
-lang_changable: true
-tags:
-  - lang=en
-  - Guide
-  - Game=History Survival
-  - Multiplayer
-  - Internet
-  - Launcher
-  - Chat
-  - Version=0.0.2
-  - Version=0.0.3
----
-
 # Multiplayer
 
 ## Setting up

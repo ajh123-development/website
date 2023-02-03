@@ -1,5 +1,5 @@
 {
-  "name": "@example/basics",
+  "name": "@example/docs",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -11,6 +11,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.0.6"
+    "astro": "^2.0.6",
+    "preact": "^10.7.3",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "@astrojs/react": "^2.0.2",
+    "@astrojs/preact": "^2.0.2",
+    "@algolia/client-search": "^4.13.1",
+    "@docsearch/css": "^3.1.0",
+    "@docsearch/react": "^3.1.0",
+    "@types/react": "^17.0.45",
+    "@types/node": "^18.0.0",
+    "@types/react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "html-escaper": "^3.0.3"
   }
 }

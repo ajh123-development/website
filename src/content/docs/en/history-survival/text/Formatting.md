@@ -1,7 +1,3 @@
----
-layout: ../../../../layouts/DocumentLayout.astro
----
-
 # Formatting text
 
 ## Colors

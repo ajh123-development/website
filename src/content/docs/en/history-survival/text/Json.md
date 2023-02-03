@@ -1,7 +1,3 @@
----
-layout: ../../../../layouts/DocumentLayout.astro
----
-
 # Creating text with JSON
 
 ## JSONTextComponents
