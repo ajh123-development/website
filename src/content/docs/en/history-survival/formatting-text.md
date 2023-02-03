@@ -14,7 +14,7 @@ description: "A Guide on how to format text in History Survival"
     }
 </style>
 
-In the table below are all acepted named colors in formating. You don't have to use these, you may use raw hex codes, in the format of #rrggbb where 'r' is red, 'g' is green 'b' is blue. Also all of the names below are **not translated**. Color codes cannot be used in the [JsonTextComponment](/docs/en/history-survival/text/json) ```color``` porporty.
+In the table below are all acepted named colors in formating. You don't have to use these, you may use raw hex codes, in the format of #rrggbb where 'r' is red, 'g' is green 'b' is blue. Also all of the names below are **not translated**. Color codes cannot be used in the [JsonTextComponment](/docs/en/history-survival/json-text) ```color``` porporty.
 
 ??? note "JavaScript notice" 
     You may need to enable JavaScript for all of the text outputs to work below.
@@ -40,8 +40,8 @@ In the table below are all acepted named colors in formating. You don't have to 
 
 ## Extra formating
 
-There are some extra codes which do not modify the color of text, but modify how it behaves. These cannont be used in the [JsonTextComponment](/docs/en/history-survival/text/json/) ```color``` porporty, but can be used in their named individual proporties.
-However any 'codes' can be used in raw strings, e.g. the ```text``` property of [JsonTextComponments](/docs/en/history-survival/text/json) or [chat messages](/docs/en/history-survival/multiplayer/#chat).
+There are some extra codes which do not modify the color of text, but modify how it behaves. These cannont be used in the [JsonTextComponment](/docs/en/history-survival/json-text) ```color``` porporty, but can be used in their named individual proporties.
+However any 'codes' can be used in raw strings, e.g. the ```text``` property of [JsonTextComponments](/docs/en/history-survival/json-text) or [chat messages](/docs/en/history-survival/multiplayer/#chat).
 
 
 | Name          | Code | Usage and Output                                        |

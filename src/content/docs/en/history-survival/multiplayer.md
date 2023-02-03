@@ -25,7 +25,7 @@ The launcher will ask for account details. The username will be your email addre
 
 ## Chat
 
-Messages in chat can use any color or formatting code as defined [here](/docs/en/history-survival/text/formatting). These codes begin with the § symbol (known as a section sign/symbol). A message can contain multiple codes, useful if you want a rainbow.
+Messages in chat can use any color or formatting code as defined [here](/docs/en/history-survival/formatting-text). These codes begin with the § symbol (known as a section sign/symbol). A message can contain multiple codes, useful if you want a rainbow.
 
 An example of multiple codes looks like this. You may need to enable JavaScript for the result to work properly.
 

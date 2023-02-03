@@ -10,5 +10,5 @@ The source can be found on [GitHub](https://github.com/ajh123-development/Histor
 ## Topics
 * [Multiplayer](/docs/en/history-survival/multiplayer/)
 * Text
-    * [Formatting](/docs/en/history-survival/text/formatting)
-    * [JSON](/docs/en/history-survival/text/json)
+    * [Formatting](/docs/en/history-survival/formatting-text)
+    * [JSON](/docs/en/history-survival/json-text)
