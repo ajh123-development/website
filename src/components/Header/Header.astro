@@ -1,7 +1,6 @@
 ---
-import { getLanguageFromURL, KNOWN_LANGUAGE_CODES } from '../../languages';
+import { getLanguageFromURL } from '../../languages';
 import { SITE } from '../../consts';
-import AstroLogo from './AstroLogo.astro';
 import SkipToContent from './SkipToContent.astro';
 import SidebarToggle from './SidebarToggle';
 import LanguageSelect from './LanguageSelect';
@@ -23,12 +22,11 @@ const lang = getLanguageFromURL(currentPage);
 		</div>
 		<div class="logo flex">
 			<a href="/">
-				<AstroLogo size={40} />
 				<h1>{SITE.title ?? 'Documentation'}</h1>
 			</a>
 		</div>
 		<div style="flex-grow: 1;"></div>
-		{KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />}
+		<LanguageSelect lang={lang} client:idle />
 		<div class="search-item">
 			<Search client:idle />
 		</div>
@@ -47,6 +45,7 @@ const lang = getLanguageFromURL(currentPage);
 		overflow: hidden;
 		position: sticky;
 		top: 0;
+		box-shadow: 0 4px 2px -2px gray;
 	}
 
 	.logo {
@@ -73,12 +72,12 @@ const lang = getLanguageFromURL(currentPage);
 
 	.logo a {
 		transition: color 100ms ease-out;
-		color: var(--theme-text);
+		color: hsla(var(--color-base-white), 100%, 1);
 	}
 
 	.logo a:hover,
 	.logo a:focus {
-		color: var(--theme-text-accent);
+		color: hsla(var(--color-gray-95), 1);
 	}
 
 	.logo h1 {
@@ -101,7 +100,6 @@ const lang = getLanguageFromURL(currentPage);
 	@media (min-width: 50em) {
 		header {
 			position: static;
-			padding: 2rem 0rem;
 		}
 
 		.logo {
@@ -133,12 +131,6 @@ const lang = getLanguageFromURL(currentPage);
 		padding-right: 0.7rem;
 		display: flex;
 		max-width: 200px;
-	}
-
-	@media (min-width: 50em) {
-		.search-item {
-			max-width: 400px;
-		}
 	}
 </style>
 
