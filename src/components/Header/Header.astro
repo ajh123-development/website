@@ -12,13 +12,17 @@ type Props = {
 
 const { currentPage } = Astro.props;
 const lang = getLanguageFromURL(currentPage);
+let switcher = false;
+if (currentPage.startsWith("/docs")) {
+	switcher = true;
+}
 ---
 
 <header>
 	<SkipToContent />
 	<nav class="nav-wrapper" title="Top Navigation">
 		<div class="menu-toggle">
-			<SidebarToggle client:idle />
+			{switcher && <SidebarToggle client:idle />}
 		</div>
 		<div class="logo flex">
 			<a href="/">
@@ -26,7 +30,7 @@ const lang = getLanguageFromURL(currentPage);
 			</a>
 		</div>
 		<div style="flex-grow: 1;"></div>
-		<LanguageSelect lang={lang} client:idle />
+		{switcher && <LanguageSelect lang={lang} client:idle />}
 		<div class="search-item">
 			<Search client:idle />
 		</div>

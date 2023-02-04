@@ -1,5 +1,10 @@
-<script is:inline>
-	// Redirect your homepage to the first page of documentation.
-	// If you have a landing page, remove this script and add it here!
-	window.location.pathname = `/docs/en/introduction`;
-</script>
+---
+import BlankLayout from '../layouts/BlankLayout.astro';
+
+const post = Astro.props;
+---
+
+<BlankLayout {...post.data}>
+	<h1>Miners Online</h1>
+	<p>Welcome to our site!</p>
+</BlankLayout>
