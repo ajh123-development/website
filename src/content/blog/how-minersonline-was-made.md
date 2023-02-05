@@ -35,6 +35,6 @@ I needed to understand Astro, I already understood React so switching to Astro s
 
 Of course I needed to add my pre existing Markdown files to the mix.
 
-Finally the site was stored in my exiting [GitHub Repository](https://ajh123-development/website). As a result I was able to publish the site to GitHub Pages and the site will be online forever! I then rerouted the CNAME record on the root of my domain to the GitHub Pages address - but made sure a Service record was pointing to the right place for my Minecraft server to work properly.
+Finally the site was stored in my exiting [GitHub Repository](https://github.com/ajh123-development/website). As a result I was able to publish the site to GitHub Pages and the site will be online forever! I then rerouted the CNAME record on the root of my domain to the GitHub Pages address - but made sure a Service record was pointing to the right place for my Minecraft server to work properly.
 
 Then the rest was history I guess?
