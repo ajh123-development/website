@@ -35,7 +35,6 @@ const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 	}
 
 	#grid-main {
-		margin-left: 15rem;
 		padding: var(--doc-padding) var(--gutter);
 		grid-column-start: 1;
 		grid-column-end: 3;
@@ -54,6 +53,9 @@ const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 			grid-template-columns: 20rem minmax(0, var(--max-width));
 			gap: 1em;
 		}
+		#grid-main {
+			margin-left: 5rem;
+		}
 	}
 
 	@media (min-width: 72em) {
@@ -67,6 +69,9 @@ const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 		#grid-right {
 			grid-column: 3;
 			display: flex;
+		}
+		#grid-main {
+			margin-left: 20rem:
 		}
 	}
 </style>
