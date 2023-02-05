@@ -1,19 +1,20 @@
 ---
+import type { MarkdownHeading } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 import PageContent from '../components/PageContent/PageContent.astro';
 import RightSidebar from '../components/RightSidebar/RightSidebar.astro';
-import MoreMenu from '../components/RightSidebar/MoreMenu.astro';
 import BlogInfo from '../components/RightSidebar/BlogInfo.astro';
 import { GITHUB_EDIT_URL } from '../consts';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & {
+	headings: MarkdownHeading[];
+};
 
-const { title, description, pubDate, author, tags, ...data } = Astro.props;
+const { headings, title, description, pubDate, author, tags, ...data } = Astro.props;
 const currentPage = Astro.url.pathname;
 const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
 const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 
-const formatedTags = tags.map(item => item).join(', ');
 ---
 <style>
 	.layout {
@@ -34,6 +35,7 @@ const formatedTags = tags.map(item => item).join(', ');
 	}
 
 	#grid-main {
+		margin-left: 15rem;
 		padding: var(--doc-padding) var(--gutter);
 		grid-column-start: 1;
 		grid-column-end: 3;
@@ -86,14 +88,14 @@ const formatedTags = tags.map(item => item).join(', ');
 
 <main class="layout">
 	<div id="grid-main">
-		<PageContent title={data.title} headings={[]} githubEditUrl={githubEditUrl}>
+		<PageContent title={data.title} headings={headings} githubEditUrl={githubEditUrl}>
 			<h1 class="title">{title}</h1>
 			<hr>
 			<slot />
 		</PageContent>
 	</div>
 	<aside id="grid-right" class="grid-sidebar" title="Table of Contents">
-		<RightSidebar headings={[]} githubEditUrl={githubEditUrl}>
+		<RightSidebar headings={headings} githubEditUrl={githubEditUrl}>
 			<BlogInfo blog={Astro.props}/>
 		</RightSidebar>
 	</aside>

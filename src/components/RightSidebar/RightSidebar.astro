@@ -13,8 +13,8 @@ const { headings, githubEditUrl } = Astro.props;
 
 <nav class="sidebar-nav" aria-labelledby="grid-right">
 	<div class="sidebar-nav-inner">
-		<slot/>
 		<TableOfContents client:media="(min-width: 50em)" headings={headings} />
+		<slot/>
 		<MoreMenu editHref={githubEditUrl} />
 	</div>
 </nav>

@@ -6,40 +6,21 @@ type Props = { blog:CollectionEntry<'blog'>['data'] };
 const { blog } = Astro.props;
 ---
 
-<nav class="sidebar-nav" aria-labelledby="grid-right">
-	<div class="sidebar-nav-inner">
-		<h2 class="heading">POST INFORMATION</h2>
-		<ul>
-			<li class={`header-link depth-2`}><p> Publication Date: {new Date(blog.pubDate).toLocaleDateString('en-us', {
-				year: 'numeric',
-				month: 'short',
-				day: 'numeric',
-			})} </p></li>
-			<li class={`header-link depth-2`}><p>Author: {blog.author}</p></li>
-			<li class={`header-link depth-2`}><p>{blog.description} </p></li>
-		</ul>
-		<h2 class="heading">POST TAGS</h2>
-		<ul>
-			{
-				blog.tags.map((tag) => (
-				<li class={`header-link depth-2`}><p>{tag} </p></li>
-				))
-			}
-		</ul>
-	</div>
-</nav>
-
-<style>
-	.sidebar-nav {
-		width: 100%;
-		position: sticky;
-		top: 0;
+<h2 class="heading">POST INFORMATION</h2>
+<ul>
+	<li class={`header-link depth-2`}><p> Publication Date: {new Date(blog.pubDate).toLocaleDateString('en-us', {
+		year: 'numeric',
+		month: 'short',
+		day: 'numeric',
+	})} </p></li>
+	<li class={`header-link depth-2`}><p>Author: {blog.author}</p></li>
+	<li class={`header-link depth-2`}><p>{blog.description} </p></li>
+</ul>
+<h2 class="heading">POST TAGS</h2>
+<ul>
+	{
+		blog.tags.map((tag) => (
+		<li class={`header-link depth-2`}><p>{tag} </p></li>
+		))
 	}
-
-	.sidebar-nav-inner {
-		height: 100%;
-		padding: 0;
-		padding-top: var(--doc-padding);
-		overflow: auto;
-	}
-</style>
+</ul>
