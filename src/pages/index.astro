@@ -1,10 +1,11 @@
 ---
 import BlankLayout from '../layouts/BlankLayout.astro';
-
 const post = Astro.props;
 ---
 
 <BlankLayout {...post.data}>
 	<h1>Miners Online</h1>
 	<p>Welcome to our site!</p>
+	<a href="/docs/en/history-survival">Read the Docs!</a>
+	<a href="/blog">The Miners Blog!</a>
 </BlankLayout>

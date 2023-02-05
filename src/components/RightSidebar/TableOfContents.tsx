@@ -14,6 +14,7 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
 	const toc = useRef<HTMLUListElement>();
 	const onThisPageID = 'on-this-page-heading';
 	const itemOffsets = useRef<ItemOffsets[]>([]);
+	const hasHeadings = headings.length > 1;
 	const [currentID, setCurrentID] = useState('overview');
 	useEffect(() => {
 		const getItemOffsets = () => {
@@ -65,27 +66,32 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
 	const onLinkClick = (e) => {
 		setCurrentID(e.target.getAttribute('href').replace('#', ''));
 	};
-
+	if (hasHeadings) {
+		return (
+			<>
+				<h2 id={onThisPageID} className="heading">
+					On this page
+				</h2>
+				<ul ref={toc}>
+					{headings
+						.filter(({ depth }) => depth > 1 && depth < 4)
+						.map((heading) => (
+							<li
+								className={`header-link depth-${heading.depth} ${
+									currentID === heading.slug ? 'current-header-link' : ''
+								}`.trim()}
+							>
+								<a href={`#${heading.slug}`} onClick={onLinkClick}>
+									{unescape(heading.text)}
+								</a>
+							</li>
+						))}
+				</ul>
+			</>
+		);
+	}
 	return (
 		<>
-			<h2 id={onThisPageID} className="heading">
-				On this page
-			</h2>
-			<ul ref={toc}>
-				{headings
-					.filter(({ depth }) => depth > 1 && depth < 4)
-					.map((heading) => (
-						<li
-							className={`header-link depth-${heading.depth} ${
-								currentID === heading.slug ? 'current-header-link' : ''
-							}`.trim()}
-						>
-							<a href={`#${heading.slug}`} onClick={onLinkClick}>
-								{unescape(heading.text)}
-							</a>
-						</li>
-					))}
-			</ul>
 		</>
 	);
 };

@@ -1,24 +1,20 @@
 ---
-import type { MarkdownHeading } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 import PageContent from '../components/PageContent/PageContent.astro';
-import LeftSidebar from '../components/LeftSidebar/LeftSidebar.astro';
 import RightSidebar from '../components/RightSidebar/RightSidebar.astro';
-import HeadSEO from '../components/HeadSEO.astro';
+import MoreMenu from '../components/RightSidebar/MoreMenu.astro';
+import BlogInfo from '../components/RightSidebar/BlogInfo.astro';
 import { GITHUB_EDIT_URL } from '../consts';
 
-type Props = CollectionEntry<'docs'>['data'] & {
-	headings: MarkdownHeading[];
-};
+type Props = CollectionEntry<'blog'>['data'];
 
-const { headings, ...data } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const { title, description, pubDate, author, tags, ...data } = Astro.props;
 const currentPage = Astro.url.pathname;
 const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
 const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
----
-<HeadSEO {...data} canonicalUrl={canonicalURL} slot="extra_head" />
 
+const formatedTags = tags.map(item => item).join(', ');
+---
 <style>
 	.layout {
 		display: grid;
@@ -37,16 +33,10 @@ const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 		padding: 0;
 	}
 
-	#grid-left {
-		position: fixed;
-		background-color: var(--theme-bg);
-		z-index: 10;
-		display: none;
-	}
-
 	#grid-main {
 		padding: var(--doc-padding) var(--gutter);
-		grid-column: 2;
+		grid-column-start: 1;
+		grid-column-end: 3;
 		display: flex;
 		flex-direction: column;
 		height: 100%;
@@ -61,13 +51,6 @@ const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 			overflow: initial;
 			grid-template-columns: 20rem minmax(0, var(--max-width));
 			gap: 1em;
-		}
-
-		#grid-left {
-			display: flex;
-			padding-left: 2rem;
-			position: sticky;
-			grid-column: 1;
 		}
 	}
 
@@ -102,15 +85,16 @@ const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 </style>
 
 <main class="layout">
-	<aside id="grid-left" class="grid-sidebar" title="Site Navigation">
-		<LeftSidebar currentPage={currentPage} />
-	</aside>
 	<div id="grid-main">
-		<PageContent title={data.title} headings={headings} githubEditUrl={githubEditUrl}>
+		<PageContent title={data.title} headings={[]} githubEditUrl={githubEditUrl}>
+			<h1 class="title">{title}</h1>
+			<hr>
 			<slot />
 		</PageContent>
 	</div>
 	<aside id="grid-right" class="grid-sidebar" title="Table of Contents">
-		<RightSidebar headings={headings} githubEditUrl={githubEditUrl} />
+		<RightSidebar headings={[]} githubEditUrl={githubEditUrl}>
+			<BlogInfo blog={Astro.props}/>
+		</RightSidebar>
 	</aside>
 </main>
