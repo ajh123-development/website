@@ -56,14 +56,14 @@ if (currentPage.startsWith("/docs")) {
 		flex: 1;
 		display: flex;
 		overflow: hidden;
-		width: 30px;
+		width: auto;
 		font-size: 2rem;
 		flex-shrink: 0;
 		font-weight: 600;
 		line-height: 1;
 		color: hsla(var(--color-base-white), 100%, 1);
 		gap: 0.25em;
-		z-index: -1;
+		z-index: 0;
 	}
 
 	.logo a {
@@ -85,7 +85,7 @@ if (currentPage.startsWith("/docs")) {
 	}
 
 	.logo h1 {
-		display: none;
+		display: initial;
 		font: inherit;
 		color: inherit;
 		margin: 0;

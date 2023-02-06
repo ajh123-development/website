@@ -36,7 +36,7 @@ const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 
 	#grid-main {
 		padding: var(--doc-padding) var(--gutter);
-		grid-column-start: 1;
+		grid-column-start: 2;
 		grid-column-end: 3;
 		display: flex;
 		flex-direction: column;
@@ -47,11 +47,15 @@ const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 		display: none;
 	}
 
-	@media (min-width: 50em) {
+	@media (min-width: 60em) {
 		.layout {
 			overflow: initial;
-			grid-template-columns: 9.5rem minmax(0, var(--max-width)) 9.5rem;
+			grid-template-columns: 3.5rem minmax(0, var(--max-width)) 2rem 18rem;
 			gap: 1em;
+		}
+		#grid-right {
+			grid-column: 4;
+			display: flex;
 		}
 		#grid-main {
 			grid-column-start: 2;
@@ -60,18 +64,18 @@ const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 
 	@media (min-width: 72em) {
 		.layout {
-			grid-template-columns: 20rem minmax(0, var(--max-width)) 18rem;
+			grid-template-columns: 3.5rem minmax(0, var(--max-width)) 9.5rem 18rem;
 			padding-left: 0;
 			padding-right: 0;
 			margin: 0 auto;
 		}
 
 		#grid-right {
-			grid-column: 3;
+			grid-column: 4;
 			display: flex;
 		}
 		#grid-main {
-			margin-left: 20rem:
+			grid-column-start: 2;
 		}
 	}
 </style>
