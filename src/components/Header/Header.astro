@@ -5,6 +5,8 @@ import SkipToContent from './SkipToContent.astro';
 import SidebarToggle from './SidebarToggle';
 import LanguageSelect from './LanguageSelect';
 import Search from './Search';
+import { NavItem, Dropdown } from './Navigation';
+import { Icon } from 'astro-icon'
 
 type Props = {
 	currentPage: string;
@@ -26,7 +28,7 @@ if (currentPage.startsWith("/docs")) {
 		</div>
 		<div class="logo flex">
 			<a href="/">
-				<h1>{SITE.title ?? 'Documentation'}</h1>
+				<h1>{SITE.title}</h1>
 			</a>
 		</div>
 		<div style="flex-grow: 1;"></div>
@@ -34,6 +36,11 @@ if (currentPage.startsWith("/docs")) {
 		<div class="search-item">
 			<Search client:idle />
 		</div>
+		<!-- <NavItem client:load id="add"><Icon name="fa:plus" slot="icon"/></NavItem>
+		<NavItem client:load id="down">
+			<Icon name="fa:caret-down" slot="icon"/>
+			<Dropdown client:load/>
+		</NavItem> -->
 	</nav>
 </header>
 
@@ -50,6 +57,7 @@ if (currentPage.startsWith("/docs")) {
 		position: sticky;
 		top: 0;
 		box-shadow: 0 4px 2px -2px gray;
+		position: static;
 	}
 
 	.logo {
@@ -85,7 +93,7 @@ if (currentPage.startsWith("/docs")) {
 	}
 
 	.logo h1 {
-		display: initial;
+		display: none;
 		font: inherit;
 		color: inherit;
 		margin: 0;
@@ -101,11 +109,7 @@ if (currentPage.startsWith("/docs")) {
 		padding: 0 1rem;
 	}
 
-	@media (min-width: 50em) {
-		header {
-			position: static;
-		}
-
+	@media (min-width: 53em) {
 		.logo {
 			width: auto;
 			margin: 0;

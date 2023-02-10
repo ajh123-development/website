@@ -11,20 +11,26 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.0.6",
-    "preact": "^10.7.3",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "@astrojs/react": "^2.0.2",
-    "@astrojs/preact": "^2.0.2",
     "@algolia/client-search": "^4.13.1",
+    "@astrojs/preact": "^2.0.2",
+    "@astrojs/react": "^2.0.2",
     "@docsearch/css": "^3.1.0",
     "@docsearch/react": "^3.1.0",
-    "@types/react": "^17.0.45",
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/node": "^18.0.0",
-    "@types/react-dom": "^18.0.0"
+    "@types/react": "^17.0.45",
+    "@types/react-dom": "^18.0.0",
+    "astro": "^2.0.6",
+    "astro-icon": "^0.8.0",
+    "preact": "^10.7.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.1.0",
+    "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
+    "@types/react-transition-group": "^4.4.5",
     "html-escaper": "^3.0.3"
   }
 }
