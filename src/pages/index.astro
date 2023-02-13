@@ -1,5 +1,6 @@
 ---
 import BlankLayout from '../layouts/BlankLayout.astro';
+import { VideoList } from '../components/Video/VideoList';
 const post = Astro.props;
 ---
 
@@ -8,4 +9,12 @@ const post = Astro.props;
 	<p>Welcome to our site!</p>
 	<a href="/docs/en/history-survival">Read the Docs!</a>
 	<a href="/blog">The Miners Blog!</a>
+
+	<section>
+		<center><h2>Our people</h2></center>
+		<h3>ajh123</h3>
+		<p>Known as Sam Hulme, he is the owner of this site. ajh123 is the GitHub username for them.</p>
+		<h4>Videos from ajh123 (Minecraft ICT)</h4>
+		<VideoList client:load currentChannelId="UC5ZPyhfbqKT96EmYzANku7Q"/>
+	</section>
 </BlankLayout>
