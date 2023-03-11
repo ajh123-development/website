@@ -19,4 +19,5 @@ This comes with smooth terrain, which you could wonder around. There is also a u
 * Use the F3 key to open the debug screen.
 
 ## Dev screenshots
-<img src="https://minersonline.tk/wiki/images/5/52/History_survival1.png">The very first image. Equal to [on git](https://github.com/ajh123-development/HistorySurvival/tree/b1c3967d67db41b8b9b11a75558a44f8463f9ee3). Experiments with a basic terrain, entities and particles systems.</img>
+![History_survival1](https://user-images.githubusercontent.com/41990982/224503888-b910112d-2aa3-441b-95a7-3c5e558bfd99.png)
+The very first image. Equal to [on git](https://github.com/ajh123-development/HistorySurvival/tree/b1c3967d67db41b8b9b11a75558a44f8463f9ee3). Experiments with a basic terrain, entities and particles systems.
