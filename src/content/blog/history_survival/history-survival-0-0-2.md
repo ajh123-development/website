@@ -8,7 +8,7 @@ tags: ["miners online", "release", "history survival"]
 
 ## The very second version!
 
-This version was first released [on git] (https://github.com/ajh123-development/HistorySurvival/releases/tag/v0.0.2)
+This version was first released [on git](https://github.com/ajh123-development/HistorySurvival/releases/tag/v0.0.2)
 
 This is nearly exactly the same as the first History Survival version. except there is a better GUI system and a brand new Entity component system, which has newer debuging systems. Also worlds are now able to be saved and loaded!
 
