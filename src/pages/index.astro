@@ -5,10 +5,20 @@ const post = Astro.props;
 ---
 
 <BlankLayout {...post.data}>
-	<h1>Miners Online</h1>
-	<p>Welcome to our site!</p>
-	<a href="/docs/en/history-survival">Read the Docs!</a>
-	<a href="/blog">The Miners Blog!</a>
+	<div slot="body_top">
+		<p>13434</p>
+	</div>
+
+	<section  class="hero is-primary is-fullheight">
+		<div class="hero-body">
+			<div class="container has-text-centered">
+				<h1>Miners Online</h1>
+				<p>Welcome to our site!</p>
+				<a href="/docs/en/history-survival">Read the Docs!</a>
+				<a href="/blog">The Miners Blog!</a>
+			</div>
+		</div>
+	</section>
 
 	<section>
 		<center><h2>Our people</h2></center>
