@@ -261,4 +261,4 @@ If you have any questions about this Privacy Policy, You can contact us:
 
 
 
-- By visiting this page on our website: [https://github.com/ajh123-development/website/discussions/new?category=policy-discussion](https://github.com/ajh123-development/website/discussions/new?category=policy-discussion). Discalimer: Content posted on the page is publicy visible and is under the [https://docs.github.com/site-policy/privacy-policies/github-privacy-statement](policies of GitHub).
+- By visiting this page on our website: [https://github.com/ajh123-development/website/discussions/new?category=policy-discussion](https://github.com/ajh123-development/website/discussions/new?category=policy-discussion). Discalimer: Content posted on the page is publicy visible and is under [GitHub's Privacy Policy](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement).
