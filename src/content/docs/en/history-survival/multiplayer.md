@@ -3,7 +3,7 @@ title: "Multiplayer"
 description: "A guide on how Multiplayer will work in History Survival"
 ---
 
-# **Since the [LibGDX Rewrite](https://github.com/ajh123-development/HistorySurvival/pull/2) pull request has been merged multiplayer is not functional!**
+# **Since version v0.0.4 has been released multiplayer is not available!**
 
 ## Setting up
 
