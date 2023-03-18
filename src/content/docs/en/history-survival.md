@@ -3,7 +3,7 @@ title: "History Survival"
 description: "Introduction to History Survival"
 ---
 
-You may view the [blog articles](/blog) for History Survival.~~
+You may view the [blog articles](/blog) for History Survival.
 
 The source can be found on [GitHub](https://github.com/ajh123-development/HistorySurvival).
 
