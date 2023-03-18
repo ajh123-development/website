@@ -138,11 +138,11 @@ We use both Session and Persistent Cookies for the purposes set out below:
 
 	Administered by: Us
 
-	Purpose: These Cookies allow us to track the activity on Our Service and store certain information to improve and analyze Our Service. These Cookies are shared to following Service Providers:
+	Purpose: These Cookies allow us to collect Usage Data on Our Service and store certain information to improve and analyze Our Service. These Cookies are shared to following Service Providers:
 
 	- Google
 
-	Third-party Service Providers are used by us to have a better understanding of how You use the Website, the data collected by the Cookies and are sent to the Service Providers and is under the terms of the Service Providers' Privacy Policy. No peronally identifiable about You will be sent to Third-parties.
+	Third-party Service Providers are used by us to have a better understanding of how You use the Website, the Usage Data collected by the Cookies and are sent to the Service Providers and is under the terms of the Service Providers' Privacy Policy. No peronally identifiable about You will be sent to Third-parties.
 
 
 For more information about the cookies we use and your choices regarding cookies, please visit our Cookies Policy or the Cookies section of our Privacy Policy.
