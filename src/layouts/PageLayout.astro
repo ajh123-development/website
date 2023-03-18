@@ -3,6 +3,7 @@ import type { MarkdownHeading } from 'astro';
 import HeadCommon from '../components/HeadCommon.astro';
 import Header from '../components/Header/Header.astro';
 import Footer from '../components/Footer/Footer.astro';
+import Cookies from "../components/Cookies.astro";
 import { SITE } from '../consts';
 
 type Props = {
@@ -28,10 +29,16 @@ const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
 	<body>
 		<Header currentPage={currentPage} />
 		
-		<slot name="body_top"/>
+		<slot name="body_top"></slot>
 		<section class="section is-fullheight mt-3">
-			<slot />
+			<div class="columns">
+				<slot name="in_body_top"></slot>
+				<slot />
+				<slot name="in_body_end"></slot>
+			</div>
 		</section>
+		<slot name="body_end"></slot>
 		<Footer path={currentFile} />
+		<Cookies/>
 	</body>
 </html>

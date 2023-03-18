@@ -1,19 +1,30 @@
 ---
 import AvatarList from './AvatarList.astro';
+import { SITE } from '../../consts';
 type Props = {
 	path: string;
 };
 const { path } = Astro.props;
 ---
 
-<footer>
-	<AvatarList path={path} />
-</footer>
+<hr>
+<AvatarList path={path} />
 
-<style>
-	footer {
-		margin-top: auto;
-		padding: 2rem;
-		border-top: 3px solid var(--theme-divider);
-	}
-</style>
+<footer class="footer">
+	<h3 class="title is-3"><strong>{`${SITE.title}`}</strong></h3>
+	<div class="columns">
+		<div class="column">
+			First column
+		</div>
+		<div class="column">
+			Second column
+		</div>
+		<div class="column">
+			Third column
+		</div>
+		<div class="column">
+			Fourth column
+		</div>
+	</div>
+	<p>Copyright &copy; <strong>{`${SITE.title}`}</strong> 2023. All rights reserved. <a href="/legal/privacy-policy">Privacy Policy</a> </p>
+</footer>

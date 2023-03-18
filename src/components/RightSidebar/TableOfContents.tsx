@@ -69,19 +69,19 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
 	if (hasHeadings) {
 		return (
 			<>
-				<h2 id={onThisPageID} className="heading">
+				<p id={onThisPageID} className="menu-label">
 					On this page
-				</h2>
-				<ul ref={toc}>
+				</p>
+				<ul ref={toc} className="menu-list">
 					{headings
 						.filter(({ depth }) => depth > 1 && depth < 4)
 						.map((heading) => (
 							<li
-								className={`header-link depth-${heading.depth} ${
-									currentID === heading.slug ? 'current-header-link' : ''
-								}`.trim()}
+								className={`header-link depth-${heading.depth} }`.trim()}
 							>
-								<a href={`#${heading.slug}`} onClick={onLinkClick}>
+								<a href={`#${heading.slug}`} onClick={onLinkClick} className={`${
+									currentID === heading.slug ? 'is-active' : ''
+								}`.trim()}>
 									{unescape(heading.text)}
 								</a>
 							</li>

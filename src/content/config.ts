@@ -27,5 +27,13 @@ const blog = defineCollection({
 	}),
 });
 
+const legal = defineCollection({
+	schema: z.object({
+		description: z.string().default(SITE.description),
+		author: z.string(),
+		tags: z.array(z.string()),
+	}),
+});
 
-export const collections = { docs, blog };
+
+export const collections = { docs, blog, legal };

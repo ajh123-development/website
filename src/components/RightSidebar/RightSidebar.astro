@@ -11,6 +11,8 @@ type Props = {
 const { headings, githubEditUrl } = Astro.props;
 ---
 
-<TableOfContents client:media="(min-width: 50em)" headings={headings} />
-<slot/>
-<MoreMenu editHref={githubEditUrl} />
+<aside class="menu">
+	<TableOfContents client:media="(min-width: 50em)" headings={headings} />
+	<slot/>
+	<MoreMenu editHref={githubEditUrl} />
+</aside>

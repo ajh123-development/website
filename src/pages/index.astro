@@ -1,21 +1,24 @@
 ---
-import BlankLayout from '../layouts/BlankLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import { VideoList } from '../components/Video/VideoList';
+import { SITE } from '../consts';
 const post = Astro.props;
 ---
 
-<BlankLayout {...post.data}>
-	<div slot="body_top">
-		<p>13434</p>
-	</div>
-
-	<section  class="hero is-primary is-fullheight">
+<PageLayout {...post.data}>
+	<section slot="body_top" class="hero is-halfheight is-primary">
 		<div class="hero-body">
-			<div class="container has-text-centered">
-				<h1>Miners Online</h1>
-				<p>Welcome to our site!</p>
-				<a href="/docs/en/history-survival">Read the Docs!</a>
-				<a href="/blog">The Miners Blog!</a>
+			<div class="container">
+				<p class="title">
+					{`${SITE.title}`}
+				</p>
+				<p class="subtitle">
+					We make the game History Survival, and a few Minecraft mods.
+					<br>
+					<br>
+					<a class="button is-link" href="/docs/en/history-survival">Documentaion</a>
+					<a class="button is-link" href="/blog">The Miners Blog</a>
+				</p>
 			</div>
 		</div>
 	</section>

@@ -9,8 +9,8 @@ const { editHref } = Astro.props;
 const showMoreSection = Boolean(COMMUNITY_INVITE_URL);
 ---
 
-{showMoreSection && <h2 class="heading">More</h2>}
-<ul>
+{showMoreSection && <p class="menu-label">More</p>}
+<ul class="menu-list">
 	{
 		editHref && (
 			<li class={`header-link depth-2`}>

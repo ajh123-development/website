@@ -3,6 +3,7 @@ import type { MarkdownHeading } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 import RightSidebar from '../components/RightSidebar/RightSidebar.astro';
 import BlogInfo from '../components/RightSidebar/BlogInfo.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import { GITHUB_EDIT_URL } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'] & {
@@ -16,15 +17,18 @@ const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 
 ---
 
-<div class="columns">
-	<div class="column">
-		<h1 class="title">{title}</h1>
-		<hr>
-		<slot />
-	</div>
-	<div class="column is-one-quarter">
-		<RightSidebar headings={headings} githubEditUrl={githubEditUrl}>
-			<BlogInfo blog={Astro.props}/>
-		</RightSidebar>
-	</div>
+<PageLayout headings={headings} {...data}>
+
+<div class="column content">
+	<h1 class="title">{title}</h1>
+	<hr>
+	<slot />
 </div>
+
+<div class="column is-one-quarter" slot="in_body_end">
+	<RightSidebar headings={headings} githubEditUrl={githubEditUrl}>
+		<BlogInfo blog={Astro.props}/>
+	</RightSidebar>
+</div>
+
+</PageLayout>

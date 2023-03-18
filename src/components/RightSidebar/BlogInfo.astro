@@ -6,21 +6,21 @@ type Props = { blog:CollectionEntry<'blog'>['data'] };
 const { blog } = Astro.props;
 ---
 
-<h2 class="heading">POST INFORMATION</h2>
-<ul>
-	<li class={`header-link depth-2`}><p> Publication Date: {new Date(blog.pubDate).toLocaleDateString('en-us', {
+<p class="menu-label">POST INFORMATION</p>
+<ul class="menu-list">
+	<li class={`header-link depth-2`}><a> Publication Date: {new Date(blog.pubDate).toLocaleDateString('en-us', {
 		year: 'numeric',
 		month: 'short',
 		day: 'numeric',
-	})} </p></li>
-	<li class={`header-link depth-2`}><p>Author: {blog.author}</p></li>
-	<li class={`header-link depth-2`}><p>{blog.description} </p></li>
+	})} </a></li>
+	<li class={`header-link depth-2`}><a>Author: {blog.author}</a></li>
+	<li class={`header-link depth-2`}><a>{blog.description} </a></li>
 </ul>
-<h2 class="heading">POST TAGS</h2>
-<ul>
+<p class="menu-label">POST TAGS</p>
+<ul class="menu-list">
 	{
 		blog.tags.map((tag) => (
-		<li class={`header-link depth-2`}><p>{tag} </p></li>
+		<li class={`tag is-link is-light header-link depth-2`}><a>{tag} </a></li>
 		))
 	}
 </ul>
