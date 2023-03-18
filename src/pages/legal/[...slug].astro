@@ -18,5 +18,7 @@ const { Content, headings } = await post.render();
 ---
 
 <PageLayout headings={headings} {...post.data}>
-	<Content />
+	<div class="column content">
+		<Content />
+	</div>
 </PageLayout>
