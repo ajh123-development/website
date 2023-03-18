@@ -3,6 +3,7 @@ import type { MarkdownHeading } from 'astro';
 import HeadCommon from '../components/HeadCommon.astro';
 import Header from '../components/Header/Header.astro';
 import Footer from '../components/Footer/Footer.astro';
+import Cookies from "../components/Cookies.astro";
 import { SITE } from '../consts';
 
 type Props = {
@@ -21,22 +22,23 @@ const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
 		<HeadCommon />
 		<slot name="extra_head"/>
 		<title>
-			{`${data.title || "" } 🚀 ${SITE.title}`}
+			{`${data.title || "" }  ${SITE.title}`}
 		</title>
-		<style>
-			body {
-				width: 100%;
-				display: grid;
-				grid-template-rows: var(--theme-navbar-height) 1fr;
-				--gutter: 0.5rem;
-				--doc-padding: 2rem;
-			}
-		</style>
 	</head>
 
 	<body>
 		<Header currentPage={currentPage} />
-		<slot />
+		
+		<slot name="body_top"></slot>
+		<section class="section is-fullheight mt-3">
+			<div class="columns">
+				<slot name="in_body_top"></slot>
+				<slot />
+				<slot name="in_body_end"></slot>
+			</div>
+		</section>
+		<slot name="body_end"></slot>
 		<Footer path={currentFile} />
+		<Cookies/>
 	</body>
 </html>

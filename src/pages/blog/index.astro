@@ -3,29 +3,45 @@ import BlankLayout from '../../layouts/BlankLayout.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
-	(a, b) => new Date(a.data.pubDate).valueOf() - new Date(b.data.pubDate).valueOf()
+	(a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
 );
 const post = Astro.props;
 ---
 
 <BlankLayout {...post.data}>
-	<h1>Blog Posts</h1>
-	<section>
-		<ul>
-			{
-				posts.map((post) => (
-					<li>
-						<time datetime={new Date(post.data.pubDate).toISOString()}>
-							{new Date(post.data.pubDate).toLocaleDateString('en-us', {
-								year: 'numeric',
-								month: 'short',
-								day: 'numeric',
-							})}
-						</time>
-						<a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-					</li>
-				))
-			}
-		</ul>
-	</section>
+	<div class="column">
+		<h1 class="title">Blog Posts</h1>
+		<hr>
+		<section>
+			<ul>
+				{
+					posts.map((post) => (
+						<li>
+							<article class="box media mt-3">
+								<div class="media-content">
+									<div class="content">
+									<p>
+										<strong>{post.data.title}</strong> 
+										<small>	<time datetime={new Date(post.data.pubDate).toISOString()}>
+										{new Date(post.data.pubDate).toLocaleDateString('en-us', {
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+										})}
+										</time></small>
+										<br>
+										{post.data.description}
+									</p>
+									</div>
+								</div>
+								<div class="media-right">
+									<a class="button is-link" href={`/blog/${post.slug}/`}>Visit</a>
+								</div>
+							</article>
+						</li>
+					))
+				}
+			</ul>
+		</section>
+	</div>
 </BlankLayout>

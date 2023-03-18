@@ -1,19 +1,42 @@
 ---
 import AvatarList from './AvatarList.astro';
+import { SITE } from '../../consts';
 type Props = {
 	path: string;
 };
 const { path } = Astro.props;
 ---
 
-<footer>
-	<AvatarList path={path} />
-</footer>
+<hr>
+<AvatarList path={path} />
 
-<style>
-	footer {
-		margin-top: auto;
-		padding: 2rem;
-		border-top: 3px solid var(--theme-divider);
-	}
-</style>
+<footer class="footer">
+	<h3 class="title is-3"><strong>{`${SITE.title}`}</strong></h3>
+	<div class="columns">
+		<div class="column">
+			<h4 class="is-size-4">History Survival</h4>
+			<ul>
+				<li><a href="https://github.com/ajh123-development/HistorySurvival" target="_blank">Repository</a></li>
+				<li><a href="/docs/en/history-survival">Documentation</a></li>
+			</ul>
+		</div>
+
+		<div class="column">
+			<h4 class="is-size-4">More ...</h4>
+			<ul>
+				<li><a href="/blog">Blog</a></li>
+				<li><a href="/legal/privacy-policy">Privacy Policy</a></li>
+				<li><a href="https://github.com/ajh123-development/website" target="_blank">Website Repository</a></li>
+			</ul>
+		</div>
+
+		<div class="column">
+		</div>
+
+		<div class="column">
+		</div>
+	</div>
+	<hr>
+	<p>Copyright &copy; <strong>{`${SITE.title}`}</strong> 2023. All rights reserved.</p>
+	<p>The "Blog" and "Documentation" content is licensed with <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a> unless stated otherwise.</p>
+</footer>

@@ -2,11 +2,7 @@
 import { getLanguageFromURL } from '../../languages';
 import { SITE } from '../../consts';
 import SkipToContent from './SkipToContent.astro';
-import SidebarToggle from './SidebarToggle';
 import LanguageSelect from './LanguageSelect';
-import Search from './Search';
-import { NavItem, Dropdown } from './Navigation';
-import { Icon } from 'astro-icon'
 
 type Props = {
 	currentPage: string;
@@ -22,128 +18,34 @@ if (currentPage.startsWith("/docs")) {
 
 <header>
 	<SkipToContent />
-	<nav class="nav-wrapper" title="Top Navigation">
-		<div class="menu-toggle">
-			{switcher && <SidebarToggle client:idle />}
+	<nav class="navbar is-fixed-top is-info" role="navigation" aria-label="main navigation">
+		<div class="container">
+			<div class="navbar-brand">
+				<a href="/" class="navbar-item mr-3">
+					{ SITE.title }
+				</a>
+				<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+				</a>
+			</div>
+			<div id="navbarMenu" class="navbar-menu">
+				<div class="navbar-start">
+					<a href="/" class="navbar-item">
+						Home
+					</a>
+					<a href="/docs/en/history-survival" class="navbar-item">
+						Documentation
+					</a>
+					<a href="/blog" class="navbar-item">
+						Blog
+					</a>
+				</div>
+
+				<div class="navbar-end">
+				</div>
+			</div>
 		</div>
-		<div class="logo flex">
-			<a href="/">
-				<h1>{SITE.title}</h1>
-			</a>
-		</div>
-		<div style="flex-grow: 1;"></div>
-		{switcher && <LanguageSelect lang={lang} client:idle />}
-		<div class="search-item">
-			<Search client:idle />
-		</div>
-		<!-- <NavItem client:load id="add"><Icon name="fa:plus" slot="icon"/></NavItem>
-		<NavItem client:load id="down">
-			<Icon name="fa:caret-down" slot="icon"/>
-			<Dropdown client:load/>
-		</NavItem> -->
 	</nav>
 </header>
-
-<style>
-	header {
-		z-index: 11;
-		height: var(--theme-navbar-height);
-		width: 100%;
-		background-color: var(--theme-navbar-bg);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		position: sticky;
-		top: 0;
-		box-shadow: 0 4px 2px -2px gray;
-		position: static;
-	}
-
-	.logo {
-		flex: 1;
-		display: flex;
-		overflow: hidden;
-		width: auto;
-		font-size: 2rem;
-		flex-shrink: 0;
-		font-weight: 600;
-		line-height: 1;
-		color: hsla(var(--color-base-white), 100%, 1);
-		gap: 0.25em;
-		z-index: 0;
-	}
-
-	.logo a {
-		display: flex;
-		padding: 0.5em 0.25em;
-		margin: -0.5em -0.25em;
-		text-decoration: none;
-		font-weight: bold;
-	}
-
-	.logo a {
-		transition: color 100ms ease-out;
-		color: hsla(var(--color-base-white), 100%, 1);
-	}
-
-	.logo a:hover,
-	.logo a:focus {
-		color: hsla(var(--color-gray-95), 1);
-	}
-
-	.logo h1 {
-		display: none;
-		font: inherit;
-		color: inherit;
-		margin: 0;
-	}
-
-	.nav-wrapper {
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		gap: 1em;
-		width: 100%;
-		max-width: 82em;
-		padding: 0 1rem;
-	}
-
-	@media (min-width: 53em) {
-		.logo {
-			width: auto;
-			margin: 0;
-			z-index: 0;
-		}
-
-		.logo h1 {
-			display: initial;
-		}
-
-		.menu-toggle {
-			display: none;
-		}
-	}
-
-	/** Style Algolia */
-	:root {
-		--docsearch-primary-color: var(--theme-accent);
-		--docsearch-logo-color: var(--theme-text);
-	}
-
-	.search-item {
-		display: none;
-		position: relative;
-		z-index: 10;
-		flex-grow: 1;
-		padding-right: 0.7rem;
-		display: flex;
-		max-width: 200px;
-	}
-</style>
-
-<style is:global>
-	.search-item > * {
-		flex-grow: 1;
-	}
-</style>
