@@ -17,10 +17,12 @@ const { blog } = Astro.props;
 	<li class={`header-link depth-2`}><a>{blog.description} </a></li>
 </ul>
 <p class="menu-label">POST TAGS</p>
-<ul class="menu-list">
+<div class="tags">
 	{
 		blog.tags.map((tag) => (
-		<li class={`tag is-link is-light header-link depth-2`}><a>{tag} </a></li>
+		<span class="tag is-link is-light">
+			<a href={`?search=${tag}&is_tag`}>#{tag} </a>
+		</span>
 		))
 	}
-</ul>
+</div>
