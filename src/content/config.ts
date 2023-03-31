@@ -14,6 +14,7 @@ const docs = defineCollection({
 			})
 			.optional(),
 		ogLocale: z.string().optional(),
+		tags: z.array(z.string()),
 	}),
 });
 

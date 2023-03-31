@@ -26,7 +26,7 @@ const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 </div>
 
 <div class="column is-one-quarter" slot="in_body_end">
-	<RightSidebar headings={headings} githubEditUrl={githubEditUrl}>
+	<RightSidebar headings={headings} githubEditUrl={githubEditUrl} tags={tags}>
 		<BlogInfo blog={Astro.props}/>
 	</RightSidebar>
 </div>

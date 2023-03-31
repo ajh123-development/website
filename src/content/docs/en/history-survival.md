@@ -1,6 +1,7 @@
 ---
 title: "History Survival"
 description: "Introduction to History Survival"
+tags: ["miners online", "history survival"]
 ---
 
 You may view the [blog articles](/blog) for History Survival.

@@ -1,6 +1,9 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
+import RightSidebar from '../../components/RightSidebar/RightSidebar.astro';
+import type { MarkdownHeading } from 'astro';
 import PageLayout from '../../layouts/PageLayout.astro';
+import { GITHUB_EDIT_URL } from '../../consts';
 
 export async function getStaticPaths() {
 	const legal = await getCollection('legal');
@@ -15,10 +18,19 @@ type Props = CollectionEntry<'legal'>;
 
 const post = Astro.props;
 const { Content, headings } = await post.render();
+
+const currentPage = Astro.url.pathname;
+const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
+const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 ---
 
 <PageLayout headings={headings} {...post.data}>
 	<div class="column content">
 		<Content />
+	</div>
+
+	<div class="column is-one-quarter" slot="in_body_end">
+		<RightSidebar headings={headings} githubEditUrl={githubEditUrl} tags={post.data.tags}>
+		</RightSidebar>
 	</div>
 </PageLayout>

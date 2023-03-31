@@ -1,6 +1,7 @@
 ---
 title: "Formatting Text"
 description: "A Guide on how to format text in History Survival"
+tags: ["miners online", "history survival", "formatting", "text"]
 ---
 
 ## Colors

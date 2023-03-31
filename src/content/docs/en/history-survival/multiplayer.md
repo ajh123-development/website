@@ -1,6 +1,7 @@
 ---
 title: "Multiplayer"
 description: "A guide on how Multiplayer will work in History Survival"
+tags: ["miners online", "history survival", "multiplayer"]
 ---
 
 # **Since version v0.0.4 has been released multiplayer is not available!**

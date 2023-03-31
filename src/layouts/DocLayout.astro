@@ -11,7 +11,7 @@ type Props = CollectionEntry<'docs'>['data'] & {
 	headings: MarkdownHeading[];
 };
 
-const { headings, title, ...data } = Astro.props;
+const { headings, title, tags, ...data } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const currentPage = Astro.url.pathname;
 const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
@@ -31,7 +31,7 @@ const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 </div>
 
 <div class="column" slot="in_body_end">
-	<RightSidebar headings={headings} githubEditUrl={githubEditUrl} />
+	<RightSidebar headings={headings} githubEditUrl={githubEditUrl} tags={tags} />
 </div>
 
 </PageLayout>

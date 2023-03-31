@@ -1,6 +1,7 @@
 ---
 title: "Creating text with JSON"
 description: "A guide to Json Text Componments"
+tags: ["miners online", "history survival", "json", "text"]
 ---
 
 ## JSONTextComponents
