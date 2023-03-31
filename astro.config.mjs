@@ -11,4 +11,5 @@ export default defineConfig({
 		react(),
 	],
 	site: `https://minersonline.tk`,
+	output: 'server'
 });

@@ -19,7 +19,7 @@ const { headings, githubEditUrl, tags } = Astro.props;
 		{
 			tags.map((tag) => (
 			<span class="tag is-link is-light">
-				<a href={`?search=${tag}&is_tag`}>#{tag} </a>
+				<a href={`/search?q=${tag}&is_tag`}>#{tag} </a>
 			</span>
 			))
 		}

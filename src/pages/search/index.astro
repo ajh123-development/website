@@ -1,0 +1,12 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { SITE } from '../../consts';
+const post = Astro.props;
+const search = Astro.url.searchParams.get('q')! || '';
+---
+
+<PageLayout {...post.data}>
+	<section class="content section">
+		<h1>Search results ... {search}</h1>
+	</section>
+</PageLayout>
