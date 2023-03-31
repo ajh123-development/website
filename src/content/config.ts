@@ -30,6 +30,7 @@ const blog = defineCollection({
 
 const legal = defineCollection({
 	schema: z.object({
+		title: z.string().default(SITE.title),
 		description: z.string().default(SITE.description),
 		author: z.string(),
 		tags: z.array(z.string()),

@@ -1,9 +1,8 @@
 ---
+title: 'Privacy Policy'
 author: 'ajh123'
 tags: ["miners online", "pollicy", "privacy"]
 ---
-
-# Privacy Policy
 
 Last updated: March 18, 2023
 

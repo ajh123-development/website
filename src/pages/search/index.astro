@@ -1,12 +1,97 @@
 ---
+import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import { SITE } from '../../consts';
 const post = Astro.props;
-const search = Astro.url.searchParams.get('q')! || '';
----
 
+const blog = await getCollection('blog');
+const docs = await getCollection('docs');
+const legal = await getCollection('legal');
+
+function escapeHtml(unsafe) {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+}
+
+function escapeContentHtml(unsafe) {
+	for (var postIndex in unsafe) {
+		const post = unsafe[postIndex];
+		post.body = escapeHtml(post.body);
+	}
+	return unsafe;
+ }
+---
 <PageLayout {...post.data}>
 	<section class="content section">
-		<h1>Search results ... {search}</h1>
+		<script is:inline set:html={"var blog =" + JSON.stringify(escapeContentHtml(blog))}/>
+		<script is:inline set:html={"var docs =" + JSON.stringify(escapeContentHtml(docs))}/>
+		<script is:inline set:html={"var legal =" + JSON.stringify(escapeContentHtml(legal))}/>
+
+		<h1>Search results ... </h1>
+		<div id="results"/>
+
+		<script is:inline>
+			const params = new Proxy(new URLSearchParams(window.location.search), {
+				get: (searchParams, prop) => searchParams.get(prop),
+			});
+			let value = params.q;
+			var found = [];
+			for (var postIndex in blog) {
+				const post = blog[postIndex];
+				if (post.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+					found.push(post);
+					continue;
+				} else if (post.data.description.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+					found.push(post);
+					continue;
+				}
+				for (tag in post.data.tags) {
+					if (tag.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+						found.push(post);
+						continue;
+					}
+				}
+			}
+			for (var docsIndex in docs) {
+				const doc = docs[docsIndex];
+				if (doc.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+					found.push(doc);
+					continue;
+				} else if (doc.data.description.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+					found.push(doc);
+					continue;
+				}
+				for (tag in doc.data.tags) {
+					if (tag.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+						found.push(doc);
+						continue;
+					}
+				}
+			}
+			for (var legalIndex in legal) {
+				const legalContent = legal[legalIndex];
+				if (legalContent.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+					found.push(legalContent);
+					continue;
+				}
+				for (tag in legalContent.data.tags) {
+					if (tag.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+						found.push(legalContent);
+						continue;
+					}
+				}
+			}
+		
+			const results = document.getElementById("results");
+			for (var foundIndex in found) {
+				const foundContent = found[foundIndex];
+				console.log(foundContent)
+				results.appendChild(document.createTextNode(foundContent.data.title));
+			}
+		</script>
 	</section>
 </PageLayout>
