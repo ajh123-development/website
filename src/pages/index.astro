@@ -5,8 +5,8 @@ import { SITE } from '../consts';
 const post = Astro.props;
 ---
 
-<PageLayout {...post.data}>
-	<section slot="body_top" class="hero is-halfheight is-primary">
+<PageLayout hasMiddle={false} {...post.data}>
+	<section slot="body_top" class="hero is-halfheight has-background-primary">
 		<div class="hero-body">
 			<div class="container">
 				<p class="title">
@@ -23,11 +23,44 @@ const post = Astro.props;
 		</div>
 	</section>
 
-	<section>
-		<center><h2>Our people</h2></center>
-		<h3>ajh123</h3>
-		<p>Known as Sam Hulme, he is the owner of this site. ajh123 is the GitHub username for them.</p>
-		<h4>Videos from ajh123 (Minecraft ICT)</h4>
-		<VideoList client:load currentChannelId="UC5ZPyhfbqKT96EmYzANku7Q"/>
+	<section slot="body_mid" class="content">
+		<section class="section"></section>
+
+		<section class="has-background-success-light section">
+			<h2>About Us</h2>
+			<p>Miners Online is simply a name used by our creator for his website, and the website is a place to document his projects.</p>
+			
+			<h3>Our creator</h3>
+			<p>Our creator is <a href="https://github.com/ajh123">ajh 123 on GitHub</a>. Everything that is made can be found in the <a href="https://github.com/ajh123-development">Github</a>.</p>
+			<p>Our creator has a YouTube channel, which is found <a href="https://www.youtube.com/@minecraftict">here</a>, and contains videos about History Survival and other games</p>
+
+			<h4>Recent Videos (from our creator)</h4>
+			<VideoList client:load currentChannelId="UC5ZPyhfbqKT96EmYzANku7Q"/>
+		</section>
+		
+		<section class="section"></section>
+
+		<section class="has-background-success-light section">
+			<h2>Dontations</h2>
+			<div class="columns">
+				<div class="column is-one-fifth">
+					<img src="/assets/images/monero.png"/>
+				</div>
+				<div class="column">
+					<p>Dontations are used to help to keep running our site. You may send us payments using cryptocurencies.</p>
+					<ul>
+						<li><p>We accept payments in Monero.</p></li>
+						<li><p>Scan the QR code on the left, or click 
+							<a href="monero:82W6d1rsEfRJEMi1SzUELBAt4eTk5s5c5hQRpLbfqtmx4KWbPkNebs72HcSV48p9eDErS4gUX6BSPAXiUM51t9tbSzDbRZ8">here</a>.
+						</p></li>
+						<li><p>
+							You may send Monero directly to the following address: 
+							<pre style="overflow-x: auto;">82W6d1rsEfRJEMi1SzUELBAt4eTk5s5c5hQRpLbfqtmx4KWbPkNebs72HcSV48p9eDErS4gUX6BSPAXiUM51t9tbSzDbRZ8</pre>
+						</p></li>
+					</ul>
+					<p>You are unable to get your payments back.</p>
+				</div>
+			</div>
+		</section>
 	</section>
-</BlankLayout>
+</PageLayout>

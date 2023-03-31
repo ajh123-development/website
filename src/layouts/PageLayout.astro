@@ -9,10 +9,11 @@ import { SITE } from '../consts';
 type Props = {
 	title: string;
 	headings: MarkdownHeading[];
+	hasMiddle: Boolean;
 	githubEditUrl: string;
 };
 
-const { headings, ...data } = Astro.props;
+const { headings, hasMiddle=true, ...data } = Astro.props;
 const currentPage = Astro.url.pathname;
 const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
 ---
@@ -30,6 +31,8 @@ const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
 		<Header currentPage={currentPage} />
 		
 		<slot name="body_top"></slot>
+		<slot name="body_mid"></slot>
+		{ (hasMiddle == true || hasMiddle == undefined) &&
 		<section class="section is-fullheight mt-3">
 			<div class="columns">
 				<slot name="in_body_top"></slot>
@@ -37,6 +40,7 @@ const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
 				<slot name="in_body_end"></slot>
 			</div>
 		</section>
+		}
 		<slot name="body_end"></slot>
 		<Footer path={currentFile} />
 		<Cookies/>
