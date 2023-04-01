@@ -98,7 +98,7 @@ function escapeContentHtml(unsafe) {
 				const foundContent = found[foundIndex];
 				const li = document.createElement("li");
 				const link = document.createElement("a");
-				link.href = foundContent.collection + "/" + foundContent.slug;
+				link.href = "/" + foundContent.collection + "/" + foundContent.slug;
 				link.appendChild(document.createTextNode(foundContent.data.title));
 				li.appendChild(link);
 				results.appendChild(li);
