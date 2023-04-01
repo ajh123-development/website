@@ -18,9 +18,8 @@ const post = Astro.props;
 					posts.map((post) => (
 						<li>
 							<article class="box media mt-3">
-								<div class="media-content">
+								<div class="media-content" style="overflow-y: hidden;">
 									<div class="content">
-									<p>
 										<strong>{post.data.title}</strong> 
 										<small>	<time datetime={new Date(post.data.pubDate).toISOString()}>
 										{new Date(post.data.pubDate).toLocaleDateString('en-us', {
@@ -31,7 +30,15 @@ const post = Astro.props;
 										</time></small>
 										<br>
 										{post.data.description}
-									</p>
+									</div>
+									<div class="tags">
+										{
+											post.data.tags.map((tag) => (
+											<span class="tag is-link is-light">
+												<a href={`/search?q=${tag}&is_tag`}>#{tag} </a>
+											</span>
+											))
+										}
 									</div>
 								</div>
 								<div class="media-right">

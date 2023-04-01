@@ -23,16 +23,22 @@ function escapeContentHtml(unsafe) {
 		post.body = escapeHtml(post.body);
 	}
 	return unsafe;
- }
+}
+
+console.log(window.location.search);
 ---
 <PageLayout {...post.data}>
-	<section class="content section">
-		<script is:inline set:html={"var blog =" + JSON.stringify(escapeContentHtml(blog))}/>
-		<script is:inline set:html={"var docs =" + JSON.stringify(escapeContentHtml(docs))}/>
-		<script is:inline set:html={"var legal =" + JSON.stringify(escapeContentHtml(legal))}/>
+	<section class="section">
+		<script set:html={
+			"var blog =" + JSON.stringify(escapeContentHtml(blog)) + ";" +
+			"var docs =" + JSON.stringify(escapeContentHtml(docs)) + ";" +
+			"var legal =" + JSON.stringify(escapeContentHtml(legal)) + ";"
+		}/>
 
-		<h1>Search results ... </h1>
-		<div id="results"/>
+		<h1 class="title">Search results ... </h1>
+		<div>
+			<ul id="results"/>
+		</div>
 
 		<script is:inline>
 			const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -49,7 +55,8 @@ function escapeContentHtml(unsafe) {
 					found.push(post);
 					continue;
 				}
-				for (tag in post.data.tags) {
+				for (var tagIndex in post.data.tags) {
+					const tag = post.data.tags[tagIndex];
 					if (tag.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
 						found.push(post);
 						continue;
@@ -65,7 +72,8 @@ function escapeContentHtml(unsafe) {
 					found.push(doc);
 					continue;
 				}
-				for (tag in doc.data.tags) {
+				for (var tagIndex in doc.data.tags) {
+					const tag = doc.data.tags[tagIndex];
 					if (tag.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
 						found.push(doc);
 						continue;
@@ -78,7 +86,8 @@ function escapeContentHtml(unsafe) {
 					found.push(legalContent);
 					continue;
 				}
-				for (tag in legalContent.data.tags) {
+				for (var tagIndex in legalContent.data.tags) {
+					const tag = legalContent.data.tags[tagIndex];
 					if (tag.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
 						found.push(legalContent);
 						continue;
@@ -89,8 +98,12 @@ function escapeContentHtml(unsafe) {
 			const results = document.getElementById("results");
 			for (var foundIndex in found) {
 				const foundContent = found[foundIndex];
-				console.log(foundContent)
-				results.appendChild(document.createTextNode(foundContent.data.title));
+				const li = document.createElement("li");
+				const link = document.createElement("a");
+				link.href = foundContent.collection + "/" + foundContent.slug;
+				link.appendChild(document.createTextNode(foundContent.data.title));
+				li.appendChild(link);
+				results.appendChild(li);
 			}
 		</script>
 	</section>
