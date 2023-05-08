@@ -37,10 +37,10 @@ export type Sidebar = Record<
 export const SIDEBAR: Sidebar = {
 	en: {
 		'History Survival': [
-			{ text: 'Introduction', link: 'docs/en/history-survival' },
-			{ text: 'Multiplayer', link: 'docs/en/history-survival/multiplayer' },
-			{ text: 'Text Formaatting', link: 'docs/en/history-survival/formatting-text' },
-			{ text: 'JSON text', link: 'docs/en/history-survival/json-text' },
+			{ text: 'Introduction', link: 'docs/history-survival/en_gb' },
+			{ text: 'Multiplayer', link: 'docs/history-survival/en_gb/multiplayer' },
+			{ text: 'Text Formaatting', link: 'docs/history-survival/en_gb/formatting-text' },
+			{ text: 'JSON text', link: 'docs/history-survival/en_gb/json-text' },
 		],
 	},
 };
