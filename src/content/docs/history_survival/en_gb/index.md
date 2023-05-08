@@ -13,6 +13,8 @@ Versions of History Survival greater and equal to `v0.0.5` are found on the [mai
 
 Older versions are found in the [archives](https://github.com/ajh123-archives/HistorySurvival-pre0.0.5/releases).
 
+# The folowing pages are outdated!
+
 ## Topics
 * [Multiplayer](/docs/en/history-survival/multiplayer/)
 * Text

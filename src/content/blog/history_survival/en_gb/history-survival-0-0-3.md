@@ -1,14 +1,14 @@
 ---
 title: 'History Survival 0.0.3'
 pubDate: '2022-11-15'
-description: 'The very third version!'
+description: 'The third version!'
 author: 'Staff'
 tags: ["miners online", "release", "history survival"]
 ---
 
-## The very third version!
+## The third version!
 
-This version was first released [on git](https://github.com/ajh123-development/HistorySurvival/releases/tag/v0.0.3)
+This version was first released [on git](https://github.com/ajh123-archives/HistorySurvival/releases/tag/v0.0.3)
 
 This is nearly exactly the same as the second History Survival version. Except the old terrain system has been removed. There is also a new world selection / creation menus. World data is now split into multiple files. Separate game objects are now saved separately along with player data.
 

@@ -7,7 +7,7 @@ tags: ["miners online", "release", "history survival"]
 ---
 
 ## Intro
-Find the source [on git](https://github.com/ajh123-development/HistorySurvival/releases/tag/v0.0.1).
+Find the source [on git](https://github.com/ajh123-archives/HistorySurvival/releases/tag/v0.0.1).
 
 This comes with smooth terrain, which you could wonder around. There is also a useful debug, with your position and camera position, the amount of particles, the region of terrain and the game version.
 
