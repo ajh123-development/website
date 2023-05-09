@@ -1,108 +1,82 @@
 ---
 import { getCollection } from 'astro:content';
-import PageLayout from '../../layouts/PageLayout.astro';
-import { SITE } from '../../consts';
+import BlankLayout from '../../layouts/BlankLayout.astro';
+import SearchResult from '../../components/SearchResult.astro'
 const post = Astro.props;
 
 const blog = await getCollection('blog');
 const docs = await getCollection('docs');
 const legal = await getCollection('legal');
 
-function escapeHtml(unsafe) {
-    return unsafe
-         .replace(/&/g, "&amp;")
-         .replace(/</g, "&lt;")
-         .replace(/>/g, "&gt;")
-         .replace(/"/g, "&quot;")
-         .replace(/'/g, "&#039;");
-}
-
-function escapeContentHtml(unsafe) {
-	for (var postIndex in unsafe) {
-		const post = unsafe[postIndex];
-		post.body = escapeHtml(post.body);
+var value: string = Astro.url.searchParams.get("q") as string;
+var found = [];
+for (var postIndex in blog) {
+	const post = blog[postIndex];
+	if (post.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+		found.push(post);
+		continue;
+	} else if (post.data.description.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+		found.push(post);
+		continue;
 	}
-	return unsafe;
+	for (var tagIndex in post.data.tags) {
+		const tag = post.data.tags[tagIndex];
+		if (tag.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+			found.push(post);
+			continue;
+		}
+	}
+}
+for (var docsIndex in docs) {
+	const doc = docs[docsIndex];
+	if (doc.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+		found.push(doc);
+		continue;
+	} else if (doc.data.description.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+		found.push(doc);
+		continue;
+	}
+	for (var tagIndex in doc.data.tags) {
+		const tag = doc.data.tags[tagIndex];
+		if (tag.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+			found.push(doc);
+			continue;
+		}
+	}
+}
+for (var legalIndex in legal) {
+	const legalContent = legal[legalIndex];
+	if (legalContent.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+		found.push(legalContent);
+		continue;
+	}
+	for (var tagIndex in legalContent.data.tags) {
+		const tag = legalContent.data.tags[tagIndex];
+		if (tag.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+			found.push(legalContent);
+			continue;
+		}
+	}
 }
 ---
-<PageLayout {...post.data}>
-	<section class="section">
-		<script set:html={
-			"var blog =" + JSON.stringify(escapeContentHtml(blog)) + ";" +
-			"var docs =" + JSON.stringify(escapeContentHtml(docs)) + ";" +
-			"var legal =" + JSON.stringify(escapeContentHtml(legal)) + ";"
-		}></script>
-
-		<h1 class="title">Search results ... </h1>
-		<div>
-			<ul id="results"/>
-		</div>
-
-		<script is:inline>
-			const params = new Proxy(new URLSearchParams(window.location.search), {
-				get: (searchParams, prop) => searchParams.get(prop),
-			});
-			let value = params.q;
-			var found = [];
-			for (var postIndex in blog) {
-				const post = blog[postIndex];
-				if (post.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
-					found.push(post);
-					continue;
-				} else if (post.data.description.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
-					found.push(post);
-					continue;
+<BlankLayout {...post.data}>
+	<div class="column">
+		<h1 class="title">Search Results</h1>
+		<hr>
+		<section>
+			<ul>
+				{
+					found.map((result) => (
+						<SearchResult 
+							tags={result.data.tags}
+							description={result.data.description} 
+							pubDate=""
+							title={result.data.title}
+							slug={result.slug}
+						></SearchResult>
+					))
 				}
-				for (var tagIndex in post.data.tags) {
-					const tag = post.data.tags[tagIndex];
-					if (tag.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
-						found.push(post);
-						continue;
-					}
-				}
-			}
-			for (var docsIndex in docs) {
-				const doc = docs[docsIndex];
-				if (doc.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
-					found.push(doc);
-					continue;
-				} else if (doc.data.description.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
-					found.push(doc);
-					continue;
-				}
-				for (var tagIndex in doc.data.tags) {
-					const tag = doc.data.tags[tagIndex];
-					if (tag.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
-						found.push(doc);
-						continue;
-					}
-				}
-			}
-			for (var legalIndex in legal) {
-				const legalContent = legal[legalIndex];
-				if (legalContent.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
-					found.push(legalContent);
-					continue;
-				}
-				for (var tagIndex in legalContent.data.tags) {
-					const tag = legalContent.data.tags[tagIndex];
-					if (tag.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
-						found.push(legalContent);
-						continue;
-					}
-				}
-			}
-		
-			const results = document.getElementById("results");
-			for (var foundIndex in found) {
-				const foundContent = found[foundIndex];
-				const li = document.createElement("li");
-				const link = document.createElement("a");
-				link.href = "/" + foundContent.collection + "/" + foundContent.slug;
-				link.appendChild(document.createTextNode(foundContent.data.title));
-				li.appendChild(link);
-				results.appendChild(li);
-			}
-		</script>
-	</section>
-</PageLayout>
+			</ul>
+		</section>
+	</div>
+</BlankLayout>

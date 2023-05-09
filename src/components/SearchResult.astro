@@ -15,13 +15,14 @@ const {tags, description, slug, pubDate, title} = Astro.props;
 		<div class="media-content" style="overflow-y: hidden;">
 			<div class="content">
 				<strong>{title}</strong> 
+				{pubDate != "" &&
 				<small>	<time datetime={new Date(pubDate).toISOString()}>
 				{new Date(pubDate).toLocaleDateString('en-us', {
 					year: 'numeric',
 					month: 'short',
 					day: 'numeric',
 				})}
-				</time></small>
+				</time></small>}
 				<br>
 				{description}
 			</div>
