@@ -11,4 +11,9 @@ export default defineConfig({
 		react(),
 	],
 	site: `https://minersonline.tk`,
+	vite: {
+		resolve: {
+			preserveSymlinks: true
+		}
+	}
 });
