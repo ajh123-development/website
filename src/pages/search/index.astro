@@ -11,7 +11,7 @@ const legal = await getCollection('legal');
 var value: string = Astro.url.searchParams.get("q") as string;
 var found = [];
 for (var postIndex in blog) {
-	const post = blog[postIndex];
+	const post = Object.assign({}, blog[postIndex]);
 	(post.slug as string) = "blog/"+post.slug;
 	if (post.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
 		found.push(post);
@@ -29,7 +29,7 @@ for (var postIndex in blog) {
 	}
 }
 for (var docsIndex in docs) {
-	const doc = docs[docsIndex];
+	const doc = Object.assign({}, docs[docsIndex]);
 	(doc.slug as string) = "docs/"+doc.slug;
 	if (doc.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
 		found.push(doc);
@@ -47,7 +47,7 @@ for (var docsIndex in docs) {
 	}
 }
 for (var legalIndex in legal) {
-	const legalContent = legal[legalIndex];
+	const legalContent = Object.assign({}, legal[legalIndex]);
 	(legalContent.slug as string) = "legal/"+legalContent.slug;
 	if (legalContent.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
 		found.push(legalContent);
