@@ -1,0 +1,42 @@
+---
+type Props = {
+	tags: string[];
+	description: string;
+	pubDate: string;
+	title: string;
+	slug: string
+};
+
+const {tags, description, slug, pubDate, title} = Astro.props;
+---
+
+<li>
+	<article class="box media mt-3">
+		<div class="media-content" style="overflow-y: hidden;">
+			<div class="content">
+				<strong>{title}</strong> 
+				<small>	<time datetime={new Date(pubDate).toISOString()}>
+				{new Date(pubDate).toLocaleDateString('en-us', {
+					year: 'numeric',
+					month: 'short',
+					day: 'numeric',
+				})}
+				</time></small>
+				<br>
+				{description}
+			</div>
+			<div class="tags">
+				{
+					tags.map((tag) => (
+					<span class="tag is-link is-light">
+						<a href={`/search?q=${tag}&is_tag`}>#{tag} </a>
+					</span>
+					))
+				}
+			</div>
+		</div>
+		<div class="media-right">
+			<a class="button is-link" href={`/blog/${slug}/`}>Visit</a>
+		</div>
+	</article>
+</li>

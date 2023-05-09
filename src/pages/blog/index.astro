@@ -1,5 +1,6 @@
 ---
 import BlankLayout from '../../layouts/BlankLayout.astro';
+import SearchResult from '../../components/SearchResult.astro'
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
@@ -16,36 +17,13 @@ const post = Astro.props;
 			<ul>
 				{
 					posts.map((post) => (
-						<li>
-							<article class="box media mt-3">
-								<div class="media-content" style="overflow-y: hidden;">
-									<div class="content">
-										<strong>{post.data.title}</strong> 
-										<small>	<time datetime={new Date(post.data.pubDate).toISOString()}>
-										{new Date(post.data.pubDate).toLocaleDateString('en-us', {
-											year: 'numeric',
-											month: 'short',
-											day: 'numeric',
-										})}
-										</time></small>
-										<br>
-										{post.data.description}
-									</div>
-									<div class="tags">
-										{
-											post.data.tags.map((tag) => (
-											<span class="tag is-link is-light">
-												<a href={`/search?q=${tag}&is_tag`}>#{tag} </a>
-											</span>
-											))
-										}
-									</div>
-								</div>
-								<div class="media-right">
-									<a class="button is-link" href={`/blog/${post.slug}/`}>Visit</a>
-								</div>
-							</article>
-						</li>
+						<SearchResult 
+							tags={post.data.tags}
+							description={post.data.description} 
+							pubDate={post.data.pubDate}
+							title={post.data.title}
+							slug={post.slug}
+						></SearchResult>
 					))
 				}
 			</ul>
