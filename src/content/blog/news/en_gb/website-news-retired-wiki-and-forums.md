@@ -2,7 +2,7 @@
 title: 'Website News. Retired wiki and forums'
 pubDate: '2022-09-04'
 description: 'The old news is now migrated, and the old wiki and forums are now closed.'
-author: 'Staff'
+authors: ['Staff']
 tags: ["news", "miners online"]
 ---
 

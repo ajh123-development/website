@@ -2,7 +2,7 @@
 title: 'Upgraded Networks'
 pubDate: '2022-11-16'
 description: 'Back online again!'
-author: 'Staff'
+authors: ['Staff']
 tags: ["news", "miners online"]
 ---
 

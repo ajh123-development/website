@@ -2,7 +2,7 @@
 title: 'Internet Outages 2, Electric Boogaloo!'
 pubDate: '2022-10-25'
 description: 'We are back online!'
-author: 'Staff'
+authors: ['Staff']
 tags: ["news", "miners online"]
 ---
 

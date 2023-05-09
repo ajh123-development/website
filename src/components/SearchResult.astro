@@ -17,7 +17,7 @@ const {tags, description, slug, pubDate, title} = Astro.props;
 				<strong>{title}</strong> 
 				{pubDate != "" &&
 				<small>	<time datetime={new Date(pubDate).toISOString()}>
-				{new Date(pubDate).toLocaleDateString('en-us', {
+				{new Date(pubDate).toLocaleDateString('en_us', {
 					year: 'numeric',
 					month: 'short',
 					day: 'numeric',
@@ -37,7 +37,7 @@ const {tags, description, slug, pubDate, title} = Astro.props;
 			</div>
 		</div>
 		<div class="media-right">
-			<a class="button is-link" href={`/blog/${slug}/`}>Visit</a>
+			<a class="button is-link" href={`/${slug}/`}>Visit</a>
 		</div>
 	</article>
 </li>

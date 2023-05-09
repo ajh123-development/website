@@ -22,7 +22,7 @@ const blog = defineCollection({
 		title: z.string().default(SITE.title),
 		pubDate: z.string(),
 		description: z.string().default(SITE.description),
-		author: z.string(),
+		authors: z.array(z.string()),
 		tags: z.array(z.string()),
 	}),
 });
@@ -31,7 +31,7 @@ const legal = defineCollection({
 	schema: z.object({
 		title: z.string().default(SITE.title),
 		description: z.string().default(SITE.description),
-		author: z.string(),
+		authors: z.array(z.string()),
 		tags: z.array(z.string()),
 	}),
 });

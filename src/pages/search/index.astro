@@ -12,6 +12,7 @@ var value: string = Astro.url.searchParams.get("q") as string;
 var found = [];
 for (var postIndex in blog) {
 	const post = blog[postIndex];
+	(post.slug as string) = "blog/"+post.slug;
 	if (post.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
 		found.push(post);
 		continue;
@@ -29,6 +30,7 @@ for (var postIndex in blog) {
 }
 for (var docsIndex in docs) {
 	const doc = docs[docsIndex];
+	(doc.slug as string) = "docs/"+doc.slug;
 	if (doc.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
 		found.push(doc);
 		continue;
@@ -46,6 +48,7 @@ for (var docsIndex in docs) {
 }
 for (var legalIndex in legal) {
 	const legalContent = legal[legalIndex];
+	(legalContent.slug as string) = "legal/"+legalContent.slug;
 	if (legalContent.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
 		found.push(legalContent);
 		continue;

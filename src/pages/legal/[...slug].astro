@@ -1,37 +1,37 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content';
+import { getEntryBySlug} from 'astro:content';
 import RightSidebar from '../../components/RightSidebar/RightSidebar.astro';
 import type { MarkdownHeading } from 'astro';
 import PageLayout from '../../layouts/PageLayout.astro';
 import { GITHUB_EDIT_URL } from '../../consts';
 
-export async function getStaticPaths() {
-	const legal = await getCollection('legal');
-	return legal.map((entry) => ({
-		params: {
-			slug: entry.slug,
-		},
-		props: entry,
-	}));
+// 1. Get the slug from the incoming server request
+const { slug } = Astro.params;
+if (slug === undefined) {
+  throw new Error("Slug is required");
 }
-type Props = CollectionEntry<'legal'>;
-
-const post = Astro.props;
-const { Content, headings } = await post.render();
+// 2. Query for the entry directly using the request slug
+const entry = await getEntryBySlug("legal", slug);
+// 3. Redirect if the entry does not exist
+if (entry === undefined) {
+  return Astro.redirect("/404");
+}
+// 4. Render the entry to HTML in the template
+const { Content, headings } = await entry.render();
 
 const currentPage = Astro.url.pathname;
 const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
 const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 ---
 
-<PageLayout headings={headings} {...post.data}>
+<PageLayout headings={headings as MarkdownHeading[]} {...entry.data} githubEditUrl={githubEditUrl} hasMiddle={true}>
 	<div class="column content">
-		<h1>{post.data.title}</h1>
+		<h1>{entry.data.title}</h1>
 		<Content />
 	</div>
 
 	<div class="column is-one-quarter" slot="in_body_end">
-		<RightSidebar headings={headings} githubEditUrl={githubEditUrl} tags={post.data.tags}>
+		<RightSidebar headings={headings} githubEditUrl={githubEditUrl} tags={entry.data.tags}>
 		</RightSidebar>
 	</div>
 </PageLayout>

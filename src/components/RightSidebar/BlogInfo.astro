@@ -13,6 +13,10 @@ const { blog } = Astro.props;
 		month: 'short',
 		day: 'numeric',
 	})} </a></li>
-	<li class={`header-link depth-2`}><a>Author: {blog.author}</a></li>
+	<li class={`header-link depth-2 tags`}><a>Authors: {blog.authors.map((author) => (
+		<span class="tag is-link is-light">
+			{author}
+		</span>
+	))}</a></li>
 	<li class={`header-link depth-2`}><a>{blog.description} </a></li>
 </ul>

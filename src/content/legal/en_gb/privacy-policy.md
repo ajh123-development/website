@@ -1,10 +1,10 @@
 ---
 title: 'Privacy Policy'
-author: 'ajh123'
-tags: ["miners online", "pollicy", "privacy"]
+authors: ['ajh123']
+tags: ["miners online", "policy", "privacy"]
 ---
 
-Last updated: March 18, 2023
+Last updated: May 9, 2023
 
 This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
 
@@ -260,4 +260,4 @@ If you have any questions about this Privacy Policy, You can contact us:
 
 
 
-- By visiting this page on our website: [https://github.com/ajh123-development/website/discussions/new?category=policy-discussion](https://github.com/ajh123-development/website/discussions/new?category=policy-discussion). Discalimer: Content posted on the page is publicy visible and is under [GitHub's Privacy Policy](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement).
+- By visiting this page on our website: [https://github.com/ajh123-development/website/discussions/new?category=policy-discussion](https://github.com/ajh123-development/website/discussions/new?category=policy-discussion). Disclaimer: Content posted on the page is publicly visible and is under [GitHub's Privacy Policy](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement).
