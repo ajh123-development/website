@@ -17,7 +17,7 @@ const {tags, description, slug, pubDate, title} = Astro.props;
 				<strong>{title}</strong> 
 				{pubDate != "" &&
 				<small>	<time datetime={new Date(pubDate).toISOString()}>
-				{new Date(pubDate).toLocaleDateString('en_us', {
+				{new Date(pubDate).toLocaleDateString('en-us', {
 					year: 'numeric',
 					month: 'short',
 					day: 'numeric',

@@ -1,22 +1,23 @@
 ---
-import { getEntryBySlug } from 'astro:content';
+import { CollectionEntry, getCollection } from 'astro:content';
 import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
 
-// 1. Get the slug from the incoming server request
-const { slug } = Astro.params;
-if (slug === undefined) {
-  throw new Error("Slug is required");
+export const prerender = true;
+export async function getStaticPaths() {
+	const blogs = await getCollection('blog');
+	return blogs.map((entry) => ({
+		params: {
+			slug: entry.slug,
+		},
+		props: entry,
+	}));
 }
-// 2. Query for the entry directly using the request slug
-const entry = await getEntryBySlug("blog", slug);
-// 3. Redirect if the entry does not exist
-if (entry === undefined) {
-  return Astro.redirect("/404");
-}
-// 4. Render the entry to HTML in the template
-const { Content, headings } = await entry.render();
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { Content, headings } = await post.render();
 ---
 
-<BlogPostLayout headings={headings} {...entry.data}>
+<BlogPostLayout headings={headings} {...post.data}>
 	<Content />
 </BlogPostLayout> 

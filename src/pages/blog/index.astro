@@ -22,7 +22,7 @@ const post = Astro.props;
 							description={post.data.description} 
 							pubDate={post.data.pubDate}
 							title={post.data.title}
-							slug={post.slug}
+							slug={"blog/"+post.slug}
 						></SearchResult>
 					))
 				}
