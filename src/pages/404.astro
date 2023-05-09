@@ -1,0 +1,22 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+const post = Astro.props;
+---
+
+<PageLayout hasMiddle={false} {...post.data}>
+	<section slot="body_top" class="hero is-small">
+		<div class="hero-body">
+			<br>
+		</div>
+	</section>
+
+	<section slot="body_mid" class="content">
+		<section class="section">
+			<h2>404</h2>
+			<p>The page you requested was not found.</p>
+			<hr>
+			<a class="button is-link" href="/">Home</a>
+			<a class="button is-link" href="/search?q=">Search</a>
+		</section>
+	</section>
+</PageLayout>
