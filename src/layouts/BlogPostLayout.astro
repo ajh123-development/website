@@ -10,14 +10,14 @@ type Props = CollectionEntry<'blog'>['data'] & {
 	headings: MarkdownHeading[];
 };
 
-const { headings, title, description, pubDate, author, tags, ...data } = Astro.props;
+const { headings, title, description, pubDate, authors, tags, ...data } = Astro.props;
 const currentPage = Astro.url.pathname;
 const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
 const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 
 ---
 
-<PageLayout headings={headings} {...data}>
+<PageLayout headings={headings} title={title} hasMiddle={true} githubEditUrl={githubEditUrl} {...data}>
 
 <div class="column content">
 	<h1 class="title">{title}</h1>

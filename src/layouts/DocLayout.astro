@@ -17,9 +17,9 @@ const currentPage = Astro.url.pathname;
 const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
 const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 ---
-<HeadSEO {...data} canonicalUrl={canonicalURL} slot="extra_head" />
+<HeadSEO {...data} canonicalUrl={canonicalURL} title={title} tags={tags} slot="extra_head" />
 
-<PageLayout headings={headings} {...data}>
+<PageLayout headings={headings} title={title} hasMiddle={true} githubEditUrl={githubEditUrl}>
 <div class="column" slot="in_body_top">
 	<LeftSidebar currentPage={currentPage} />
 </div>

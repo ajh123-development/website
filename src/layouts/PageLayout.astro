@@ -18,7 +18,7 @@ const currentPage = Astro.url.pathname;
 const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
 ---
 
-<html dir={data.dir} lang={data.lang} class="initial">
+<html dir={"auto"} lang={"en-gb"} class="initial">
 	<head>
 		<HeadCommon />
 		<slot name="extra_head"/>
