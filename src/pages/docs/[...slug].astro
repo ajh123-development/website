@@ -1,23 +1,13 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content';
-import DocLayout from '../../layouts/DocLayout.astro';
-
-export const prerender = true;
-export async function getStaticPaths() {
-	const blogs = await getCollection('docs');
-	return blogs.map((entry) => ({
-		params: {
-			slug: entry.slug,
-		},
-		props: entry,
-	}));
-}
-type Props = CollectionEntry<'docs'>;
-
-const post = Astro.props;
-const { Content, headings } = await post.render();
+const newPath = "/projects"+Astro.url.pathname;
 ---
 
-<DocLayout headings={headings} {...post.data}>
-	<Content />
-</DocLayout>
+<html>
+	<body data-newpath={newPath}>
+		<h1>Redirecting</h1>
+		<p>If this doesn't happen automatically click <a href={newPath}>here</a>.</p>
+		<script is:inline>
+			window.location.pathname = document.querySelector("body").dataset.newpath;
+		</script>
+	</body>
+</html>

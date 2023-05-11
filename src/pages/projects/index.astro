@@ -1,0 +1,49 @@
+---
+import BlankLayout from '../../layouts/BlankLayout.astro';
+
+const post = Astro.props;
+---
+
+<BlankLayout {...post.data}>
+	<div class="column">
+		<h1 class="title">Projects</h1>
+		<hr>
+		<section>
+			<h2 class="title is-3">Games</h2>
+			<ul class="columns">
+				<li class="column">
+					<article class="box media mt-3">
+						<div class="media-content" style="overflow-y: hidden;">
+							<div class="content">
+								<strong>History Survival</strong> 
+								<br>
+								...
+							</div>
+						</div>
+						<div class="media-right">
+							<a class="button is-link" href={`https://github.com/ajh123-development/HistorySurvival`}>View GitHub</a>
+							<a class="button is-link" href={`/projects/docs/history_survival/en_gb/`}>View Documentation</a>
+						</div>
+					</article>
+				</li>
+			</ul>
+			<h2 class="title is-3">Minecraft Mods and Plugins</h2>
+			<ul class="columns">
+				<li class="column">
+					<article class="box media mt-3">
+						<div class="media-content" style="overflow-y: hidden;">
+							<div class="content">
+								<strong>Mine Ways</strong> 
+								<br>
+								"Minecraft Mine Ways" is a mod that adds a variety of transportation options to the game, including roads, vehicles, and more.
+							</div>
+						</div>
+						<div class="media-right">
+							<a class="button is-link" href={`https://github.com/ajh123/MineWays`}>View GitHub</a>
+						</div>
+					</article>
+				</li>
+			</ul>
+		</section>
+	</div>
+</BlankLayout>

@@ -30,7 +30,7 @@ for (var postIndex in blog) {
 }
 for (var docsIndex in docs) {
 	const doc = Object.assign({}, docs[docsIndex]);
-	(doc.slug as string) = "docs/"+doc.slug;
+	(doc.slug as string) = "projects/docs/"+doc.slug;
 	if (doc.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
 		found.push(doc);
 		continue;
