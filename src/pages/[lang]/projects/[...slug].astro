@@ -1,16 +1,17 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
 import DocLayout from '../../../layouts/DocLayout.astro';
+import { getLanguageFromURL } from '../../../languages';
 
 export const prerender = true;
 export async function getStaticPaths() {
-	const blogs = await getCollection('docs');
-	return blogs.map((entry) => ({
-		params: {
-			slug: entry.slug,
-		},
-		props: entry,
-	}));
+	const pages = await getCollection('docs');
+	const paths = pages.map(page => {
+		var lang = getLanguageFromURL(page.slug);
+		var slug = page.slug.replace(lang, "").replace("//", "/").replace(/\/$/, "");
+		return { params: { lang, slug }, props: page };
+	});
+	return paths;
 }
 type Props = CollectionEntry<'docs'>;
 

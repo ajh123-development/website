@@ -1,19 +1,20 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
-import RightSidebar from '../../components/RightSidebar/RightSidebar.astro';
+import RightSidebar from '../../../components/RightSidebar/RightSidebar.astro';
 import type { MarkdownHeading } from 'astro';
-import PageLayout from '../../layouts/PageLayout.astro';
-import { GITHUB_EDIT_URL } from '../../consts';
+import PageLayout from '../../../layouts/PageLayout.astro';
+import { GITHUB_EDIT_URL } from '../../../consts';
+import { getLanguageFromURL } from '../../../languages';
 
 export const prerender = true;
 export async function getStaticPaths() {
-	const blogs = await getCollection('legal');
-	return blogs.map((entry) => ({
-		params: {
-			slug: entry.slug,
-		},
-		props: entry,
-	}));
+	const pages = await getCollection('legal');
+	const paths = pages.map(page => {
+		var lang = getLanguageFromURL(page.slug);
+		var slug = page.slug.replace(lang, "").replace("//", "/").replace(/\/$/, "");
+		return { params: { lang, slug }, props: page };
+	});
+	return paths;
 }
 type Props = CollectionEntry<'legal'>;
 

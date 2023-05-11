@@ -1,6 +1,6 @@
 ---
-import BlankLayout from '../../layouts/BlankLayout.astro';
-import SearchResult from '../../components/SearchResult.astro'
+import BlankLayout from '../../../layouts/BlankLayout.astro';
+import SearchResult from '../../../components/SearchResult.astro'
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
