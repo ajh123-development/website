@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import BlankLayout from '../../layouts/BlankLayout.astro';
-import SearchResult from '../../components/SearchResult.astro'
+import SearchResult from '../../components/SearchResult.astro';
+import { getLanguageFromURL } from '../../languages';
 const post = Astro.props;
 
 const blog = await getCollection('blog');
@@ -13,6 +14,8 @@ var found = [];
 for (var postIndex in blog) {
 	const post = Object.assign({}, blog[postIndex]);
 	(post.slug as string) = "blog/"+post.slug;
+	var lang = getLanguageFromURL(post.slug);
+	(post.slug as unknown) = (lang+"/"+post.slug.replace(lang, "").replace("//", "/").replace(/\/$/, "")) as unknown;
 	if (post.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
 		found.push(post);
 		continue;
@@ -30,7 +33,9 @@ for (var postIndex in blog) {
 }
 for (var docsIndex in docs) {
 	const doc = Object.assign({}, docs[docsIndex]);
-	(doc.slug as string) = "projects/docs/"+doc.slug;
+	(doc.slug as string) = "projects/"+doc.slug;
+	var lang = getLanguageFromURL(doc.slug);
+	(doc.slug as unknown) = (lang+"/"+doc.slug.replace(lang, "").replace("//", "/").replace(/\/$/, "")) as unknown;
 	if (doc.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
 		found.push(doc);
 		continue;
@@ -49,6 +54,8 @@ for (var docsIndex in docs) {
 for (var legalIndex in legal) {
 	const legalContent = Object.assign({}, legal[legalIndex]);
 	(legalContent.slug as string) = "legal/"+legalContent.slug;
+	var lang = getLanguageFromURL(legalContent.slug);
+	(legalContent.slug as unknown) = (lang+"/"+legalContent.slug.replace(lang, "").replace("//", "/").replace(/\/$/, "")) as unknown;
 	if (legalContent.data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
 		found.push(legalContent);
 		continue;

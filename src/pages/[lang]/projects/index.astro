@@ -1,7 +1,9 @@
 ---
 import BlankLayout from '../../../layouts/BlankLayout.astro';
+import { getLanguageFromURL } from '../../../languages';
 
 const post = Astro.props;
+var lang = getLanguageFromURL(Astro.url.pathname);
 ---
 
 <BlankLayout {...post.data}>
@@ -22,7 +24,7 @@ const post = Astro.props;
 						</div>
 						<div class="media-right">
 							<a class="button is-link" href={`https://github.com/ajh123-development/HistorySurvival`}>View GitHub</a>
-							<a class="button is-link" href={`/projects/docs/history_survival/en_gb/`}>View Documentation</a>
+							<a class="button is-link" href={`/`+lang+`/projects/history_survival/`}>View Documentation</a>
 						</div>
 					</article>
 				</li>
