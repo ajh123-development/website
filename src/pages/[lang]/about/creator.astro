@@ -1,0 +1,29 @@
+---
+import BlankLayout from '../../../layouts/BlankLayout.astro';
+import { VideoList } from '../../../components/Video/VideoList';
+const post = Astro.props;
+post.data = {title: "About Creator"}
+---
+
+<BlankLayout {...post.data}>
+	<div class="column">
+		<section class="content section">
+			<h1>Hi there 👋. I'm ajh123.</h1>
+			<p>I'm, a passionate software developer and content creator. I create YouTube videos about various games and my projects. I love gaming and enjoy sharing game-related content with others.</p>
+			<p>Please note that "ajh123" is just my GitHub account name. My real name is Samuel Hulme (or Sam Hulme for short).</p>
+			
+			<h2>✅ What I do</h2>
+			<p>I develop software which I publish on GitHub in free time. Everything on this website was made so I can develop my skils in programming and time mangement.</p>
+
+			<h2>❌ What I don't do</h2>
+			<p>I don't use Social Media in the way most people do. I have accounts registred for YouTube, Facebook, and LinkedIn but I don't use them (apart from YouTube). My Facebook account is the most active other thab YouTube.</p>
+
+			<h2>YouTube</h2>
+			<p>I make videos on YouTube, check them out <a href="https://www.youtube.com/@minecraftict">here</a>! It will help my channel a lot if you do.</p>
+
+			<h3>📺 Featured Videos</h3>
+			<p>Below is a list of my most recent videos. More can be found on <a href="https://www.youtube.com/@minecraftict">my channel</a>.</p>
+			<VideoList client:load currentChannelId="UC5ZPyhfbqKT96EmYzANku7Q"/>
+		</section>
+	</div>
+</BlankLayout>
