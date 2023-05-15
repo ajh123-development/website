@@ -8,6 +8,7 @@ const posts = (await getCollection('blog')).sort(
 	(a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
 );
 const post = Astro.props;
+post.data = {title: "Blog"}
 var lang = getLanguageFromURL(Astro.url.pathname);
 ---
 

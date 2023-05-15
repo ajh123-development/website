@@ -3,6 +3,7 @@ import BlankLayout from '../../../layouts/BlankLayout.astro';
 import { getLanguageFromURL } from '../../../languages';
 
 const post = Astro.props;
+post.data = {title: "Projects"}
 var lang = getLanguageFromURL(Astro.url.pathname);
 ---
 

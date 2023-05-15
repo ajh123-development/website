@@ -8,14 +8,17 @@ import { SITE } from '../consts';
 
 type Props = {
 	title: string;
-	headings: MarkdownHeading[];
-	hasMiddle: Boolean;
-	githubEditUrl: string;
+	headings?: MarkdownHeading[];
+	hasMiddle?: Boolean;
+	githubEditUrl?: string;
 };
 
 const { headings, hasMiddle=true, ...data } = Astro.props;
 const currentPage = Astro.url.pathname;
 const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
+if (data.title != undefined) {
+	data.title = " - "+data.title;
+}
 ---
 
 <html dir={"auto"} lang={"en-gb"} class="initial">
@@ -23,7 +26,7 @@ const currentFile = `src/content/${currentPage.replace(/\/$/, '')}.md`;
 		<HeadCommon />
 		<slot name="extra_head"/>
 		<title>
-			{`${data.title || "" }  ${SITE.title}`}
+			{`${SITE.title} ${data.title || "" }`}
 		</title>
 	</head>
 

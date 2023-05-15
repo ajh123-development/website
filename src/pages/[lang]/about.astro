@@ -1,0 +1,26 @@
+---
+import BlankLayout from '../../layouts/BlankLayout.astro';
+import { VideoList } from '../../components/Video/VideoList';
+const post = Astro.props;
+post.data = {title: "About"}
+---
+
+<BlankLayout {...post.data}>
+	<div class="column">
+		<h1 class="title">About Us</h1>
+		<hr>
+		<section class="content section">
+			<h2>About the Creator</h2>
+			<p>Miners Online is founded by ajh123, a passionate software developer and content creator. Please note that "ajh123" is the GitHub account name of the creator, and not their real name.</p>
+			<p>ajh123 creates YouTube videos about various games and their projects. They love gaming and enjoy sharing game-related content with others.</p>
+			<p>Check out ajh123's content:</p>
+			<ul>
+				<li><a href="https://github.com/ajh123">GitHub Profile</a></li>
+				<li><a href="https://www.youtube.com/@minecraftict">YouTube Channel</a></li>
+			</ul>
+
+			<h3>Featured Videos</h3>
+			<VideoList client:load currentChannelId="UC5ZPyhfbqKT96EmYzANku7Q"/>
+		</section>
+	</div>
+</BlankLayout>

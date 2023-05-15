@@ -1,8 +1,11 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 const post = Astro.props;
+type Props = {
+	title: string;
+};
 ---
 
-<PageLayout {...post.data}>
+<PageLayout {...post}>
 	<slot />
 </PageLayout>

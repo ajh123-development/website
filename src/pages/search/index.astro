@@ -4,6 +4,7 @@ import BlankLayout from '../../layouts/BlankLayout.astro';
 import SearchResult from '../../components/SearchResult.astro';
 import { getLanguageFromURL } from '../../languages';
 const post = Astro.props;
+post.data = {title: "Search"}
 
 const blog = await getCollection('blog');
 const docs = await getCollection('docs');

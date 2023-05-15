@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 const post = Astro.props;
+post.data = {title: "404 - Page not found."}
 ---
 
 <PageLayout hasMiddle={false} {...post.data}>
