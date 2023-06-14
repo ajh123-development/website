@@ -1,9 +1,29 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
 {% load markdown_extras %}
-
-
-<h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
-<p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
-<p class="card-text ">{{ object.content | markdown | safe }}</p>
+{% block title %}- {{ object.title }} {% endblock title %}
+{% block content %}
+<section class="hero is-link pt-4">
+	<div class="hero-body">
+		<p class="title is-1">
+			{{ object.title }}
+		</p>
+		<p class="subtitle">
+			{{ object.description }}
+		</p>
+		<p class="subtitle-6">
+			Created by: {{ post.author }} | Created: {{ post.created_on }} | Updated: {{ post.updated_on }}
+		</p>
+	</div>
+</section>
+<section class="section is-fullheight mt-3">
+	<section>
+		<h1 class="title is-2">Table of Contents</h1>
+		{{ toc | safe }}
+		<hr>
+	</section>
+	<article class="content">
+		<div>{{ object.content | markdown | safe }}</div>
+	</article>
+</section>
 
 {% endblock content %}

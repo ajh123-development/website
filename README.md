@@ -32,7 +32,9 @@
 
 ## 🧞 Commands
 
-| Command                            | Action                      |
-| ---------------------------------- | --------------------------- |
-| `python manage.py runserver `      | Runs the development server |
-| `python manage.py createsuperuser` | Creates main admin account  |
+| Command                            | Action                           |
+| ---------------------------------- | -------------------------------- |
+| `python manage.py runserver `      | Runs the development server      |
+| `python manage.py createsuperuser` | Creates main admin account       |
+| `python manage.py makemigrations`  | Makes any needed migration files |
+| `python manage.py migrate`         | Applies migrations              |

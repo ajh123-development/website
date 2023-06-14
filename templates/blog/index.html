@@ -1,13 +1,32 @@
 {% extends "base.html" %}
+{% load markdown_extras %}
+{% block title %}- Pages{% endblock title %}
 {% block content %}
-{% for post in post_list %}
-<div class="card mb-4">
-	<div class="card-body">
-		<h2 class="card-title">{{ post.title }}</h2>
-		<p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
-		<p class="card-text">{{post.content|slice:":200" }}</p>
-		<a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+<section class="hero is-link pt-4">
+	<div class="hero-body">
+		<p class="title is-1">
+			Pages
+		</p>
+		<p class="subtitle">
+			All the blog posts and other pages available on Miners Online.
+		</p>
 	</div>
-</div>
-{% endfor %}
+</section>
+<section class="section is-fullheight mt-3">
+	<ul>
+		{% for post in post_list %}
+		<article class="box media mt-3">
+			<div class="media-content" style="overflow-y: hidden;">
+				<div class="content">
+					<strong>{{ post.title }}</strong>
+					<small>{{ post.author }} | {{ post.created_on}}</small>
+					<br>
+					<p>{{post.description | slice:":200" }}</p>
+					<a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+				</div>
+			</div>
+		</article>
+		{% endfor %}
+	</ul>
+</section>
 {%endblock%}
