@@ -1,14 +1,38 @@
 # Miners Online
 
+## Setup
+> *The following steps assume you have your Terminal or Command Prompt open.*
+
+1. Download this repository:
+`git clone https://github.com/ajh123-development/website.git`
+
+2. Change into correct directory:
+`cd website`
+
+3. Create Python virtual environment:
+`python -m venv venv`
+
+4. Activate the virtual environment:
+
+**Linux(like) / MacOS**:
+`source venv/bin/activate`
+
+**Windows**:
+`venv\Scripts\activate.bat`
+
+5. Install dependencies:
+
+6. Configure environment files:
+
+7. Start database migrations:
+`python manage.py migrate`
+
+8. Create super user:
+`python manage.py createsuperuser`
+
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
+| Command                            | Action                      |
+| ---------------------------------- | --------------------------- |
+| `python manage.py runserver `      | Runs the development server |
+| `python manage.py createsuperuser` | Creates main admin account  |
