@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 0
 
-ALLOWED_HOSTS = ['10.0.0.174', 'minersonline.tk', 'localhost']
+ALLOWED_HOSTS = ['10.0.0.174', 'minersonline.tk', 'www.minersonline.tk', 'localhost']
 
 
 # Application definition
