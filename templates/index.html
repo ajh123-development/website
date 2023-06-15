@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load markdown_extras %}
+{% block title %}- Home{% endblock title %}
+{% block content %}
+<section slot="body_top" class="hero is-halfheight has-background-primary pt-3">
+	<div class="hero-body">
+		<div class="container">
+			<p class="title">
+				<img src="/assets/images/MinersOnlineLogo.svg" alt="Miners Online"/>
+			</p>
+			<p class="subtitle">
+				Explore the world of Miners Online.
+			</p>
+			<a class="button is-link" href="{% url 'blog_home' %}">Pages</a>
+		</div>
+	</div>
+</section>
+<section class="section is-fullheight mt-3">
+	<h1 id="recent-posts" class="title">Recent Posts</h1>
+	<ul>
+		{% for post in post_list %}
+		{% if forloop.counter < 3 %}
+		<article class="box media mt-3">
+			<div class="media-content" style="overflow-y: hidden;">
+				<div class="content">
+					<strong>{{ post.title }}</strong>
+					<small>{{ post.author }} | {{ post.created_on}}</small>
+					<br>
+					<p>{{post.description | slice:":200" }}</p>
+					<a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+				</div>
+			</div>
+		</article>
+		{% endif %}
+		{% endfor %}
+	</ul>
+	<a class="button is-link mt-5" href="{% url 'blog_home' %}">Read more &rarr;</a>
+</section>
+<section class="has-background-success-light section mt-1">
+	<h1 id="support-us" class="title">Support Us</h1>
+	<div class="columns">
+		<div class="column is-one-fifth">
+			<img src="/assets/images/monero.png"/>
+		</div>
+		<div class="column is-four-fifths">
+			<p>We appreciate your support! You can donate to us using the Monero cryptocurrency.</p>
+			<ul>
+				<li><p>Scan the QR code on the left, or click 
+					<a href="monero:82W6d1rsEfRJEMi1SzUELBAt4eTk5s5c5hQRpLbfqtmx4KWbPkNebs72HcSV48p9eDErS4gUX6BSPAXiUM51t9tbSzDbRZ8">here</a>.
+				</p></li>
+				<li><p>
+					You may send Monero directly to the following address: 
+					<pre style="overflow-x: auto;">82W6d1rsEfRJEMi1SzUELBAt4eTk5s5c5hQRpLbfqtmx4KWbPkNebs72HcSV48p9eDErS4gUX6BSPAXiUM51t9tbSzDbRZ8</pre>
+				</p></li>
+			</ul>
+			<p>You are unable to get your payments back.</p>
+		</div>
+	</div>
+</section>
+{%endblock%}

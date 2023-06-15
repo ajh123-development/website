@@ -2,7 +2,7 @@
 {% load markdown_extras %}
 {% block title %}- {{ object.title }} {% endblock title %}
 {% block content %}
-<section class="hero is-link pt-4">
+<section class="hero is-link pt-5">
 	<div class="hero-body">
 		<p class="title is-1">
 			{{ object.title }}
@@ -15,7 +15,7 @@
 		</p>
 	</div>
 </section>
-<section class="section is-fullheight mt-3">
+<section class="section is-fullheight">
 	<section>
 		<h1 class="title is-2">Table of Contents</h1>
 		{{ toc | safe }}
@@ -25,5 +25,4 @@
 		<div>{{ object.content | markdown | safe }}</div>
 	</article>
 </section>
-
 {% endblock content %}
