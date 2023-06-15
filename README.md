@@ -60,9 +60,10 @@ DEBUG=0						# You probably want to keep this `0` unless there are errors.
 
 ## 🧞 Commands
 
-| Command                            | Action                           |
-| ---------------------------------- | -------------------------------- |
-| `python manage.py runserver `      | Runs the development server      |
-| `python manage.py createsuperuser` | Creates main admin account       |
-| `python manage.py makemigrations`  | Makes any needed migration files |
-| `python manage.py migrate`         | Applies migrations               |
+| Command                            | Action                            |
+| ---------------------------------- | --------------------------------- |
+| `python manage.py runserver `      | Runs the development server       |
+| `python manage.py createsuperuser` | Creates main admin account        |
+| `python manage.py makemigrations`  | Makes any needed migration files  |
+| `python manage.py migrate`         | Applies migrations                |
+| `python manage.py collectstatic`   | Bundles all static files together |

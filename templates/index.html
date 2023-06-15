@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% load markdown_extras %}
+{% load static %}
 {% block title %}- Home{% endblock title %}
 {% block content %}
 <section slot="body_top" class="hero is-halfheight has-background-primary pt-3">
 	<div class="hero-body">
 		<div class="container">
 			<p class="title">
-				<img src="/assets/images/MinersOnlineLogo.svg" alt="Miners Online"/>
+				<img src="{% static 'main/assets/images/MinersOnlineLogo.svg' %}" alt="Miners Online"/>
 			</p>
 			<p class="subtitle">
 				Explore the world of Miners Online.
@@ -40,7 +41,7 @@
 	<h1 id="support-us" class="title">Support Us</h1>
 	<div class="columns">
 		<div class="column is-one-fifth">
-			<img src="/assets/images/monero.png"/>
+			<img src="{% static 'main/assets/images/monero.png' %}"/>
 		</div>
 		<div class="column is-four-fifths">
 			<p>We appreciate your support! You can donate to us using the Monero cryptocurrency.</p>

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 	<head>
@@ -5,6 +6,7 @@
 		<meta name="google" content="notranslate" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="icon" type="image/x-icon" href="{% static 'main/favicon.svg' %}">
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-CK0FRY1N67"></script>
 		<script is:inline>
@@ -40,7 +42,7 @@
 				<div class="container">
 					<div class="navbar-brand">
 						<a href="/" class="navbar-item mr-3">
-							<img src="/assets/images/MinersOnlineLogo.svg" alt="Miners Online"/>
+							<img src="{% static 'main/assets/images/MinersOnlineLogo.svg' %}" alt="Miners Online"/>
 						</a>
 						<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
 							<span aria-hidden="true"></span>
