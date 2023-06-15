@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   web:
+    restart: allways
     build:
       dockerfile: ./Dockerfile
       context: .
@@ -12,6 +13,7 @@ services:
     env_file:
       - ./.env
   nginx:
+    restart: allways
     build:
       dockerfile: ./nginx/Dockerfile
       context: .
