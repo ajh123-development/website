@@ -49,7 +49,6 @@ DB_PORT=3306				# This assumes you use the normal database ports.
 DB_NAME=miners_online		# Using `miners_online` as an example database name.
 DB_USER=root				# You probably don't want to use `root` in production!
 DB_PASS=password			# Use your actual password here.
-DEBUG=0						# You probably want to keep this `0` unless there are errors.
 ```
 
 5. Start and build the docker containers:
@@ -112,7 +111,6 @@ DB_PORT=3306				# This assumes you use the normal database ports.
 DB_NAME=miners_online		# Using `miners_online` as an example database name.
 DB_USER=root				# You probably don't want to use `root` in production!
 DB_PASS=password			# Use your actual password here.
-DEBUG=0						# You probably want to keep this `0` unless there are errors.
 ```
 
 7. Start database migrations:

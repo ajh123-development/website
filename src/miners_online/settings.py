@@ -31,7 +31,7 @@ STATICFILES_DIRS = [
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", 'False').lower() in ('true', '1', 't')
+DEBUG = 0
 
 ALLOWED_HOSTS = ['10.0.0.174', 'minersonline.tk']
 
