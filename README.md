@@ -22,6 +22,7 @@
 
 ### Setup
 > *The following steps assume you have your Terminal or Command Prompt open.*
+> *You may need to prefix the `docker ...` commands with `sudo` or similar alternatives*
 
 1. Download this repository:
 `git clone https://github.com/ajh123-development/website.git`
