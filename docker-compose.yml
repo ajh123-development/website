@@ -7,8 +7,8 @@ services:
       context: .
     command: gunicorn miners_online.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - static_volume:/home/app/web/static
-      - media_volume:/home/app/web/media
+      - static_volume:/home/app/static
+      - media_volume:/home/app/media
     env_file:
       - ./.env
   nginx:
@@ -16,8 +16,8 @@ services:
       dockerfile: ./nginx/Dockerfile
       context: .
     volumes:
-      - static_volume:/home/app/web/static
-      - media_volume:/home/app/web/media
+      - static_volume:/home/app/static
+      - media_volume:/home/app/media
     ports:
       - 8000:80
     depends_on:
