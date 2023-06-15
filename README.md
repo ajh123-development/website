@@ -52,18 +52,18 @@ DEBUG=0						# You probably want to keep this `0` unless there are errors.
 ```
 
 7. Start database migrations:
-`python manage.py migrate`
+`python src/manage.py migrate`
 
 8. Create super user:
-`python manage.py createsuperuser`
+`python src/manage.py createsuperuser`
 > This will ask for a new username, email, and password. Make sure you use a good strong password because this account will have access to all data in the Django admin interface (and the database).
 
 ## 🧞 Commands
 
-| Command                            | Action                            |
-| ---------------------------------- | --------------------------------- |
-| `python manage.py runserver `      | Runs the development server       |
-| `python manage.py createsuperuser` | Creates main admin account        |
-| `python manage.py makemigrations`  | Makes any needed migration files  |
-| `python manage.py migrate`         | Applies migrations                |
-| `python manage.py collectstatic`   | Bundles all static files together |
+| Command                                | Action                            |
+| -------------------------------------- | --------------------------------- |
+| `python src/manage.py runserver `      | Runs the development server       |
+| `python src/manage.py createsuperuser` | Creates main admin account        |
+| `python src/manage.py makemigrations`  | Makes any needed migration files  |
+| `python src/manage.py migrate`         | Applies migrations                |
+| `python src/manage.py collectstatic`   | Bundles all static files together |
