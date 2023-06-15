@@ -55,7 +55,11 @@ DB_PASS=password			# Use your actual password here.
 `docker compose up -d`
 > *If this command does not work you may need to do `docker-compose up -d`*
 
-8. Create super user:
+6. Collect static files:
+`docker compose exec -it web python /home/app/web/manage.py collectstatic`
+> *If this command does not work you may need to do `docker-compose exec -it web python /home/app/web/manage.py collectstatic`*
+
+7. Create super user:
 `docker compose exec -it web python /home/app/web/manage.py createsuperuser`
 > *If this command does not work you may need to do `docker-compose exec -it web python /home/app/web/manage.py createsuperuser`*
 

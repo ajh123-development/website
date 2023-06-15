@@ -20,6 +20,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.environ.get('STATIC_ROOT')
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
@@ -33,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 0
 
-ALLOWED_HOSTS = ['10.0.0.174', 'minersonline.tk']
+ALLOWED_HOSTS = ['10.0.0.174', 'minersonline.tk', 'localhost']
 
 
 # Application definition
