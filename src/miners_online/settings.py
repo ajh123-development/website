@@ -36,6 +36,7 @@ DEBUG = 0
 
 ALLOWED_HOSTS = ['10.0.0.174', 'minersonline.tk', 'www.minersonline.tk', 'localhost']
 
+CSRF_TRUSTED_ORIGINS=['https://*.minersonline.tk']
 
 # Application definition
 
