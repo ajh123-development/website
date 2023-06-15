@@ -3,8 +3,8 @@ version: '3.8'
 services:
   web:
     build:
+      dockerfile: ./Dockerfile
       context: .
-      dockerfile: Dockerfile
     command: gunicorn miners_online.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - static_volume:/home/app/web/static
@@ -12,7 +12,9 @@ services:
     env_file:
       - ./.env
   nginx:
-    build: ./nginx
+    build:
+      dockerfile: ./nginx/Dockerfile
+      context: .
     volumes:
       - static_volume:/home/app/web/static
       - media_volume:/home/app/web/media
