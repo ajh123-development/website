@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}- Login{% endblock title %}
+{% block content %}
+	<section class="hero is-halfheight">
+		<div class="hero-body">
+			<div class="container">
+				<div class="columns is-centered">
+					<div class="column is-6-tablet is-5-desktop is-4-widescreen">
+						<form method="post" action="{% url 'login' %}" class="box is-shadowless">
+							{% csrf_token %}
+							<h1 class="title">Please sign in</h1>
+							<div class="card">
+								<div class="card-content">
+									{% if form.errors %}
+									<p class="has-text-danger">Your username and password didn't match. Please try again.</p>
+									{% endif %}
+									{% if next %}
+										{% if user.is_authenticated %}
+											<p class="has-text-danger">Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+										{% else %}
+											<p class="has-text-danger">Please login to see this page.</p>
+										{% endif %}
+									{% endif %}
+									<div class="field">
+										<label for="" class="label">Username</label>
+										<div class="control has-icons-left">
+											<input type="text" name="username" placeholder="e.g. bobsmith" class="input" required>
+											<span class="icon is-small is-left">
+												<i class="fas fa-user"></i>
+											</span>
+										</div>
+									</div>
+									<div class="field">
+										<label for="" class="label">Password</label>
+										<div class="control has-icons-left">
+											<input type="password" name="password" placeholder="*******" class="input" required>
+											<span class="icon is-small is-left">
+												<i class="fas fa-lock"></i>
+											</span>
+										</div>
+									</div>
+									<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+	
+									<div class="field buttons">
+										{% if next %}
+											<input type="hidden" name="next" value="{{ next }}">
+										{% endif %}
+										<button type="submit" class="button is-fullwidth is-success">
+										<span class="icon"><i class="fas fa-regular fa-right-to-bracket"></i></span><span>Login</span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{%endblock%}
