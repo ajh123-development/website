@@ -37,7 +37,7 @@ if os.environ.get('DEBUG', '0') == '1':
 else:
     DEBUG = 0
 
-ALLOWED_HOSTS = ['10.0.0.174', 'minersonline.tk', 'www.minersonline.tk', 'localhost']
+ALLOWED_HOSTS = ['10.0.0.174', '127.0.0.1', 'minersonline.tk', 'www.minersonline.tk', 'localhost']
 
 CSRF_TRUSTED_ORIGINS=['https://*.minersonline.tk']
 
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'simple_history',
     'blog',
     'main',
 ]
@@ -62,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 ROOT_URLCONF = 'miners_online.urls'
