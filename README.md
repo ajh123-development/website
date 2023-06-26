@@ -109,12 +109,16 @@ Step 2: Open the `.env` file:
 Step 3: Change the settings inside the `.env` file:
 > Below will be an example
 ```ini
-SECRET_KEY=your secret key  # Use a proper long and randomly generated key.
-DB_HOST=localhost			# This assumes your database is on `localhost`.
-DB_PORT=3306				# This assumes you use the normal database ports.
-DB_NAME=miners_online		# Using `miners_online` as an example database name.
-DB_USER=root				# You probably don't want to use `root` in production!
-DB_PASS=password			# Use your actual password here.
+SECRET_KEY=your secret key           # Use a proper long and randomly generated key.
+DB_HOST=localhost			         # This assumes your database is on `localhost`.
+DB_PORT=3306				         # This assumes you use the normal database ports.
+DB_NAME=miners_online		         # Using `miners_online` as an example database name.
+DB_USER=root				         # You probably don't want to use `root` in production!
+DB_PASS=password			         # Use your actual password here.
+EMAIL_ACCOUNT=no-reply@example.com   # The email account's email address.
+EMAIL_HOST=mail.example.com          # The SMTP server address.
+EMAIL_HOST_PASSWORD=password         # Your email password.
+EMAIL_HOST_USER=no-reply@example.com # The SMTP server username. Normally just your email address.
 ```
 
 7. Start database migrations:
