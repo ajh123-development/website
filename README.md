@@ -119,6 +119,10 @@ EMAIL_ACCOUNT=no-reply@example.com   # The email account's email address.
 EMAIL_HOST=mail.example.com          # The SMTP server address.
 EMAIL_HOST_PASSWORD=password         # Your email password.
 EMAIL_HOST_USER=no-reply@example.com # The SMTP server username. Normally just your email address.
+# TLS / SSL and EMAIL_PORT depends on your email server's configuration. Please consult their documentation.
+EMAIL_USE_TLS=1                      # 0 = no SMTP TLS, 1 = SMTP TLS. `EMAIL_PORT` = 587.
+EMAIL_USE_SSL=0                      # 0 = no SMTP SSL, 1 = SMTP SSL. `EMAIL_PORT` = 465.
+EMAIL_PORT=587
 ```
 
 7. Start database migrations:

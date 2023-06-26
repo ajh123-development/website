@@ -32,6 +32,17 @@ DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_ACCOUNT')
 EMAIL_HOST = os.environ.get('EMAIL_HOST')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_PORT = 587
+SMTP_ENABLED = True
+if os.environ.get('EMAIL_USE_TLS', '0') == '1':
+    EMAIL_USE_TLS = 1
+else:
+    EMAIL_USE_TLS = 0
+    
+if os.environ.get('EMAIL_USE_SSL', '0') == '1':
+    EMAIL_USE_SSL = 1
+else:
+    EMAIL_USE_SSL = 0
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
