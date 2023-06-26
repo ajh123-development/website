@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load markdown_extras %}
+{% load static %}
+{% block content %}
+<section class="section is-fullheight mt-3 pl-0 pb-3 pr-0">
+	<div class="columns is-fullheight">
+		<div class="column is-one-fifth has-background-white-bis">
+			<aside class="menu pl-2">
+				<p class="menu-label">
+					General
+				</p>
+				<ul class="menu-list">
+					<li><a class="{% if request.resolver_match.url_name == 'main_profile' %}is-active{% endif %}" href="{% url 'main_profile' %}">Profile</a></li>
+				</ul>
+			</aside>
+		</div>
+		<div class="column">
+			{% block admin_content %}
+			<!-- Content Goes here -->
+			{% endblock admin_content %}
+		</div>
+	</div>
+</section>
+{%endblock%}

@@ -1,0 +1,20 @@
+{% extends "admin_base.html" %}
+{% load markdown_extras %}
+{% load static %}
+{% block title %}- Profile{% endblock title %}
+{% block admin_content %}
+	<h1 class="title">Hello {{user.first_name}} {{user.last_name}}.</h1>
+	<section class="content">
+		<p>Your details are as follows ...</p>
+		<strong>First name</strong>
+		<p>{{user.first_name}}</p>
+		<strong>First name</strong>
+		<p>{{user.last_name}}</p>
+		<strong>User name</strong>
+		<p>{{user.username}}</p>
+		<strong>Email</strong>
+		<p>{{user.email}}</p>
+		<strong>Date joined</strong>
+		<p>{{user.date_joined}}</p>
+	</section>
+{%endblock%}
