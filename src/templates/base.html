@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Miners Online {% block title %}{% endblock title %}</title>
+		<meta name="google" content="notranslate" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="icon" type="image/x-icon" href="{% static 'main/favicon.svg' %}">
+		<script src="https://kit.fontawesome.com/a3c19604a0.js" crossorigin="anonymous"></script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-CK0FRY1N67"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-CK0FRY1N67');
+		</script>
+		<script is:inline>
+			document.addEventListener('DOMContentLoaded', () => {
+				// Get all "navbar-burger" elements
+				const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+		
+				// Add a click event on each of them
+				$navbarBurgers.forEach( el => {
+					el.addEventListener('click', () => {
+		
+						// Get the target from the "data-target" attribute
+						const target = el.dataset.target;
+						const $target = document.getElementById(target);
+		
+						// Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+						el.classList.toggle('is-active');
+						$target.classList.toggle('is-active');
+					});
+				});
+			});
+		</script>		
+	</head>
+	<body>
+		<header>
+			<nav class="navbar is-fixed-top is-info" role="navigation" aria-label="main navigation">
+				<div class="container">
+					<div class="navbar-brand">
+						<a href="/" class="navbar-item mr-3">
+							<img src="{% static 'main/assets/images/MinersOnlineLogo.svg' %}" alt="Miners Online"/>
+						</a>
+						<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+							<span aria-hidden="true"></span>
+							<span aria-hidden="true"></span>
+							<span aria-hidden="true"></span>
+						</a>
+					</div>
+					<div id="navbarMenu" class="navbar-menu">
+						<div class="navbar-start">
+							<a href="{% url 'main_home' %}" class="navbar-item">
+								Home
+							</a>
+							<a href="{% url 'blog_home' %}" class="navbar-item">
+								Pages
+							</a>
+						</div>
+		
+						<div class="navbar-end">
+							<div class="navbar-item" style="padding: 0;">
+								<form action="/search">
+									<input class="input" type="text" placeholder="Search ..." name="q" id="q">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main>
+			{% block content %}
+			<!-- Content Goes here -->
+			{% endblock content %}
+		</main>
+		<!-- Footer -->
+		<footer class="footer">
+			<h3 class="title is-3"><strong>Miners Online</strong></h3>
+			<div class="columns">
+				<div class="column">
+					<h4 class="is-size-4">History Survival</h4>
+					<ul>
+						<li><a href="https://github.com/ajh123-development/HistorySurvival" target="_blank">Repository</a></li>
+						<li><a href="https://github.com/ajh123-development/HistorySurvival/releases" target="_blank">Downloads</a></li>
+						<li><a href="https://github.com/ajh123-archives/HistorySurvival-pre0.0.5/releases" target="_blank">Archived Downloads</a></li>
+						<li><a href="https://github.com/ajh123-archives/docs/tree/main/docs/history_survival/en_gb">Documentation</a></li>
+					</ul>
+				</div>
+		
+				<div class="column">
+					<h4 class="is-size-4">More ...</h4>
+					<ul>
+						<li><a href="https://github.com/ajh123-archives/docs/tree/main">Archived Repository</a></li>
+						<li><a href="https://github.com/ajh123-development/website" target="_blank">Website Repository</a></li>
+					</ul>
+				</div>
+		
+				<div class="column">
+				</div>
+		
+				<div class="column">
+				</div>
+			</div>
+			<hr>
+			<p>Copyright &copy; <strong>Miners Online</strong> 2023. All rights reserved.</p>
+			<p>The content on "Pages" is licensed with <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a> unless stated otherwise.</p>
+		</footer>
+
+		<div id='cookieConsentWidget'></div>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script is:inline src="https://cdn.jsdelivr.net/gh/thekitchencodery/not-another-cookie-consent/dist/index.min.js"></script>
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-CK0FRY1N67"></script>
+		<script is:inline>
+			var gtagId = 'G-CK0FRY1N67';
+		
+			// Disable tracking by default
+			window['ga-disable-' + gtagId] = true;
+			window.dataLayer = window.dataLayer || [];
+		
+			function gtag() {
+				dataLayer.push(arguments);
+			};
+			gtag('js', new Date());
+		
+			let widget = new NotAnotherCookieConsent({
+				target: document.getElementById('cookieConsentWidget'),
+				props: {
+					cookieName: "MinersOnlineCookieConsent",
+					cookiePolicy: "https://github.com/ajh123-archives/docs/blob/main/legal/en_gb/privacy-policy.md",
+					aboutCookies: "https://www.allaboutcookies.org/",
+					// one of: is-primary, is-info, is-link, is-success, is-warning, is-danger, is-black
+					theme: "is-danger",
+					banner: {
+						acceptButton: "Allow Cookies",
+						optionsButton: "Options",
+						headline: "Yeah, yeah you've heard it all before... this site uses cookies... bla... bla... bla...",
+						strapline: "We'd like to use Google Analytics to monitor how the site performs, but the choice is yours."
+					},
+					optionPannel:{
+						title: "Cookie Settings",
+						preamble: "This website uses cookies to ensure you get the best experience.",
+						button: "Save",
+						aboutLabel: "About Cookies",
+						policyLabel: "Privacy Policy",
+						required: {
+							title: "Necessary Cookies",
+							label: "Necessary Cookies",
+							text: "Necessary Cookies includes: Necessary / Essential Cookies, Cookies Policy / Notice Acceptance Cookies, and Functionality Cookies. More information can be read in our Privacy Policy."
+						},
+						analytics: {
+							title: "Tracking and Analytics Cookies",
+							label: "Allow Tracking and Analytics Cookies",
+							text: "These Cookies allow us to track the activity on Our Service and store certain information to improve and analyze Our Service."
+						}
+					}
+				},
+			});
+		
+			widget.$on('nacc_event', (event) => {
+				let analytics = event.detail.analytic;
+				window['ga-disable-' + gtagId] = !analytics;
+				if (analytics) {
+					gtag('config', gtagId);
+				}
+			});
+		</script>
+	</body>
+</html>

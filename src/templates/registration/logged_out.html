@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}- Logged out{% endblock title %}
+{% block content %}
+	<section class="hero is-halfheight">
+		<div class="hero-body">
+			<div class="container">
+				<div class="columns is-centered">
+					<div class="column is-6-tablet is-5-desktop is-4-widescreen">
+						<h1 class="title">Logged out</h1>
+						<div class="card">
+							<div class="card-content">
+								<p class="has-text-success">You have logged out successfully!</p>
+								<br>
+								<div class="field buttons">
+									<a href="{% url 'login'%}" class="button is-fullwidth is-success">
+									<span class="icon"><i class="fas fa-regular fa-right-to-bracket"></i></span><span>Login</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{%endblock%}

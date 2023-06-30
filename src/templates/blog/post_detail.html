@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load markdown_extras %}
+{% block title %}- {{ object.title }} {% endblock title %}
+{% block content %}
+<section class="hero is-link pt-5">
+	<div class="hero-body">
+		<p class="title is-1">
+			{{ object.title }}
+		</p>
+		<p class="subtitle">
+			{{ object.description }}
+		</p>
+		<p class="subtitle-6">
+			Created by: {{ post.author }} | Created: {{ post.created_on }} | Updated: {{ post.updated_on }}
+		</p>
+	</div>
+</section>
+<section class="section is-fullheight">
+	<section>
+		<h1 class="title is-2">Table of Contents</h1>
+		{{ toc | safe }}
+		<hr>
+	</section>
+	<article class="content">
+		<div>{{ object.content | markdown | safe }}</div>
+	</article>
+</section>
+{% endblock content %}
