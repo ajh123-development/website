@@ -25,6 +25,9 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+MEDIA_ROOT = os.environ.get('MEDIA_ROOT')
+MEDIA_URL = '/media/'
+
 AUTH_USER_MODEL = 'main.User'
 
 SERVER_EMAIL = os.environ.get('EMAIL_ACCOUNT')
@@ -60,6 +63,36 @@ ALLOWED_HOSTS = ['10.0.0.174', '127.0.0.1', 'minersonline.tk', 'www.minersonline
 
 CSRF_TRUSTED_ORIGINS=['https://*.minersonline.tk']
 
+MDEDITOR_CONFIGS = {
+    'default':{
+        'width': '90% ',  # Custom edit box width
+        'height': 500,  # Custom edit box height
+        'toolbar': ["undo", "redo", "|",
+                    "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
+                    "h1", "h2", "h3", "h5", "h6", "|",
+                    "list-ul", "list-ol", "hr", "|",
+                    "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime",
+                    "emoji", "html-entities", "pagebreak", "goto-line", "|",
+                    "help", "info",
+                    "||", "preview", "watch", "fullscreen"],  # custom edit box toolbar 
+        'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp"],  # image upload format type
+        'image_folder': 'editor',  # image save the folder name
+        'theme': 'default',  # edit box theme, dark / default
+        'preview_theme': 'default',  # Preview area theme, dark / default
+        'editor_theme': 'default',  # edit area theme, pastel-on-dark / default
+        'toolbar_autofixed': True,  # Whether the toolbar capitals
+        'search_replace': True,  # Whether to open the search for replacement
+        'emoji': True,  # whether to open the expression function
+        'tex': True,  # whether to open the tex chart function
+        'flow_chart': True,  # whether to open the flow chart function
+        'sequence': True, # Whether to open the sequence diagram function
+        'watch': True,  # Live preview
+        'lineWrapping': False,  # lineWrapping
+        'lineNumbers': False,  # lineNumbers
+        'language': 'en'  # zh / en / es 
+    }
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -70,9 +103,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'simple_history',
+    'mdeditor',
     'blog',
     'main',
 ]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -122,7 +158,10 @@ DATABASES = {
         'PASSWORD': os.environ.get('DB_PASS'), #here
         'HOST': os.environ.get('DB_HOST'),
         'PORT': os.environ.get('DB_PORT'),
-        'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"},
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'; \
+                SET foreign_key_checks = 0;"
+        },
     }
 }
 
