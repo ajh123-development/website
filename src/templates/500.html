@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load markdown_extras %}
+{% load static %}
+{% block title %}- 500{% endblock title %}
+{% block content %}
+<section slot="body_top" class="hero is-halfheight has-background-primary pt-3">
+	<div class="hero-body">
+		<div class="container">
+			<p class="title">
+				500 - Internal Server Error.
+			</p>
+			<p class="subtitle">
+				There was an error on the server while performing your request.
+			</p>
+		</div>
+	</div>
+</section>
+{%endblock%}

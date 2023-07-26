@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load markdown_extras %}
+{% load static %}
+{% block title %}- 404{% endblock title %}
+{% block content %}
+<section slot="body_top" class="hero is-halfheight has-background-primary pt-3">
+	<div class="hero-body">
+		<div class="container">
+			<p class="title">
+				404 - Page not found.
+			</p>
+			<p class="subtitle">
+				The requested path <code>{{request_path}}</code> is invalid due to the following error <code>{{exception}}</code>.
+			</p>
+		</div>
+	</div>
+</section>
+{%endblock%}
