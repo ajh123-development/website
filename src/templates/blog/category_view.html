@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% load markdown_extras %}
-{% block title %}- Pages{% endblock title %}
+{% block title %}- {{ category.name }}{% endblock title %}
 {% block content %}
 <section class="hero is-link pt-5">
 	<div class="hero-body">
 		<p class="title is-1">
-			Pages
+			{{ category.name }}
 		</p>
 		<p class="subtitle">
-			All the blog posts and other pages available on Miners Online.
+			{{ category.description }}
 		</p>
 	</div>
 </section>
@@ -22,7 +22,7 @@
 					<small>{{ post.author }} | {{ post.created_on}}</small>
 					<br>
 					<p>{{post.description | slice:":200" }}</p>
-					<a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+					<a href="{% url 'post_view' category=post.category.all.last.slug slug=post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
 				</div>
 			</div>
 		</article>

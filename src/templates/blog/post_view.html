@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load markdown_extras %}
-{% block title %}- {{ object.title }} {% endblock title %}
+{% block title %}- {{ post.title }} {% endblock title %}
 {% block content %}
 <section class="hero is-link pt-5">
 	<div class="hero-body">
 		<p class="title is-1">
-			{{ object.title }}
+			{{ post.title }}
 		</p>
 		<p class="subtitle">
-			{{ object.description }}
+			{{ post.description }}
 		</p>
 		<p class="subtitle-6">
 			Created by: {{ post.author }} | Created: {{ post.created_on }} | Updated: {{ post.updated_on }}
@@ -22,7 +22,7 @@
 		<hr>
 	</section>
 	<article class="content">
-		<div>{{ object.content | markdown | safe }}</div>
+		<div>{{ post.content | markdown | safe }}</div>
 	</article>
 </section>
 {% endblock content %}

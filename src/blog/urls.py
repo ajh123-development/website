@@ -2,6 +2,15 @@ from . import views
 from django.urls import path
 
 urlpatterns = [
-    path('', views.PostList.as_view(), name='blog_home'),
-    path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
+    path(
+        '<slug:category>/',
+        views.post_detail,
+        kwargs={'slug': None},
+        name='category_view'
+    ),
+    path(
+        '<slug:category>/<slug:slug>/',
+        views.post_detail,
+        name='post_view'
+    ),
 ]

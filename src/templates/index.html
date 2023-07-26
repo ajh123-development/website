@@ -12,7 +12,7 @@
 			<p class="subtitle">
 				Explore the world of Miners Online.
 			</p>
-			<a class="button is-link" href="{% url 'blog_home' %}">Pages</a>
+			<a class="button is-link" href="{% url 'category_view' category='pages' %}">Pages</a>
 		</div>
 	</div>
 </section>
@@ -28,14 +28,14 @@
 					<small>{{ post.author }} | {{ post.created_on}}</small>
 					<br>
 					<p>{{post.description | slice:":200" }}</p>
-					<a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+					<a href="{% url 'post_view' category=post.category.all.last.slug slug=post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
 				</div>
 			</div>
 		</article>
 		{% endif %}
 		{% endfor %}
 	</ul>
-	<a class="button is-link mt-5" href="{% url 'blog_home' %}">Read more &rarr;</a>
+	<a class="button is-link mt-5" href="{% url 'category_view' category='pages' %}">Read more &rarr;</a>
 </section>
 <section class="has-background-success-light section mt-1">
 	<h1 id="support-us" class="title">Support Us</h1>
