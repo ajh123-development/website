@@ -18,11 +18,11 @@
 <section class="section is-fullheight">
 	<section>
 		<h1 class="title is-2">Table of Contents</h1>
-		{{ toc | safe }}
+		{{ post.render.toc | safe }}
 		<hr>
 	</section>
 	<article class="content">
-		<div>{{ content | markdown | safe }}</div>
+		<div>{{ post.render.content | safe }}</div>
 	</article>
 </section>
 {% endblock content %}

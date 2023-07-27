@@ -15,13 +15,9 @@ def post_detail(request, category = None, slug = None):
         categoryObj: Category = get_object_or_404(Category, slug=category)
         post: Post = get_object_or_404(Post, slug=slug)
         if post is not None and post.category.all().contains(categoryObj):
-            mdc = md.Markdown(extensions=['markdown.extensions.fenced_code', 'toc'])
-            content = mdc.convert(post.content)
             return render(request, "blog/post_view.html", {
-                "toc": mdc.toc,
                 "category": category,
-                "post": post,
-                "content": content
+                "post": post
             })
         raise Http404
     raise Http404

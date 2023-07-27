@@ -21,7 +21,7 @@
 					<strong>{{ post.title }}</strong>
 					<small>{{ post.author }} | {{ post.created_on}}</small>
 					<br>
-					<p>{{post.description | slice:":200" }}</p>
+					<p>{{post.description | truncatechars:200 }}</p>
 					<a href="{% url 'post_view' category=post.category.all.last.slug slug=post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
 				</div>
 			</div>

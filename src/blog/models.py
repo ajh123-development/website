@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from simple_history.models import HistoricalRecords
 from mdeditor.fields import MDTextField
+import markdown as md
 from main.models import User
 
 
@@ -45,6 +46,15 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-created_on']
+
+    @property
+    def render(self):
+        mdc = md.Markdown(extensions=['markdown.extensions.fenced_code', 'toc'])
+        content = mdc.convert(self.content)
+        return {
+            "content": content,
+            "toc": mdc.toc
+        }
 
     def __str__(self):
         return self.title
