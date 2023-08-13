@@ -59,9 +59,9 @@ if os.environ.get('DEBUG', '0') == '1':
 else:
     DEBUG = 0
 
-ALLOWED_HOSTS = ['10.0.0.174', '127.0.0.1', 'minersonline.tk', 'www.minersonline.tk', 'localhost']
+ALLOWED_HOSTS = ['10.0.0.174', '127.0.0.1', 'minersonline.uk', 'www.minersonline.uk', 'localhost']
 
-CSRF_TRUSTED_ORIGINS=['https://*.minersonline.tk']
+CSRF_TRUSTED_ORIGINS=['https://*.minersonline.uk']
 
 MDEDITOR_CONFIGS = {
     'default':{
